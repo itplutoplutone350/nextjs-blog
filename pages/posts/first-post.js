@@ -1,7 +1,9 @@
 
 import Link from 'next/link';
 
-const unixdata = 1695188948769211503;
+//esempio di unixdata = 1695188948769211503;
+const unixdata = Date.now();
+console.log (unixdata);
 
 function convertUnixToDate(unixTimestamp) {
     const date = new Date(unixTimestamp / 1000000); // Moltiplica per 1000 poiché JavaScript utilizza i millisecondi
@@ -16,16 +18,20 @@ function convertUnixToDate(unixTimestamp) {
   // Utilizza la funzione per convertire il timestamp Unix in una stringa data
 const formattedDate = convertUnixToDate(unixdata);
 
+// nota che quì children è obj destructurazione dell'ogeetto passato che è la props
+// ovvero si potrebbe fare  FirstPost(props) e poi dentro usare {props.children}
+export default function FirstPost({ children }) {
+  // children è una prop spciale ovvero  è il figlio del tag FirstPost
+  const formattedDate = new Date().toLocaleDateString();
 
-export default function FirstPost() {
-    return ( 
+  return ( 
     <div>
-        <h1>First Post</h1>
-        <p> data odierna: {formattedDate}</p>
-        <h2>
+      <h1>First Post</h1>
+      <p>  </p>
+      <p>{children}  {formattedDate}</p> 
+      <h2>
         <Link href="/">Back to home</Link>
-        </h2>
+      </h2>
     </div>
-    );
-  }
-  
+  );
+}
