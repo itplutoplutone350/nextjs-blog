@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
-import {FirstPost, LikeButton} from './posts/first-post';
+import FirstPost from './posts/first-post';
+import LikeButton from './posts/first-post';
+
 
 export default function Home() {
   return (
