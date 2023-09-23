@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <FirstPost> Ciao this is current Date: </FirstPost> 
+        <FirstPost> Ciao ecco in che giorno siamo: </FirstPost> 
 
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
