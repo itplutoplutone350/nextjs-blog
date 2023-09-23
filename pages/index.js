@@ -15,7 +15,11 @@ export default function Home() {
 
       <main>
         <FirstPost> Ciao ecco in che giorno siamo: </FirstPost> 
-        <LikeButton> Conta like </LikeButton>
+        <p> --------- </p> 
+        
+        <LikeButton onClick={() => alert('Hai cliccato su Like')}>rileva Like</LikeButton>
+ 
+    
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
