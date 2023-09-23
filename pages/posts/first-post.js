@@ -35,3 +35,19 @@ export default function FirstPost({ children }) {
     </div>
   );
 }
+
+export function LikeButton({ children, onClick }) {
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
+
+  return (
+    <button onClick={handleClick}>
+      {children}
+    </button>
+  );
+}
+
+
