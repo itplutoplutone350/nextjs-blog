@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Message to the world</title>
         
         <meta property="og:title" content="This is a Message to the World"></meta>
         <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
@@ -20,9 +20,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <FirstPost> Today is: </FirstPost> 
+        <h1 className={styles.title}>Message To The World</h1>
+        
         <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0"    width="600" height="170"></iframe> 
         <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
+        <FirstPost> Today is: </FirstPost> 
          <p> --------- </p> 
     
         <h1 className={styles.title}>
