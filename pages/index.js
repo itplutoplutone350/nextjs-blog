@@ -21,7 +21,7 @@ export default function Home() {
 
       <main>
         <h1 className={styles.title}>Message To The World</h1>
-        
+        <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0"    width="100%" height="170" border="none'></iframe>
          
         <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
         <FirstPost> Today is: </FirstPost> 
