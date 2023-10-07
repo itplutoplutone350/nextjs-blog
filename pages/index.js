@@ -10,11 +10,11 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
-        <!-- Meta tag generico per i social media -->
+        
         <meta property="og:title" content="This is Crypto World">
-<meta property="og:description" content="Your message stored forever on NEAR blockchain">
-<meta property="og:url" content="https://messagetotheworld.vercel.app">
-<meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg">
+        <meta property="og:description" content="Your message stored forever on NEAR blockchain">
+        <meta property="og:url" content="https://messagetotheworld.vercel.app">
+        <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg">
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
