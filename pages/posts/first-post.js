@@ -30,7 +30,7 @@ export default function FirstPost({ children }) {
       <p>  </p>
       <p>{children}  {formattedDate}</p> 
       <h2>
-        <Link href="/">Back to home</Link>
+        <Link href="https://robertop2.altervista.org/">Back to Message editor</Link>
       </h2>
     </div>
   );
