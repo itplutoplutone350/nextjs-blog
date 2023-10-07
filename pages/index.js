@@ -26,19 +26,15 @@ export default function Home() {
         <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
         <FirstPost> Today is: </FirstPost> 
          <p> --------- </p> 
+         <p> </p> 
     
-        <h1 className={styles.title}>
+        <h1 className={styles.description}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <h1 className={styles.title}>
+        <h1 className={styles.description}>
           Read <Link href="/posts/first-post">this page!</Link>
         </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-          Hello this is a modify
-        </p>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
