@@ -23,7 +23,7 @@ export default function Home() {
         <FirstPost> Ciao ecco in che giorno siamo: </FirstPost> 
         <p> --------- </p> 
         
-        <LikeButton onClick={() => alert('Hai cliccato su Like')}>rileva Like</LikeButton>
+        <LikeButton onClick={() => alert('Hai cliccato su Like button')}>rileva Like</LikeButton>
  
     
         <h1 className={styles.title}>
