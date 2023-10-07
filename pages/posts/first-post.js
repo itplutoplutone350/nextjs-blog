@@ -30,6 +30,7 @@ export default function FirstPost({ children }) {
       <p>  </p>
       <p>{children}  {formattedDate}</p> 
       <p>  </p>
+      <p>  </p>
       <h2>
         <Link className={styles.card} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Back to Message editor</Link> 
       </h2>
