@@ -26,11 +26,11 @@ export default function FirstPost({ children }) {
 
   return ( 
     <div>
-      <h1>First Post</h1>
+      <h1>Message To The World</h1>
       <p>  </p>
       <p>{children}  {formattedDate}</p> 
       <h2>
-        <Link href="https://robertop2.altervista.org/">Back to Message editor</Link>
+        <Link href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Back to Message editor</Link>
       </h2>
     </div>
   );
