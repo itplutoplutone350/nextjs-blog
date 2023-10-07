@@ -20,10 +20,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <FirstPost> Ciao ecco in che giorno siamo: </FirstPost> 
+        <FirstPost> Today is: </FirstPost> 
         <p> --------- </p> 
         <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0"    width="600" height="170"></iframe> 
-        <LikeButton onClick={() => alert('Hai cliccato su Like button')}>conta Like</LikeButton>
+        <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
  
     
         <h1 className={styles.title}>
