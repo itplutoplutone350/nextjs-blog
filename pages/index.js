@@ -11,10 +11,10 @@ export default function Home() {
       <Head>
         <title>Create Next App</title>
         
-        <meta property="og:title" content="This is Crypto World">
-        <meta property="og:description" content="Your message stored forever on NEAR blockchain">
-        <meta property="og:url" content="https://messagetotheworld.vercel.app">
-        <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg">
+        <meta property="og:title" content="This is Crypto World"></meta>
+        <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
+        <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
+        <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
