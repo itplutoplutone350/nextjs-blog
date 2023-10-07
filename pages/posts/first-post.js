@@ -26,7 +26,6 @@ export default function FirstPost({ children }) {
 
   return ( 
     <div>
-      <h1>Message To The World</h1>
       <p>  </p>
       <p>{children}  {formattedDate}</p> 
       <h2>
