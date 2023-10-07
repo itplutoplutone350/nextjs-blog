@@ -22,7 +22,7 @@ export default function Home() {
       <main>
         <FirstPost> Ciao ecco in che giorno siamo: </FirstPost> 
         <p> --------- </p> 
-        
+        <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0"    width="600" height="170"></iframe> 
         <LikeButton onClick={() => alert('Hai cliccato su Like button')}>conta Like</LikeButton>
  
     
