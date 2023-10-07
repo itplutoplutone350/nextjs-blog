@@ -1,4 +1,5 @@
 
+import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 
 //esempio di unixdata = 1695188948769211503;
