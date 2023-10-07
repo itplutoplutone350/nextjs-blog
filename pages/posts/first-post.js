@@ -28,10 +28,11 @@ export default function FirstPost({ children }) {
   return ( 
     <div>
       <p>  </p>
+      <h2>
       <p>{children}  {formattedDate}</p> 
       <p>  </p>
       <p>  </p>
-      <h2>
+      <p>  </p>
         <Link className={styles.card} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Back to Message editor</Link> 
       </h2>
     </div>
