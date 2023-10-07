@@ -11,7 +11,7 @@ export default function Home() {
       <Head>
         <title>Create Next App</title>
         
-        <meta property="og:title" content="This is Crypto World"></meta>
+        <meta property="og:title" content="This is a Message to the World"></meta>
         <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
@@ -23,7 +23,7 @@ export default function Home() {
         <FirstPost> Ciao ecco in che giorno siamo: </FirstPost> 
         <p> --------- </p> 
         
-        <LikeButton onClick={() => alert('Hai cliccato su Like button')}>rileva Like</LikeButton>
+        <LikeButton onClick={() => alert('Hai cliccato su Like button')}>conta Like</LikeButton>
  
     
         <h1 className={styles.title}>
