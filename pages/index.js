@@ -32,9 +32,6 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <h1 className={styles.description}>
-          Read <Link href="/posts/first-post">this page!</Link>
-        </h1>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
