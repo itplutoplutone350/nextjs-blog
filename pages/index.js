@@ -7,6 +7,7 @@ import {LikeButton} from './posts/first-post';
 
 export default function Home() {
   return (
+    
     <div className={styles.container}>
       <Head>
         <title>Message to the world</title>
@@ -20,8 +21,18 @@ export default function Home() {
       </Head>
 
       <main>
+<style>
+        /* Stile di base per l'iframe */
+        iframe {
+            width: 100%; /* Larghezza al 100% del contenitore padre */
+            height: 100%; /* Altezza al 100% del contenitore padre */
+            border: none; /* Rimuovi il bordo dell'iframe */
+        }
+    </style>
+
+    
         <h1 className={styles.title}>Message To The World</h1>
-        <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0"    width="100%" height="170" border="none'></iframe>
+        <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0"></iframe>
          
         <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
         <FirstPost> Today is: </FirstPost> 
