@@ -20,17 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-<style>
-        /* Stile di base per l'iframe */
-        iframe {
-            width: 100%; /* Larghezza al 100% del contenitore padre */
-            height: 100%; /* Altezza al 100% del contenitore padre */
-            border: none; /* Rimuovi il bordo dell'iframe */
-        }
-    </style>
-
-    
+      <main> 
         <h1 className={styles.title}>Message To The World</h1>
         <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0"></iframe>
          
