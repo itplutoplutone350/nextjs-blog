@@ -21,7 +21,7 @@ const formattedDate = convertUnixToDate(unixdata);
 // nota che quì children è obj destructurazione dell'ogeetto passato che è la props
 // ovvero si potrebbe fare  FirstPost(props) e poi dentro usare {props.children}
 export default function FirstPost({ children }) {
-  // children è una prop spciale ovvero  è il figlio del tag FirstPost
+  // children è una prop speciale ovvero  è il figlio del tag FirstPost
   const formattedDate = new Date().toLocaleDateString();
 
   return ( 
