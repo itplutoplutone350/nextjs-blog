@@ -16,15 +16,15 @@ export default function Home() {
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
 
-        <link rel="icon" href="http://robertop2.altervista.org/favicon.ico />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <FirstPost> Today Date: </FirstPost> 
+        <FirstPost> Ciao ecco in che giorno siamo: </FirstPost> 
         <p> --------- </p> 
         <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0"    width="600" height="170"></iframe> 
-        <LikeButton onClick={() => alert('You added a Like to the message')}>ADD LIKE to message</LikeButton>
-        <p> --------- </p> 
+        <LikeButton onClick={() => alert('Hai cliccato su Like button')}>conta Like</LikeButton>
+ 
     
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
