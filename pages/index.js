@@ -21,10 +21,9 @@ export default function Home() {
 
       <main>
         <FirstPost> Today is: </FirstPost> 
-        <p> --------- </p> 
         <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0"    width="600" height="170"></iframe> 
         <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
- 
+         <p> --------- </p> 
     
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
