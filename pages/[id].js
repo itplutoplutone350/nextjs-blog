@@ -4,7 +4,7 @@ export async function getStaticProps({ params }) {
   console.log(params);
   return {
     props: {
-      params.id,
+      id: params.id,
     },
   };
 }
