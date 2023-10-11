@@ -38,6 +38,6 @@ export async function getStaticProps({ params }) {
 
 
 
-export default function Post({ postData }) {
-  return <p>dinamuc {postData.dato}...</p>;
+export default function IlMioPost({ postData }) {
+  return <p>This is dinamic data from the url {postData.dato}...</p>;
 }
