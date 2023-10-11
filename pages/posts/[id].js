@@ -38,6 +38,6 @@ export async function getStaticProps({ params }) {
 
 
 
-export default function Post() {
-  return <p>...</p>;
+export default function Post({ postData }) {
+  return <p>dinamuc {postData.dato}...</p>;
 }
