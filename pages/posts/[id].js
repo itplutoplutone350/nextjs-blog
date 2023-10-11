@@ -28,9 +28,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   //console.log(params);
+  const postData = { dato: params.id};
   return {
     props: {
-      id: params.id,
+      postData,
     },
   };
 }
