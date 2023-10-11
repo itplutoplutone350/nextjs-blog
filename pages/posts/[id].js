@@ -1,4 +1,4 @@
-
+// funzione di generazione array paths
 function generatePathsArray() {
   const paths = [];
 
@@ -15,8 +15,9 @@ function generatePathsArray() {
 }
 
 
-
+// Return a list of possible value for id
 export async function getStaticPaths() {
+  //paths è array di tutti gli id
   const paths =  generatePathsArray();
     
   return {
@@ -25,9 +26,11 @@ export async function getStaticPaths() {
   };
 }
 
-
+// Fetch necessary data for the blog post using params.id
+// params è oggetto passato da destrutturazione oggetto paths
+// creato da getStaticPath
 export async function getStaticProps({ params }) {
-  //console.log(params);
+  //e quì interviene nextjs ..
   const postData = { dato: params.id};
   return {
     props: {
@@ -37,7 +40,7 @@ export async function getStaticProps({ params }) {
 }
 
 
-
+//postData è destrutturazione di props
 export default function IlMioPost({ postData }) {
   return <p>This is dinamic data from the url {postData.dato}...</p>;
 }
