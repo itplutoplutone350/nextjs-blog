@@ -1,4 +1,6 @@
-
+export async function getStaticPaths() {
+  // Return a list of possible value for id
+}
 
 export async function getStaticProps({ params }) {
   console.log(params);
