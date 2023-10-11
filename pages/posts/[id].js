@@ -14,7 +14,6 @@
   // ]
 function generatePathsArray() {
   const paths = [];
-
   for (let i = 1; i <= 10; i++) {
     const obj = {
       params: {
@@ -29,6 +28,7 @@ function generatePathsArray() {
 
 
 // Return a list of possible value for id
+// nota deve chiamarsi id perchè è il nome di questo file dinamico
 export async function getStaticPaths() {
   //paths è array di tutti gli id
   const paths =  generatePathsArray();
