@@ -1,16 +1,24 @@
+
+function generatePathsArray() {
+  const paths = [];
+
+  for (let i = 1; i <= 10; i++) {
+    const obj = {
+      params: {
+        id: i.toString(),
+      },
+    };
+    paths.push(obj);
+  }
+
+  return paths;
+}
+
+
+
 export async function getStaticPaths() {
-  const paths =  [
-     {
-       params: {
-         id: 'xxx'
-       }
-     },
-     {
-       params: {
-         id: 'yyy'
-       }
-     }
-   ];
+  const paths =  generatePathsArray();
+    
   return {
     paths,
     fallback: false,
