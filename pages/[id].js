@@ -2,12 +2,12 @@ export async function getStaticPaths() {
   const paths =  [
      {
        params: {
-         id: '20'
+         id: 'xxx'
        }
      },
      {
        params: {
-         id: '12'
+         id: 'yyy'
        }
      }
    ];
