@@ -1,4 +1,17 @@
 // funzione di generazione array paths
+// Returns an array that looks like this:
+  // [
+  //   {
+  //     params: {
+  //       id: 'ssg-ssr'
+  //     }
+  //   },
+  //   {
+  //     params: {
+  //       id: 'pre-rendering'
+  //     }
+  //   }
+  // ]
 function generatePathsArray() {
   const paths = [];
 
