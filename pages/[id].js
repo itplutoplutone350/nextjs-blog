@@ -1,5 +1,20 @@
 export async function getStaticPaths() {
-  // Return a list of possible value for id
+  const paths =  [
+     {
+       params: {
+         id: '20'
+       }
+     },
+     {
+       params: {
+         id: '12'
+       }
+     }
+   ];
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 export async function getStaticProps({ params }) {
