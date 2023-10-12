@@ -55,7 +55,10 @@ export async function getStaticProps({ params }) {
 
 //postData è destrutturazione di props
 export default function IlMioPost({ postData }) {
-  return 
+  return (
+    <div>
     <p>This is dinamic data from the url {postData.dato}...</p>;
     <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0?index={postData.dato}" height="200"></iframe>
+    </div>
+  )
 }
