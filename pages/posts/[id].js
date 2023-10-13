@@ -1,11 +1,10 @@
 import { setupWalletSelector } from "@near-wallet-selector/core";
 import { setupModal } from "@near-wallet-selector/modal-ui";
-import { setupNearWallet } from "@near-wallet-selector/near-wallet";
+import { setupNearWallet } from "@near-wallet-selector/my-near-wallet";
 
 if (typeof window !== 'undefined') {
   // Perform localStorage action
-
-const selector = await setupWalletSelector({
+ const selector = await setupWalletSelector({
   network: "testnet",
   modules: [setupNearWallet()],
 });
