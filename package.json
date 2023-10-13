@@ -9,7 +9,7 @@
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "near-api-js": "^0.44.2",
+    "near-api-js": "latest",
     "@near-wallet-selector/my-near-wallet": "latest"
   },
   "engines": {
