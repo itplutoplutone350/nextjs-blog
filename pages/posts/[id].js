@@ -1,4 +1,4 @@
-import { Wallet } from './near-wallet';
+import { Wallet } from './my-near-wallet';
 // funzione di generazione array paths
 // Returns an array that looks like this:
   // [
