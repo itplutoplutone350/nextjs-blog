@@ -1,12 +1,22 @@
 import { setupWalletSelector } from "@near-wallet-selector/core";
 import { setupModal } from "@near-wallet-selector/modal-ui";
 import { setupNearWallet } from "@near-wallet-selector/my-near-wallet";
+import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 
+
+// esegui wallet selector solo dopo
+// che window esiste in browser
+// questo perchè viene usato il localstorage
 if (typeof window !== 'undefined') {
   // Perform localStorage action
- const selector = await setupWalletSelector({
+ // My NEAR Wallet for Wallet Selector can be setup without any params or it can take few optional params, see options below.
+const myNearWallet = setupMyNearWallet({
+  walletUrl: "https://testnet.mynearwallet.com",
+  iconUrl: "https://<Wallet Icon URL Here>" // optional
+});  
+  const selector = await setupWalletSelector({
   network: "testnet",
-  modules: [setupNearWallet()],
+  modules: [ myNearWallet ,setupNearWallet()],
 });
 
 const modal = setupModal(selector, {
