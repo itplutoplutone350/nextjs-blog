@@ -1,6 +1,6 @@
 import { Wallet } from '@near-wallet-selector/my-near-wallet';
 
-let isSignedIn = await wallet.startUp();
+let isSignedIn =  wallet.startUp();
 // funzione di generazione array paths
 // Returns an array that looks like this:
   // [
