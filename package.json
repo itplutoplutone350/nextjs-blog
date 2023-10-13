@@ -12,7 +12,7 @@
     "near-api-js": "latest",
     "@near-wallet-selector/core": "latest",
     "@near-wallet-selector/my-near-wallet": "latest",
-    "@near-wallet-selector/modal-ui": "last"
+    "@near-wallet-selector/modal-ui": "latest"
   },
   "engines": {
     "node": ">=18"
