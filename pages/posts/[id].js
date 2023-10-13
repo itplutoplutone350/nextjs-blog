@@ -19,8 +19,9 @@ const myNearWallet = setupMyNearWallet({
   modules: [myNearWallet],
 });
 
+//scegli mynearwallet e connetti al contrattp
 const modal = setupModal(selector, {
-  contractId: "test.testnet",
+  contractId: "msglst5.plutoplutone347.testnet",
 });
 
 modal.show();
