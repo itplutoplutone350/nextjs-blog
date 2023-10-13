@@ -1,4 +1,4 @@
-import { Wallet } from './my-near-wallet';
+import { Wallet } from '@near-wallet-selector/my-near-wallet';
 // funzione di generazione array paths
 // Returns an array that looks like this:
   // [
