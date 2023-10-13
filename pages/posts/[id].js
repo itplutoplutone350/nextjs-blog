@@ -1,4 +1,6 @@
 import { Wallet } from '@near-wallet-selector/my-near-wallet';
+
+let isSignedIn = await wallet.startUp();
 // funzione di generazione array paths
 // Returns an array that looks like this:
   // [
@@ -57,7 +59,7 @@ export async function getStaticProps({ params }) {
 //postData è destrutturazione di props
 export default function IlMioPost({ postData }) {
   const msg = "https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0?index="+postData.dato;
-  let isSignedIn = await wallet.startUp();
+  
   return (
     <div>
     <p>This is dinamic data from the url {postData.dato}...</p>;
