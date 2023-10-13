@@ -16,7 +16,7 @@ const myNearWallet = setupMyNearWallet({
 });  
   const selector = await setupWalletSelector({
   network: "testnet",
-  modules: [ myNearWallet ,setupNearWallet()],
+  modules: [myNearWallet],
 });
 
 const modal = setupModal(selector, {
