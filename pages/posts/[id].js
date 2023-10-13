@@ -6,12 +6,14 @@ const selector = await setupWalletSelector({
   network: "testnet",
   modules: [setupNearWallet()],
 });
-
+/*
 const modal = setupModal(selector, {
   contractId: "test.testnet",
 });
 
 modal.show();
+
+*/
 // funzione di generazione array paths
 // Returns an array that looks like this:
   // [
