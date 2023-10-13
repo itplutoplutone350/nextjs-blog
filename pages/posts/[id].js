@@ -1,19 +1,24 @@
 import { setupWalletSelector } from "@near-wallet-selector/core";
 import { setupModal } from "@near-wallet-selector/modal-ui";
-import { setupNearWallet } from "@near-wallet-selector/my-near-wallet";
+import { setupNearWallet } from "@near-wallet-selector/near-wallet";
+
+if (typeof window !== 'undefined') {
+  // Perform localStorage action
 
 const selector = await setupWalletSelector({
   network: "testnet",
   modules: [setupNearWallet()],
 });
-/*
+
 const modal = setupModal(selector, {
   contractId: "test.testnet",
 });
 
 modal.show();
 
-*/
+};
+
+
 // funzione di generazione array paths
 // Returns an array that looks like this:
   // [
