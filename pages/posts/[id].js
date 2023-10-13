@@ -1,11 +1,17 @@
-import { Wallet } from '@near-wallet-selector/my-near-wallet';
-const CONTRACT_ADDRESS = process.env.CONTRACT_NAME;
+import { setupWalletSelector } from "@near-wallet-selector/core";
+import { setupModal } from "@near-wallet-selector/modal-ui";
+import { setupNearWallet } from "@near-wallet-selector/near-wallet";
 
-// When creating the wallet you can optionally ask to create an access key
-// Having the key enables to call non-payable methods without interrupting the user to sign
-const wallet = new Wallet({ createAccessKeyFor: CONTRACT_ADDRESS })
+const selector = await setupWalletSelector({
+  network: "testnet",
+  modules: [setupNearWallet()],
+});
 
-let isSignedIn =  wallet.startUp();
+const modal = setupModal(selector, {
+  contractId: "test.testnet",
+});
+
+modal.show();
 // funzione di generazione array paths
 // Returns an array that looks like this:
   // [
