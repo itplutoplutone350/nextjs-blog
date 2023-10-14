@@ -31,6 +31,7 @@ modal.show();
 const { connect } = nearAPI;
 // creates keyStore using private key in local storage
 const { keyStores } = nearAPI;
+const { Contract } = nearAPI;
 const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
   
 const connectionConfig = {
