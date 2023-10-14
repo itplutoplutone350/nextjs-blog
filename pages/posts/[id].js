@@ -5,6 +5,16 @@ import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import * as nearAPI from "near-api-js";
 
 
+const contract = new Contract(
+  account,
+  "msglst5.plutoplutone347.testnet",
+  {
+    viewMethods: ["get_message"],
+  }
+);
+const response = await contract.view_method_name();
+
+
 // esegui wallet selector solo dopo
 // che window esiste in browser
 // questo perchè viene usato il localstorage
