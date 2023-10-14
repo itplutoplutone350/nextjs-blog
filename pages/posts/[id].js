@@ -42,7 +42,7 @@ const connectionConfig = {
   explorerUrl: "https://explorer.testnet.near.org",
 };
 const nearConnection = await connect(connectionConfig);
-/*
+
 // view method
 const contract = new Contract(
   account,
@@ -52,7 +52,7 @@ const contract = new Contract(
   }
 );
 const response = await contract.view_method_name();
-*/
+console.log(response);
 
 };
 
