@@ -56,7 +56,7 @@ const contract = new Contract(
 );
 
 //const response = await contract.view_method_name();
-//console.log(response);
+console.log(contract);
 
 };
 
