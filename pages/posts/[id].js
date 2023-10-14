@@ -54,6 +54,7 @@ const contract = new Contract(
     viewMethods: ["get_messages"],
   }
 );
+
 //const response = await contract.view_method_name();
 //console.log(response);
 
