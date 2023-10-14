@@ -37,6 +37,17 @@ const modal = setupModal(selector, {
 
 modal.show();
 
+// view method
+const contract = new Contract(
+  account,
+  "msglst5.plutoplutone347.testnet",
+  {
+    viewMethods: ["get_messages"],
+  }
+);
+const response = await contract.view_method_name();
+
+
 };
 
 
