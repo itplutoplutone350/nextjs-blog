@@ -140,7 +140,7 @@ export default function IlMioPost({ postData }) {
     </Head>
 
     <div>
-      <p>This ypur Message To The World id: {postData.dato}</p>
+      <p>This ypur Message To The World: {postData.dato}</p>
       
       <p id="msg">{message}</p> 
     </div>
