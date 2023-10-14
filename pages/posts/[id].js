@@ -130,7 +130,8 @@ export default function IlMioPost({ postData }) {
   }, []);
 
   return (
-   <Head>
+   <div className={styles.container}>
+    <Head>
         <title>Message to the world</title>
         
         <meta property="og:title" content="This is a Message to the World"></meta>
@@ -138,9 +139,7 @@ export default function IlMioPost({ postData }) {
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
     </Head>
-
-    <div>
-      <p>This ypur Message To The World: {postData.dato}</p>
+      <p>This your Message To The World number {postData.dato}</p>
       
       <p id="msg">{message}</p> 
     </div>
