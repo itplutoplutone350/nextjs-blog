@@ -43,6 +43,9 @@ const connectionConfig = {
 };
 const nearConnection = await connect(connectionConfig);
 
+//create account for the conteact
+const account = await nearConnection.account("msglst5.plutoplutone347.testnet");
+  
 // view method
 const contract = new Contract(
   account,
