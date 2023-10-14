@@ -48,7 +48,7 @@ modal.show();
   // ]
 function generatePathsArray() {
   const paths = [];
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 1000; i++) {
     const obj = {
       params: {
         id: i.toString(),
@@ -116,12 +116,13 @@ export default function IlMioPost({ postData }) {
         account,
         "msglst5.plutoplutone347.testnet",
         {
-          viewMethods: ["get_messages"],
+          viewMethods: ["get_messages","total_messages"],
         }
       );
-
-      const response = await contract.get_messages({});
-      setMessage(response[postData.dato].text); // Memorizza il valore in message
+      const lastmsg = await contract.total_messages({});
+      const msglist = await contract.get_messages({ from_index: "0",
+      limit: lastmsg, });
+      setMessage(msglist[postData.dato].text); // Memorizza il valore in message
     };
 
     fetchData();
