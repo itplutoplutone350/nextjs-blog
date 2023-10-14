@@ -1,4 +1,5 @@
-
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
 import { useEffect, useState } from 'react';
 
 import { setupWalletSelector } from "@near-wallet-selector/core";
