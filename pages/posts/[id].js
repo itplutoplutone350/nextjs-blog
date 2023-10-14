@@ -2,6 +2,7 @@ import { setupWalletSelector } from "@near-wallet-selector/core";
 import { setupModal } from "@near-wallet-selector/modal-ui";
 import { setupNearWallet } from "@near-wallet-selector/my-near-wallet";
 import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
+import * as nearAPI from "near-api-js";
 
 
 // esegui wallet selector solo dopo
