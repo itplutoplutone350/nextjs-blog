@@ -139,7 +139,7 @@ export default function IlMioPost({ postData }) {
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
     </Head>
-      <p>This your Message To The World number {postData.dato}</p>
+      <p><b>This your Message To The World Num {postData.dato}</b></p>
       
       <p id="msg">{message}</p> 
     </div>
