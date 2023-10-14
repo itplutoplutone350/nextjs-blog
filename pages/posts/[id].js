@@ -37,6 +37,22 @@ const modal = setupModal(selector, {
 
 modal.show();
 
+//connect to near netw
+const { connect } = nearAPI;
+// creates keyStore using private key in local storage
+const { keyStores } = nearAPI;
+const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
+  
+const connectionConfig = {
+  networkId: "testnet",
+  keyStore: myKeyStore, // first create a key store 
+  nodeUrl: "https://rpc.testnet.near.org",
+  walletUrl: "https://wallet.testnet.near.org",
+  helperUrl: "https://helper.testnet.near.org",
+  explorerUrl: "https://explorer.testnet.near.org",
+};
+const nearConnection = await connect(connectionConfig);
+/*
 // view method
 const contract = new Contract(
   account,
@@ -46,7 +62,7 @@ const contract = new Contract(
   }
 );
 const response = await contract.view_method_name();
-
+*/
 
 };
 
