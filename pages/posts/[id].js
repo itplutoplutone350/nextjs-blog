@@ -1,6 +1,8 @@
+
+import { useEffect, useState } from 'react';
+
 import { setupWalletSelector } from "@near-wallet-selector/core";
 import { setupModal } from "@near-wallet-selector/modal-ui";
-import { setupNearWallet } from "@near-wallet-selector/my-near-wallet";
 import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import * as nearAPI from "near-api-js";
 
@@ -25,40 +27,8 @@ const modal = setupModal(selector, {
   contractId: "msglst5.plutoplutone347.testnet",
 });
 
+// renderizzazione javascript del wallet selector
 modal.show();
-
-//connect to near netw
-const { connect } = nearAPI;
-// creates keyStore using private key in local storage
-const { keyStores } = nearAPI;
-const { Contract } = nearAPI;
-const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
-  
-const connectionConfig = {
-  networkId: "testnet",
-  keyStore: myKeyStore, // first create a key store 
-  nodeUrl: "https://rpc.testnet.near.org",
-  walletUrl: "https://wallet.testnet.near.org",
-  helperUrl: "https://helper.testnet.near.org",
-  explorerUrl: "https://explorer.testnet.near.org",
-};
-const nearConnection = await connect(connectionConfig);
-
-//create account for the conteact
-const account = await nearConnection.account("msglst5.plutoplutone347.testnet");
- 
-// view method
-const contract = new Contract(
-  account,
-  "msglst5.plutoplutone347.testnet",
-  {
-    viewMethods: ["get_messages"],
-  }
-);
-
-const response = await contract.view_method_name();
-console.log(responde, contract);
-
 };
 
 
@@ -116,15 +86,52 @@ export async function getStaticProps({ params }) {
   };
 }
 
-
-//postData è destrutturazione di props
 export default function IlMioPost({ postData }) {
-  const msg = "https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0?index="+postData.dato;
-  
+  const [message, setMessage] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // codice eseguito su client dopo rendering server
+      //connect to near netw
+      const { connect } = nearAPI;
+      // creates keyStore using private key in local storage
+      const { keyStores } = nearAPI;
+      const { Contract } = nearAPI;
+      const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
+        
+      const connectionConfig = {
+        networkId: "testnet",
+        keyStore: myKeyStore, // first create a key store 
+        nodeUrl: "https://rpc.testnet.near.org",
+        walletUrl: "https://wallet.testnet.near.org",
+        helperUrl: "https://helper.testnet.near.org",
+        explorerUrl: "https://explorer.testnet.near.org",
+      };
+      const nearConnection = await connect(connectionConfig);
+
+      //create account to use for the contract
+      const account = await nearConnection.account("plutoplutone347.testnet");
+
+      const contract = new Contract(
+        account,
+        "msglst5.plutoplutone347.testnet",
+        {
+          viewMethods: ["get_messages"],
+        }
+      );
+
+      const response = await contract.get_messages({});
+      setMessage(response[postData.dato].text); // Memorizza il valore in message
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div>
-    <p>This is dinamic data from the url {postData.dato}...</p>;
-    <iframe  src={msg} height="200"></iframe>
+      <p>This is dinamic data from the URL {postData.dato}...</p>
+      <iframe src={`https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0?index=${postData.dato}`} height="200"></iframe>
+      <p id="msg">Your Message: {message}</p> 
     </div>
-  )
+  );
 }
