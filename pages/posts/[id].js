@@ -1,6 +1,10 @@
 import Head from 'next/head';
 import styles from '../../styles/Home.module.css';
 import { useEffect, useState } from 'react';
+import FirstPost from './first-post';
+import {LikeButton} from './first-post';
+
+
 
 import { setupWalletSelector } from "@near-wallet-selector/core";
 import { setupModal } from "@near-wallet-selector/modal-ui";
