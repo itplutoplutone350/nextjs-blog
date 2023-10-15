@@ -131,14 +131,7 @@ export default function IlMioPost({ postData }) {
 
   return (
    <div className={styles.container}>
-    <Head>
-        <title>Message to the world</title>
-        
-        <meta property="og:title" content="This is a Message to the World"></meta>
-        <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
-        <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
-        <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
-    </Head>
+    
       <p><b>This your Message To The World Num {postData.dato}</b></p>
       
       <p id="msg">{message}</p> 
