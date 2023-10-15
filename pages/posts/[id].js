@@ -146,7 +146,8 @@ export default function IlMioPost({ postData }) {
       <p><b>This your Message To The World Num {postData.dato}</b></p>
       
       <p id="msg">{message}</p> 
-    
+      <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
+      <FirstPost> Today is: </FirstPost>     
     </div>
   );
 }
