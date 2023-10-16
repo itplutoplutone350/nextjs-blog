@@ -29,7 +29,7 @@ export default function FirstPost({ children }) {
     <div>
       <p>  </p>
       <h3>
-      <p>{children}  {formattedDate}</p> 
+      <p  className={styles.description} >{children}  {formattedDate}</p> 
       <p>  </p>
       <p>  </p>
       <p>  </p>
