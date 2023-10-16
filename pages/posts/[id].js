@@ -154,7 +154,8 @@ export default function IlMioPost({ postData }) {
       <LikeButton onClick={
        () => { 
               // const walletConnection = new WalletConnection(nearConnection);
-              if (walletConnection.isSignedIn()) {
+              // walletConnection.isSignedIn()
+              if (false) {
               // user is signed in
               alert('Thanks for your like, you are signed in')
               }
