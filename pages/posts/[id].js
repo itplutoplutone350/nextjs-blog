@@ -151,7 +151,16 @@ export default function IlMioPost({ postData }) {
       <p><b>This your Message To The World Num {postData.dato}</b></p>
       
       <p id="msg"  className={styles.card}   >{message}</p> 
-      <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
+      <LikeButton onClick={
+       () => { 
+              // const walletConnection = new WalletConnection(nearConnection);
+              if (walletConnection.isSignedIn()) {
+              // user is signed in
+              alert('Thanks for your like but you are signed in')
+              };
+              else alert('Thanks for your like but you are not signed in')
+             }
+      }>LIKE it</LikeButton>
       <FirstPost> Today is: </FirstPost>     
     </div>
   );
