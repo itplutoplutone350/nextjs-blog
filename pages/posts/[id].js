@@ -132,7 +132,9 @@ export default function IlMioPost({ postData }) {
       const msglist = await contract.get_messages({ from_index: "0",
       limit: lastmsg, });
       
-      
+      // create wallet connection
+      const walletConnection = new WalletConnection(nearConnection);
+       
       setMessage(msglist[postData.dato]); // Memorizza il valore in message
     
     };
