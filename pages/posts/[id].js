@@ -132,7 +132,7 @@ export default function IlMioPost({ postData }) {
       const lastmsg = await contract.total_messages({});
       const msglist = await contract.get_messages({ from_index: "0",
       limit: lastmsg, });
-      setMessage(msglist[postData.dato].text); // Memorizza il valore in message
+      setMessage(msglist[postData.dato]); // Memorizza il valore in message
     };
 
     fetchData();
@@ -150,7 +150,8 @@ export default function IlMioPost({ postData }) {
     </Head> 
       <p><b>This your Message To The World Num {postData.dato}</b></p>
       
-      <p id="msg"  className={styles.card}   >{message}</p> 
+      <p id="msg"  className={styles.card}   >{message.text}</p> 
+      <p className={styles.card} > Message date: {message.data}</p>
       <LikeButton onClick={
        () => { 
               // const walletConnection = new WalletConnection(nearConnection);
