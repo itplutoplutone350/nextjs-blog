@@ -92,7 +92,8 @@ export async function getStaticProps({ params }) {
 }
 
 export default function IlMioPost({ postData }) {
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState({ text:"vuoto",
+        sender: "me", data: "1/2/3", premium: false, likes: 0});
 
   useEffect(() => {
     const fetchData = async () => {
