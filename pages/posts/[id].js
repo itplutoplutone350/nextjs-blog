@@ -103,7 +103,7 @@ export default function IlMioPost({ postData }) {
       // creates keyStore using private key in local storage
       const { keyStores } = nearAPI;
       const { Contract } = nearAPI;
-      //const {WalletConnection} = nearAPI;
+      const { WalletConnection } = nearAPI;
   
       const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
         
@@ -118,7 +118,7 @@ export default function IlMioPost({ postData }) {
       const nearConnection = await connect(connectionConfig);
 
       // create wallet connection
-      //const walletConnection = new WalletConnection(nearConnection);
+      const walletConnection = new WalletConnection(nearConnection);
       
       //Load account to use for the contract
       const account = await nearConnection.account("plutoplutone347.testnet");
