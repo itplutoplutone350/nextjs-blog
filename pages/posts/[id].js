@@ -3,7 +3,7 @@ import styles from '../../styles/Home.module.css';
 import { useEffect, useState } from 'react';
 import FirstPost from './first-post';
 import {LikeButton} from './first-post';
-
+import {convertUnixToDate} from  './first-post';
 
 
 import { setupWalletSelector } from "@near-wallet-selector/core";
@@ -152,8 +152,9 @@ export default function IlMioPost({ postData }) {
       <p><b>This your Message To The World Num {postData.dato}</b></p>
       
       <p id="msg"  className={styles.card}   >{message.text}</p> 
-      <p className={styles.card} > Message date: {message.data}</p>
-      <LikeButton onClick={
+      <p className={styles.card} > Message was written: {convertUnixToDate(message.data)}</p>
+      <p className={styles.card} > likes: {message.likes}</p>
+       <LikeButton onClick={
        () => { 
               // const walletConnection = new WalletConnection(nearConnection);
               // walletConnection.isSignedIn()
