@@ -149,7 +149,7 @@ export default function IlMioPost({ postData }) {
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
     </Head> 
-      <p  className={styles.card} >This your Message To The World <b>{postData.dato}</b></p>
+      <p  className={styles.description} >This your Message To The World <b>{postData.dato}</b></p>
       
       <p id="msg"  className={styles.card} >{message.text}</p> 
       <p className={styles.card} > Message was written: {convertUnixToDate(message.data)}</p>
