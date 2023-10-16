@@ -6,7 +6,7 @@ import Link from 'next/link';
 const unixdata = Date.now();
 console.log (unixdata);
 
-function convertUnixToDate(unixTimestamp) {
+export function convertUnixToDate(unixTimestamp) {
     const date = new Date(unixTimestamp / 1000000); // Moltiplica per 1000 poiché JavaScript utilizza i millisecondi
   
     const day = date.getDate(); // Ottieni il giorno (1-31)
