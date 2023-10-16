@@ -136,7 +136,7 @@ export default function IlMioPost({ postData }) {
   return (
    <div className={styles.container}>
    <Head>
-        <title>Message to the world</title>
+        <title className={styles.title} >Message to the world</title>
         
         <meta property="og:title" content="This is a Message to the World"></meta>
         <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
@@ -145,7 +145,7 @@ export default function IlMioPost({ postData }) {
     </Head> 
       <p><b>This your Message To The World Num {postData.dato}</b></p>
       
-      <p id="msg">{message}</p> 
+      <p id="msg"  className={styles.card}   >{message}</p> 
       <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
       <FirstPost> Today is: </FirstPost>     
     </div>
