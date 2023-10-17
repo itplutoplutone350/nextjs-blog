@@ -140,7 +140,7 @@ export default function IlMioPost({ postData }) {
       if(!walletConnection.isSignedIn())   walletConnection.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
     };
     // const walletConnection = new WalletConnection(nearConnection);
-    const walletAccountObj = walletConnection.account();
+    //const walletAccountObj = walletConnection.account();
      
     fetchData();
   }, []);
