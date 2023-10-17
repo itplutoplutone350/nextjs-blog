@@ -138,19 +138,10 @@ export default function IlMioPost({ postData }) {
        // create wallet connection
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
        
-       setWalletConnection(walletConnection);
-       /*
-       if(!walletConnection.isSignedIn())   walletConnection.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
-       const walletAccountObj = walletConnection.account();
-       const walletAccountId = walletConnection.getAccountId();
+       setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
        
-       console.log ("account object", walletAccountObj);
-       console.log ("account ID", walletAccountId);
-      */
-      setMessage(msglist[postData.dato]); // Memorizza il valore in message
-      
-     
-      
+       setMessage(msglist[postData.dato]); // Memorizza il valore in status message
+            
     };
      
     
