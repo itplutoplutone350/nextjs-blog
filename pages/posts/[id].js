@@ -136,9 +136,11 @@ export default function IlMioPost({ postData }) {
       setMessage(msglist[postData.dato]); // Memorizza il valore in message
       
       // create wallet connection
-      const walletConnection = new WalletConnection(nearConnection, 'msglst5.plutoplutone347.testnet' );
+      const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
       if(!walletConnection.isSignedIn())   walletConnection.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
     };
+    // const walletConnection = new WalletConnection(nearConnection);
+    const walletAccountObj = walletConnection.account();
      
     fetchData();
   }, []);
