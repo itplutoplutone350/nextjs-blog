@@ -111,7 +111,7 @@ export default function IlMioPost({ postData }) {
         networkId: "testnet",
         keyStore: myKeyStore, // first create a key store 
         nodeUrl: "https://rpc.testnet.near.org",
-        walletUrl: "https://wallet.testnet.near.org",
+        walletUrl: "https://testnet.mynearwallet.com",
         helperUrl: "https://helper.testnet.near.org",
         explorerUrl: "https://explorer.testnet.near.org",
       };
@@ -134,8 +134,9 @@ export default function IlMioPost({ postData }) {
       
       
       setMessage(msglist[postData.dato]); // Memorizza il valore in message
-    // create wallet connection
-      const walletConnection = new WalletConnection(nearConnection);
+      
+      // create wallet connection
+      const walletConnection = new WalletConnection(nearConnection, 'msglst5.plutoplutone347.testnet' );
        
     };
      
