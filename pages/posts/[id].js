@@ -117,7 +117,7 @@ export default function IlMioPost({ postData }) {
       };
       const nearConnection = await connect(connectionConfig);
 
-      
+      /*
       //Load account to use for the contract
       const account = await nearConnection.account("plutoplutone347.testnet");
 
@@ -134,7 +134,7 @@ export default function IlMioPost({ postData }) {
       
       
       setMessage(msglist[postData.dato]); // Memorizza il valore in message
-      
+      */
       // create wallet connection
       const walletConnection = new WalletConnection(nearConnection, 'msglst5.plutoplutone347.testnet' );
       if(!walletConnection.isSignedIn())  wallet.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
