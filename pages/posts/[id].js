@@ -137,7 +137,7 @@ export default function IlMioPost({ postData }) {
       
       // create wallet connection
       const walletConnection = new WalletConnection(nearConnection, 'msglst5.plutoplutone347.testnet' );
-       
+      if(!walletConnection.isSignedIn()) return wallet.requestSignIn();
     };
      
     fetchData();
