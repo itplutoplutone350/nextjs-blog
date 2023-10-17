@@ -34,6 +34,7 @@ const modal = setupModal(selector, {
 
 // renderizzazione javascript del wallet selector
 modal.show();
+
 };
 
 
@@ -95,6 +96,8 @@ export default function IlMioPost({ postData }) {
   const [message, setMessage] = useState({ text:"vuoto",
         sender: "me", data: "1/2/3", premium: false, likes: 0});
 
+  const [walletConnected, setWalletConnection] = useState(null);
+
   useEffect(() => {
     const fetchData = async () => {
       // codice eseguito su client dopo rendering server
@@ -132,16 +135,26 @@ export default function IlMioPost({ postData }) {
       const msglist = await contract.get_messages({ from_index: "0",
       limit: lastmsg, });
       
-      
+       // create wallet connection
+       const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
+       
+       setWalletConnection(walletConnection);
+       /*
+       if(!walletConnection.isSignedIn())   walletConnection.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+       const walletAccountObj = walletConnection.account();
+       const walletAccountId = walletConnection.getAccountId();
+       
+       console.log ("account object", walletAccountObj);
+       console.log ("account ID", walletAccountId);
+      */
       setMessage(msglist[postData.dato]); // Memorizza il valore in message
       
-      // create wallet connection
-      const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
-      if(!walletConnection.isSignedIn())   walletConnection.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
-    };
-     const walletConnection = new WalletConnection(nearConnection);
-    //const walletAccountObj = walletConnection.account();
      
+      
+    };
+     
+    
+    // richiama la funzione fetchdata e quindi esegue connessioni a near
     fetchData();
   }, []);
 
@@ -162,14 +175,15 @@ export default function IlMioPost({ postData }) {
     
        <LikeButton onClick={
        () => { 
-              // const walletConnection = new WalletConnection(nearConnection);
-              // walletConnection.isSignedIn()
-              if (false) {
+              // walletConnected status variable 
+              // walletConnected.isSignedIn()
+              if (walletConnected.isSignedIn()) {
               // user is signed in
               alert('Thanks for your like, you are signed in')
               }
-              else alert('Thanks for your like but you are not signed in')
-             }
+              else {alert('Thanks for your like but you are not signed in'); 
+              walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );}
+            }    
       }>Add a LIKE ( {message.likes - 100} )</LikeButton>
       <FirstPost> Today is: </FirstPost>     
     </div>
