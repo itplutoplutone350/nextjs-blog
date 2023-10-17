@@ -137,7 +137,7 @@ export default function IlMioPost({ postData }) {
       
       // create wallet connection
       const walletConnection = new WalletConnection(nearConnection, 'msglst5.plutoplutone347.testnet' );
-      if(!walletConnection.isSignedIn())  wallet.requestSignIn();
+      if(!walletConnection.isSignedIn())  wallet.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
     };
      
     fetchData();
@@ -157,7 +157,7 @@ export default function IlMioPost({ postData }) {
       
       <p id="msg"  className={styles.card} >{message.text}</p> 
       <p className={styles.card} > Message was written: {convertUnixToDate(message.data)}</p>
-      <p className={styles.card} > likes: {message.likes - 100}</p>
+    
        <LikeButton onClick={
        () => { 
               // const walletConnection = new WalletConnection(nearConnection);
@@ -168,7 +168,7 @@ export default function IlMioPost({ postData }) {
               }
               else alert('Thanks for your like but you are not signed in')
              }
-      }>LIKE it</LikeButton>
+      }>Add a LIKE ( {message.likes - 100} )</LikeButton>
       <FirstPost> Today is: </FirstPost>     
     </div>
   );
