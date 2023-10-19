@@ -140,7 +140,7 @@ export default function IlMioPost({ postData }) {
        
        setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
        
-       setMessage(msglist[postData.dato]); // Memorizza il valore in status message
+       setMessage(msglist[postData.dato]); // Memorizza il messaggio all'indice ricavato da props postData.dato in status message
             
     };
      
@@ -166,13 +166,27 @@ export default function IlMioPost({ postData }) {
     
        <LikeButton onClick={
        () => { 
-              // walletConnected status variable 
-              // walletConnected.isSignedIn()
+              // walletConnected è status variable 
               if (walletConnected.isSignedIn()) {
               // user is signed in
-              alert('Thanks for your like, you are signed in')
+              alert('Thanks for your like! You will be redirected to MyNear wallet to approve like transaction')
+              const walletaccount =   walletConnected.account();
+              console.log("walletaccount che incrementa like ",walletaccount);
+              const { Contract } = nearAPI;
+              const contract = new Contract(
+                walletaccount,
+                "msglst5.plutoplutone347.testnet",
+                {
+                changeMethods: ["add_message","increaselikes"],
+                }
+              );
+              contract.increaselikes(
+                {
+                index: parseInt(postData.dato, 10), // indice del messaggio a cui incrementare i like è postData.dato
+                },
+              );
               }
-              else {alert('Thanks for your like but you are not signed in'); 
+              else {alert('Thanks for your like! but you are not signed in, you will be redirected to MyNear wallet to sign in'); 
               walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );}
             }    
       }>Add a LIKE ( {message.likes - 100} )</LikeButton>
