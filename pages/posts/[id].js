@@ -122,7 +122,7 @@ export default function IlMioPost({ postData }) {
 
       
       //Load account to use for the contract
-      const account = await nearConnection.account("plutoplutone347.testnet");
+      const account = await nearConnection.account("msg2.plutoplutone347.testnet");
 
       const contract = new Contract(
         account,
