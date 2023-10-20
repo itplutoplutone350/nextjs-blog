@@ -17,6 +17,7 @@ export function convertUnixToDate(unixTimestamp) {
   
 // Utilizza la funzione per convertire il timestamp Unix in una stringa data
 const formattedDate = convertUnixToDate(unixdata);
+
 // nota che quì children è obj destructurazione dell'ogeetto passato che è la props
 // ovvero si potrebbe fare  FirstPost(props) e poi dentro usare {props.children}
 export default function FirstPost({ children }) {
@@ -25,15 +26,15 @@ export default function FirstPost({ children }) {
   return ( 
     <div>
       <p>  </p>
-      <h3>
+      <h5>
       <p  className={styles.description} >{children}  {formattedDate}</p> 
       <p>  </p>
       <p>  </p>
       <p>  </p>
       <p><Link className={styles.card} href="../index">Go to Message editor</Link></p>
-      
+     <p>  </p> 
       <p><Link className={styles.card} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link> </p>
-      </h3>
+      </h5>
     </div>
   );
 }
