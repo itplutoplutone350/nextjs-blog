@@ -165,12 +165,12 @@ export default function IlMioPost({ postData }) {
       <p className={styles.card} > Message was written: {convertUnixToDate(message.data)}</p>
     
        <LikeButton onClick={
-       () => { 
+       async () => { 
               // walletConnected è status variable 
               if (walletConnected.isSignedIn()) {
               // user is signed in
               alert('Thanks for your like! You will be redirected to MyNear wallet to approve like transaction')
-              const walletaccount =   walletConnected.account();
+              const walletaccount = await   walletConnected.account();
               console.log("walletaccount che incrementa like ",walletaccount);
               const { Contract } = nearAPI;
               const contract = new Contract(
@@ -180,14 +180,14 @@ export default function IlMioPost({ postData }) {
                 changeMethods: ["add_message","increaselikes"],
                 }
               );
-              contract.increaselikes(
+              await contract.increaselikes(
                 {
                 index: parseInt(postData.dato, 10), // indice del messaggio a cui incrementare i like è postData.dato
                 },
               );
               }
               else {alert('Thanks for your like! but you are not signed in, you will be redirected to MyNear wallet to sign in'); 
-              walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );}
+              await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );}
             }    
       }>Add a LIKE ( {message.likes - 100} )</LikeButton>
       <FirstPost> Today is: </FirstPost>     
