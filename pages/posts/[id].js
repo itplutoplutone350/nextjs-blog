@@ -149,6 +149,8 @@ export default function IlMioPost({ postData }) {
     fetchData();
   }, []);
 
+  walletSelect();
+  
   return (
    <div className={styles.container}>
    <Head>
@@ -194,7 +196,7 @@ export default function IlMioPost({ postData }) {
            }    
       }>Add a LIKE ( {message.likes - 100} )</LikeButton>
       <FirstPost> Today is: </FirstPost>     
-      <p> wallet connection status {walletSelect()}</p>
+      <p> wallet connection status</p>
   </div>
   );
 }
