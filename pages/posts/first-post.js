@@ -31,14 +31,10 @@ export default function FirstPost({ children }) {
       <p>  </p>
       <p>  </p>
       <p>  </p>
-      <p><Link className={styles.cardred} href="../index">Go to Message editor</Link></p>
-     <p>  </p> 
-     <p>  </p>
-      <p>  </p>
-      <p>  </p>
-    <p>  </p>
-      <p>  </p>
-      <p><Link className={styles.cardred} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link> </p>
+      <Link className={styles.cardred} href="../index">Go to Message editor</Link>
+     <p> . </p> 
+     <p> . </p>
+      <Link className={styles.cardred} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link>
       </h5>
     </div>
   );
