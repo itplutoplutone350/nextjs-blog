@@ -1,4 +1,3 @@
-
 import styles from '../../styles/Home.module.css';
 import Link from 'next/link';
 
@@ -16,15 +15,13 @@ export function convertUnixToDate(unixTimestamp) {
     return `${day}/${month}/${year}`;
   }
   
-  // Utilizza la funzione per convertire il timestamp Unix in una stringa data
+// Utilizza la funzione per convertire il timestamp Unix in una stringa data
 const formattedDate = convertUnixToDate(unixdata);
-
 // nota che quì children è obj destructurazione dell'ogeetto passato che è la props
 // ovvero si potrebbe fare  FirstPost(props) e poi dentro usare {props.children}
 export default function FirstPost({ children }) {
   // children è una prop speciale ovvero  è il figlio del tag FirstPost
   const formattedDate = new Date().toLocaleDateString();
-
   return ( 
     <div>
       <p>  </p>
@@ -33,8 +30,9 @@ export default function FirstPost({ children }) {
       <p>  </p>
       <p>  </p>
       <p>  </p>
-        <Link className={styles.card} href="../index.js">Go to Message editor</Link> 
-        <Link className={styles.card} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link> 
+      <p><Link className={styles.card} href="../index">Go to Message editor</Link></p>
+      
+      <p><Link className={styles.card} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link> </p>
       </h3>
     </div>
   );
@@ -46,15 +44,12 @@ export function LikeButton({ children, onClick }) {
       onClick();
     }
   };
-
   return (
     <button onClick={handleClick}>
       {children}
     </button>
   );
 }
-
-
 
 
 export function MessageForm( { children, onInputChange, onBtnClick2 }) {
@@ -71,7 +66,6 @@ const handleBtnClick2 = () => {
     onBtnClick2();
   }
 };
-
 return (
   <>
     <div className={styles.card}>
