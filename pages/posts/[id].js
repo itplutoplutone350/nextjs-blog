@@ -33,7 +33,7 @@ const modal = await setupModal(selector, {
 });
 
 // renderizzazione javascript del wallet selector
-await modal.show();
+modal.show();
 
 };
 }
@@ -93,11 +93,12 @@ export async function getStaticProps({ params }) {
 }
 
 export default function IlMioPost({ postData }) {
+  // definizione di due stati per fornire variabili message e walletConnected al rendering 
   const [message, setMessage] = useState({ text:"vuoto",
         sender: "me", data: "1/2/3", premium: false, likes: 0});
-
   const [walletConnected, setWalletConnection] = useState(null);
-
+  
+  // funzione react eseguita lato client quindi dopo pre-rendering lato server 
   useEffect(() => {
     const fetchData = async () => {
       // codice eseguito su client dopo rendering server
@@ -149,7 +150,8 @@ export default function IlMioPost({ postData }) {
     fetchData();
   }, []);
 
-  walletSelect();
+  // esegui funzione di wallet selectior e relativo rendering
+  //walletSelect();
   
   return (
    <div className={styles.container}>

@@ -33,7 +33,8 @@ export default function FirstPost({ children }) {
       <p>  </p>
       <p>  </p>
       <p>  </p>
-        <Link className={styles.card} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to Message editor</Link> 
+        <Link className={styles.card} href="../index.js">Go to Message editor</Link> 
+        <Link className={styles.card} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link> 
       </h3>
     </div>
   );
@@ -54,3 +55,35 @@ export function LikeButton({ children, onClick }) {
 }
 
 
+
+
+export function MessageForm( { children, onInputChange, onBtnClick2 }) {
+// Define form component to add message.. 
+// gestione dell'evento e che contiene la stringa in form input cambiata da utente
+const handleInputChange = (e) => {
+  if (onInputChange) {
+    onInputChange(e);
+  }
+};
+
+const handleBtnClick2 = () => {
+  if (onBtnClick2) {
+    onBtnClick2();
+  }
+};
+
+return (
+  <>
+    <div className={styles.card}>
+      <label>Message handler</label>
+      <input
+        placeholder={children}
+        onChange={handleInputChange}
+      />
+      <button class="btn btn-primary mt-2" onClick={handleBtnClick2}>
+        Save
+      </button>
+    </div>
+  </>
+);
+}

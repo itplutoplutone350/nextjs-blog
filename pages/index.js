@@ -3,9 +3,149 @@ import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 import FirstPost from './posts/first-post';
 import {LikeButton} from './posts/first-post';
+import {MessageForm} from './posts/first-post';
+import { useEffect, useState } from 'react';
+
+import { setupWalletSelector } from "@near-wallet-selector/core";
+import { setupModal } from "@near-wallet-selector/modal-ui";
+import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
+import * as nearAPI from "near-api-js";
+
+
+
+/*
+//dedicated to message
+// also with deposit and gas fee parameters
+const onBtnClick2 = () => {
+  if (!state.newmessage) {
+    return;
+  }
+  deposit = parseInt(props.Ndeposit) > 10000000 ? props.Ndeposit : "10000001";
+  Near.call(
+    messagelist,
+    "add_message",
+    {
+      text: state.newmessage,
+    },
+    "300000000000000",
+    deposit
+  );
+};
+
+
+const onInputChange = ({ target }) => {
+  // target destrutturazione evento passato da tag input (form) da cui estrapola la proprietà che è un oggetto target, input viene da component greetingForm.
+  // con la string target.value costruisco oggetto {greeting : target.value} che ha la stessa struttura della view del contratto
+  //State.update ({greeting : target.value})
+
+  // a seguire aggiornamento dello stato relativo ai messaggi
+  State.update({
+    newmessage: target.value,
+    index: messageview,
+  });
+};
+*/
 
 
 export default function Home() {
+// definizione degli stati a livello global di questo componente
+const [message, setMessage] = useState({ text:"vuoto",
+ sender: "me", data: "1/2/3", premium: false, likes: 0});
+const [walletConnected, setWalletConnection] = useState(null);
+
+
+
+  // funzione react eseguita lato client quindi dopo pre-rendering lato server 
+  useEffect(() => {
+    const fetchData = async () => {
+      // codice eseguito su client dopo rendering server
+      //connect to near netw
+      const { connect } = nearAPI;
+      // creates keyStore using private key in local storage
+      const { keyStores } = nearAPI;
+      const { Contract } = nearAPI;
+      const { WalletConnection } = nearAPI;
+  
+      const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
+        
+      const connectionConfig = {
+        networkId: "testnet",
+        keyStore: myKeyStore, // first create a key store 
+        nodeUrl: "https://rpc.testnet.near.org",
+        walletUrl: "https://testnet.mynearwallet.com",
+        helperUrl: "https://helper.testnet.near.org",
+        explorerUrl: "https://explorer.testnet.near.org",
+      };
+      const nearConnection = await connect(connectionConfig);
+
+      
+      //Load account to use for the contract
+      const account = await nearConnection.account("msg2.plutoplutone347.testnet");
+
+      const contract = new Contract(
+        account,
+        "msglst5.plutoplutone347.testnet",
+        {
+          viewMethods: ["get_messages","total_messages"],
+        }
+      );
+      const lastmsg = await contract.total_messages({});
+      const msglist = await contract.get_messages({ from_index: "0",
+      limit: lastmsg, });
+      
+       // create wallet connection
+       const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
+       
+       setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
+       
+       setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
+            
+    };
+     
+    
+    // richiama la funzione fetchdata e quindi esegue connessioni a near
+    fetchData();
+  }, []);
+
+
+  
+// definisce costante con codice funzione da passare a oggetto MessageForm evento onBtnClick2
+const gestisciBtnClickAddMessage = async () => {
+  // walletConnected è status variable 
+  if (walletConnected.isSignedIn()) {
+   // user is signed in
+   alert('Thanks for your Message! You will be redirected to MyNear wallet to approve the transaction')
+   const walletaccount = await   walletConnected.account();
+   console.log("walletaccount che incrementa like ",walletaccount);
+   const { Contract } = nearAPI;
+   const contract = new Contract(
+     walletaccount,
+     "msglst5.plutoplutone347.testnet",
+     {
+     changeMethods: ["add_message","increaselikes"],
+     }
+   );
+   await contract.add_message(
+     {
+         text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
+     },
+   );
+   }
+   else {alert('You are not signed in, You will be redirected to MyNear wallet to sign in'); 
+   await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+       
+   }
+ 
+};
+
+
+const gestisciInputChangeAddMessage = (e) => {
+
+ setMessage({ text: e.target.value,
+ sender: "roberto", data: "4/5/6", premium: false, likes: 1});
+
+};
+  
   return (
     
     <div className={styles.container}>
@@ -24,7 +164,9 @@ export default function Home() {
         <h1 className={styles.title}>Message To The World</h1>
         <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0" height="200"></iframe>
          
-        <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
+        <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
+
+        <LikeButton onClick={() => alert('Th(anks for your like')}>LIKE it</LikeButton>
         <FirstPost> Today is: </FirstPost> 
          <p> --------- </p> 
          <p> </p> 
