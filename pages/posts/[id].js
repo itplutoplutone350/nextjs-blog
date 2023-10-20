@@ -188,12 +188,13 @@ export default function IlMioPost({ postData }) {
               }
               else {alert('Thanks for your like! but you are not signed in, you will be redirected to MyNear wallet to sign in'); 
               await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
-              walletSelect();    
+                  
               }
               
            }    
       }>Add a LIKE ( {message.likes - 100} )</LikeButton>
       <FirstPost> Today is: </FirstPost>     
-    </div>
+      <p> wallet connection status {walletSelect()}</p>
+  </div>
   );
 }
