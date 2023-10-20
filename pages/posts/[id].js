@@ -11,7 +11,7 @@ import { setupModal } from "@near-wallet-selector/modal-ui";
 import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import * as nearAPI from "near-api-js";
 
-
+async function walletSelect() {
 // esegui wallet selector solo dopo
 // che window esiste in browser
 // questo perchè viene usato il localstorage
@@ -28,15 +28,15 @@ const myNearWallet = setupMyNearWallet({
 });
 
 //scegli mynearwallet e connetti al contrattp
-const modal = setupModal(selector, {
+const modal = await setupModal(selector, {
   contractId: "msglst5.plutoplutone347.testnet",
 });
 
 // renderizzazione javascript del wallet selector
-modal.show();
+await modal.show();
 
 };
-
+}
 
 // funzione di generazione array paths
 // Returns an array that looks like this:
@@ -187,8 +187,11 @@ export default function IlMioPost({ postData }) {
               );
               }
               else {alert('Thanks for your like! but you are not signed in, you will be redirected to MyNear wallet to sign in'); 
-              await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );}
-            }    
+              await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+              walletSelect();    
+              }
+              
+           }    
       }>Add a LIKE ( {message.likes - 100} )</LikeButton>
       <FirstPost> Today is: </FirstPost>     
     </div>
