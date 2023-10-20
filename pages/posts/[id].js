@@ -197,8 +197,8 @@ export default function IlMioPost({ postData }) {
               
            }    
       }>Add a LIKE ( {message.likes - 100} )</LikeButton>
-      <FirstPost> Today is: </FirstPost>     
-      <p> wallet connection status</p>
+      <FirstPost> Today date: </FirstPost>     
+      
   </div>
   );
 }
