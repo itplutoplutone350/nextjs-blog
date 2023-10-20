@@ -33,6 +33,9 @@ export default function FirstPost({ children }) {
       <p>  </p>
       <p><Link className={styles.card} href="../index">Go to Message editor</Link></p>
      <p>  </p> 
+     <p>  </p>
+      <p>  </p>
+      <p>  </p>
       <p><Link className={styles.card} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link> </p>
       </h5>
     </div>
