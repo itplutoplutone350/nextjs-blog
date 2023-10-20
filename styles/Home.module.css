@@ -84,10 +84,10 @@
 }
 
 .cardred:hover {
-  border-color: red; /* Cambia il bordo in rosso quando attivo */
+  border-color: orange; /* Cambia il bordo in rosso quando attivo */
 }
-.card:focus,
-.card:active {
+.cardred:focus,
+.cardred:active {
   color: red;
   border-color: red;
 }
