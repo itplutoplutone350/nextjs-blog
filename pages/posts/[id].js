@@ -198,7 +198,8 @@ export default function IlMioPost({ postData }) {
               
            }    
       }>Add a LIKE ( {message.likes - 100} )</LikeButton>
-      <FirstPost> Today date: </FirstPost>     
+      
+      <FirstPost gotolink="../index"> Go to message add editor </FirstPost>     
       
   </div>
   );
