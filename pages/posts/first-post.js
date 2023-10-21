@@ -23,8 +23,7 @@ const formattedDate = convertUnixToDate(unixdata);
 export default function FirstPost({ children, gotolink }) {
   // children è una prop speciale ovvero  è il figlio del tag FirstPost
   const formattedDate = new Date().toLocaleDateString();
-  let gotolinkhere = "../index";
-  gotolinkhere = gotolink;
+  
   return ( 
     <div>
       <p>  </p>
@@ -33,7 +32,7 @@ export default function FirstPost({ children, gotolink }) {
       <p>  </p>
       <p>  </p>
       <p>  </p>
-      <Link className={styles.cardred} href={gotolinkhere}>{children}</Link>
+      <Link className={styles.cardred} href={gotolink}>{children}</Link>
      <p> . </p> 
      <p> . </p>
       <Link className={styles.cardred} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link>
