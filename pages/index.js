@@ -175,7 +175,7 @@ const gestisciInputChangeAddMessage = (e) => {
     const unixdata = Date.now();
     const difftime = unixdata - message.data;
     difftime < 180 ? 
-         <FirstPost href={linktomsg}> 🌎 Go to message link 🌍 </FirstPost> : <p> waiting for your new message </p>
+         <FirstPost href={linktomsg}> 🌎 Go to message link 🌍 {difftime}</FirstPost> : <p> waiting for your new message {difftime}  </p>
 
    }
          <p id="msg"  className={styles.card} >🌍 Last message 🌎 {message.text}</p> 
