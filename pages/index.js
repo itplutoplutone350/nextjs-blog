@@ -161,13 +161,16 @@ const gestisciInputChangeAddMessage = (e) => {
       </Head>
 
       <main> 
-        <h1 className={styles.title}>Message To The World</h1>
-        <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0" height="200"></iframe>
-         
+        <h1 className={styles.title}>Add your new Message To The World</h1>
+        
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
-        <LikeButton onClick={() => alert('Th(anks for your like')}>LIKE it</LikeButton>
-        <FirstPost href="httsp://messagetotheworld/posts/29"> Go to your message link </FirstPost> 
+        
+         <FirstPost href="httsp://messagetotheworld.vercel.app/posts/29"> Go to your message link </FirstPost> 
+        
+         <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0" height="200"></iframe>
+         <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
+       
          <p> --------- </p> 
          <p> </p> 
     
