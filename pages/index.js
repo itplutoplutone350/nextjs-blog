@@ -11,6 +11,7 @@ import { setupModal } from "@near-wallet-selector/modal-ui";
 import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import * as nearAPI from "near-api-js";
 
+let lastmsg = 0;
 
 
 /*
@@ -89,7 +90,7 @@ const [walletConnected, setWalletConnection] = useState(null);
           viewMethods: ["get_messages","total_messages"],
         }
       );
-      const lastmsg = await contract.total_messages({});
+      lastmsg = await contract.total_messages({});
       const msglist = await contract.get_messages({ from_index: "0",
       limit: lastmsg, });
       
@@ -165,8 +166,8 @@ const gestisciInputChangeAddMessage = (e) => {
         
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
-        
-         <FirstPost href="httsp://messagetotheworld.vercel.app/posts/29"> Go to your message link </FirstPost> 
+         const linktomsg ="httsp://messagetotheworld.vercel.app/posts/29" + lastmsg;
+         <FirstPost href={linktomsg}> Go to your message link </FirstPost> 
 
          <p id="msg"  className={styles.card} >last message sent: {message.text}</p> 
     
