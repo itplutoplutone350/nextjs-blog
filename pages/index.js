@@ -115,7 +115,8 @@ const gestisciBtnClickAddMessage = async () => {
   // walletConnected è status variable 
   if (walletConnected.isSignedIn()) {
    // user is signed in
-   alert('Thanks for your Message! You will be redirected to MyNear wallet to approve the transaction')
+   alert('Thanks for your 🌏Message🌏! You will be redirected to MyNear wallet to approve the transaction')
+   
    const walletaccount = await   walletConnected.account();
    console.log("walletaccount che incrementa like ",walletaccount);
    const { Contract } = nearAPI;
@@ -131,14 +132,18 @@ const gestisciBtnClickAddMessage = async () => {
          text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
      },
    );
-   //aggiorna lo stato per segnalare che c ènuovo messaggio e qui di abilitare renderimg del link a message to the world
-   setMessage({ text: message.text,
-   sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});
-
+  //aggiorna lo stato per segnalare che c ènuovo messaggio e qui di abilitare renderimg del link a message to the world
+   setMessage({ text: message.text,  
+    sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});
+ 
    }
-   else {alert('You are not signed in, You will be redirected to MyNear wallet to sign in'); 
+   else {alert('😔 Sorry You are not signed in, You will be redirected to MyNear wallet to sign in'); 
+
    await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
-       
+     //aggiorna lo stato per segnalare che c ènuovo messaggio e qui di abilitare renderimg del link a message to the world
+   setMessage({ text: message.text,
+   sender: "unsignedmessage", data: "4/5/6", premium: false, likes: 1});
+   
    }
  
 };
