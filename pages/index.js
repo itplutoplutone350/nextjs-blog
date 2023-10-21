@@ -147,7 +147,7 @@ const gestisciInputChangeAddMessage = (e) => {
 
 };
 
- const linktomsg = "httsp://messagetotheworld.vercel.app/posts/" + lastmsg; 
+ const linktomsg = "https://messagetotheworld.vercel.app/posts/" + lastmsg; 
   return (
     
     <div className={styles.container}>
@@ -166,13 +166,11 @@ const gestisciInputChangeAddMessage = (e) => {
         <h1 className={styles.title}>Add your new Message To The World</h1>
         
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
-
          
          <FirstPost href={linktomsg}> Go to your message link </FirstPost> 
 
          <p id="msg"  className={styles.card} >last message sent: {message.text}</p> 
     
-         <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0" height="200"></iframe>
          <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
        
          <p> --------- </p> 
