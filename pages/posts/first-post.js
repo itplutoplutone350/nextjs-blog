@@ -23,7 +23,7 @@ const formattedDate = convertUnixToDate(unixdata);
 export default function FirstPost({ children, gotolink }) {
   // children è una prop speciale ovvero  è il figlio del tag FirstPost
   const formattedDate = new Date().toLocaleDateString();
-  
+  let onclick = "../index";
   return ( 
     <div>
       <p>  </p>
