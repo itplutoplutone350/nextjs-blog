@@ -132,7 +132,8 @@ const gestisciBtnClickAddMessage = async () => {
          text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
      },
    );
-  //aggiorna lo stato per segnalare che c ènuovo messaggio e qui di abilitare renderimg del link a message to the world
+   lastmsg++;
+   //aggiorna lo stato per segnalare che c ènuovo messaggio e qui di abilitare renderimg del link a message to the world
    setMessage({ text: message.text,  
     sender: "savedmessage", data: "4/5/6", premium: false, likes: 1});
  
