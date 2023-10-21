@@ -131,6 +131,10 @@ const gestisciBtnClickAddMessage = async () => {
          text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
      },
    );
+   //aggiorna lo stato per segnalare che c ènuovo messaggio e qui di abilitare renderimg del link a message to the world
+   setMessage({ text: message.text,
+   sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});
+
    }
    else {alert('You are not signed in, You will be redirected to MyNear wallet to sign in'); 
    await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
@@ -143,7 +147,7 @@ const gestisciBtnClickAddMessage = async () => {
 const gestisciInputChangeAddMessage = (e) => {
 
  setMessage({ text: e.target.value,
- sender: "roberto", data: "4/5/6", premium: false, likes: 1});
+ sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});
 
 };
 
@@ -166,10 +170,13 @@ const gestisciInputChangeAddMessage = (e) => {
         <h1 className={styles.title}>Add your new Message To The World</h1>
         
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
-         
-         <FirstPost href={linktomsg}> Go to your message link </FirstPost> 
 
-         <p id="msg"  className={styles.card} >🌍 Last message: 🌎 {message.text}</p> 
+  {
+    message.sender == "changedmessage" ? 
+         <FirstPost href={linktomsg}> 🌎 Go to your message link 🌍 </FirstPost> : <p> waiting for your new message </p>
+
+  }
+         <p id="msg"  className={styles.card} >🌍 Last message 🌎 {message.text}</p> 
     
          <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
        
