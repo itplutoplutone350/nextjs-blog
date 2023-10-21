@@ -20,7 +20,7 @@ const formattedDate = convertUnixToDate(unixdata);
 
 // nota che quì children è obj destructurazione dell'ogeetto passato che è la props
 // ovvero si potrebbe fare  FirstPost(props) e poi dentro usare {props.children}
-export default function FirstPost({ children, gotolink }) {
+export default function FirstPost({ children, href }) {
   // children è una prop speciale ovvero  è il figlio del tag FirstPost
   const formattedDate = new Date().toLocaleDateString();
   let gotolink = "../index";
@@ -32,7 +32,7 @@ export default function FirstPost({ children, gotolink }) {
       <p>  </p>
       <p>  </p>
       <p>  </p>
-      <Link className={styles.cardred} href={gotolink}>{children}</Link>
+      <Link className={styles.cardred} href={href}>{children}</Link>
      <p> . </p> 
      <p> . </p>
       <Link className={styles.cardred} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link>
