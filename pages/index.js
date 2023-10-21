@@ -134,7 +134,7 @@ const gestisciBtnClickAddMessage = async () => {
    );
   //aggiorna lo stato per segnalare che c ènuovo messaggio e qui di abilitare renderimg del link a message to the world
    setMessage({ text: message.text,  
-    sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});
+    sender: "savedmessage", data: "4/5/6", premium: false, likes: 1});
  
    }
    else {alert('😔 Sorry You are not signed in, You will be redirected to MyNear wallet to sign in'); 
@@ -177,7 +177,7 @@ const gestisciInputChangeAddMessage = (e) => {
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
   {
-    message.sender === "changedmessage" ? 
+    message.sender === "savedmessage" ? 
          <FirstPost href={linktomsg}> 🌎 Go to your message link 🌍 </FirstPost> : <p> waiting for your new message </p>
 
   }
