@@ -197,7 +197,7 @@ export default function IlMioPost({ postData }) {
               }
               
            }    
-      }>Add a LIKE ( {message.likes - 100} )</LikeButton>
+      }>Add your LIKE ( {message.likes - 100} )</LikeButton>
       
       <FirstPost href="../index"> Go to message add editor </FirstPost>     
       
