@@ -146,7 +146,8 @@ const gestisciInputChangeAddMessage = (e) => {
  sender: "roberto", data: "4/5/6", premium: false, likes: 1});
 
 };
-  
+
+ const linktomsg = "httsp://messagetotheworld.vercel.app/posts/" + lastmsg; 
   return (
     
     <div className={styles.container}>
@@ -166,7 +167,7 @@ const gestisciInputChangeAddMessage = (e) => {
         
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
-         const linktomsg ="httsp://messagetotheworld.vercel.app/posts/29" + lastmsg;
+         
          <FirstPost href={linktomsg}> Go to your message link </FirstPost> 
 
          <p id="msg"  className={styles.card} >last message sent: {message.text}</p> 
