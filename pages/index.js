@@ -167,7 +167,9 @@ const gestisciInputChangeAddMessage = (e) => {
 
         
          <FirstPost href="httsp://messagetotheworld.vercel.app/posts/29"> Go to your message link </FirstPost> 
-        
+
+         <p id="msg"  className={styles.card} >last message sent: {message.text}</p> 
+    
          <iframe  src="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgToTheWorld-0" height="200"></iframe>
          <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
        
