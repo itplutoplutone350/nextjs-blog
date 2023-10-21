@@ -147,7 +147,7 @@ const gestisciInputChangeAddMessage = (e) => {
 
 };
 
- const linktomsg = "https://messagetotheworld.vercel.app/posts/" + lastmsg; 
+ const linktomsg = "https://messagetotheworld.vercel.app/posts/" + lastmsg-1; 
   return (
     
     <div className={styles.container}>
@@ -169,7 +169,7 @@ const gestisciInputChangeAddMessage = (e) => {
          
          <FirstPost href={linktomsg}> Go to your message link </FirstPost> 
 
-         <p id="msg"  className={styles.card} >last message sent: {message.text}</p> 
+         <p id="msg"  className={styles.card} >🌍 Last message: 🌎 {message.text}</p> 
     
          <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
        
