@@ -171,10 +171,13 @@ const gestisciInputChangeAddMessage = (e) => {
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
   {
-    message.sender === "savedmessage" ? 
+    //esempio di unixdata = 1695188948769211503;
+    const unixdata = Date.now();
+    const difftime = unixdata - message.data;
+    difftime < 180 ? 
          <FirstPost href={linktomsg}> 🌎 Go to message link 🌍 </FirstPost> : <p> waiting for your new message </p>
 
-  }
+   }
          <p id="msg"  className={styles.card} >🌍 Last message 🌎 {message.text}</p> 
     
          <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
