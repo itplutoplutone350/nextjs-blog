@@ -174,9 +174,13 @@ const gestisciInputChangeAddMessage = (e) => {
     //esempio di unixdata = 1695188948769211503;
     const unixdata = Date.now();
     const difftime = unixdata - message.data;
-    difftime < 180 ? 
-         <FirstPost href={linktomsg}> 🌎 Go to message link 🌍 {difftime}</FirstPost> : <p> waiting for your new message {difftime}  </p>
-
+    if (difftime < 180000) { // Verifica se la differenza è inferiore a 180 secondi (3 minuti)
+  <FirstPost href={linktomsg}> 🌎 Go to message link 🌍 {difftime}</FirstPost>;
+} else {
+  <p>Waiting for your new message {difftime} milliseconds</p>;
+}
+   
+    
    }
          <p id="msg"  className={styles.card} >🌍 Last message 🌎 {message.text}</p> 
     
