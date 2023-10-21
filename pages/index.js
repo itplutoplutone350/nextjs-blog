@@ -177,7 +177,7 @@ const gestisciInputChangeAddMessage = (e) => {
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
   {
-    message.sender == "changedmessage" ? 
+    message.sender === "changedmessage" ? 
          <FirstPost href={linktomsg}> 🌎 Go to your message link 🌍 </FirstPost> : <p> waiting for your new message </p>
 
   }
