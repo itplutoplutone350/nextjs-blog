@@ -151,6 +151,10 @@ const gestisciInputChangeAddMessage = (e) => {
 };
 
  const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
+ //esempio di unixdata = 1695188948769211503;
+    const unixdata = Date.now();
+    const difftime = unixdata - message.data;
+   
   return (
     
     <div className={styles.container}>
@@ -171,10 +175,7 @@ const gestisciInputChangeAddMessage = (e) => {
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
   {
-    //esempio di unixdata = 1695188948769211503;
-    const unixdata = Date.now();
-    const difftime = unixdata - message.data;
-    if (difftime < 180000) { // Verifica se la differenza è inferiore a 180 secondi (3 minuti)
+     if (difftime < 180000) { // Verifica se la differenza è inferiore a 180 secondi (3 minuti)
     <FirstPost href={linktomsg}> 🌎 Go to message link 🌍 {difftime}</FirstPost>;
     } else {
     <p>Waiting for your new message {difftime} milliseconds</p>;
