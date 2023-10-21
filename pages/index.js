@@ -167,7 +167,7 @@ const gestisciInputChangeAddMessage = (e) => {
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
         <LikeButton onClick={() => alert('Th(anks for your like')}>LIKE it</LikeButton>
-        <FirstPost gotolink="httsp://messagetotheworld/posts/29> Go to your message link </FirstPost> 
+        <FirstPost gotolink="httsp://messagetotheworld/posts/29"> Go to your message link </FirstPost> 
          <p> --------- </p> 
          <p> </p> 
     
