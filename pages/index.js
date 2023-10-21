@@ -132,19 +132,12 @@ const gestisciBtnClickAddMessage = async () => {
          text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
      },
    );
-   lastmsg++;
-   //aggiorna lo stato per segnalare che c ènuovo messaggio e qui di abilitare renderimg del link a message to the world
-   setMessage({ text: message.text,  
-    sender: "savedmessage", data: "4/5/6", premium: false, likes: 1});
- 
+   
    }
-   else {alert('😔 Sorry You are not signed in, You will be redirected to MyNear wallet to sign in'); 
+   else {alert('😔 Sorry message lost, You first need to sign in, You will be redirected to MyNear wallet'); 
 
    await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
-     //aggiorna lo stato per segnalare che c ènuovo messaggio e qui di abilitare renderimg del link a message to the world
-   setMessage({ text: message.text,
-   sender: "unsignedmessage", data: "4/5/6", premium: false, likes: 1});
-   
+     
    }
  
 };
@@ -179,7 +172,7 @@ const gestisciInputChangeAddMessage = (e) => {
 
   {
     message.sender === "savedmessage" ? 
-         <FirstPost href={linktomsg}> 🌎 Go to your message link 🌍 </FirstPost> : <p> waiting for your new message </p>
+         <FirstPost href={linktomsg}> 🌎 Go to message link 🌍 </FirstPost> : <p> waiting for your new message </p>
 
   }
          <p id="msg"  className={styles.card} >🌍 Last message 🌎 {message.text}</p> 
