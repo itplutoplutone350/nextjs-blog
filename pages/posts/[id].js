@@ -199,7 +199,7 @@ export default function IlMioPost({ postData }) {
            }    
       }>Add a LIKE ( {message.likes - 100} )</LikeButton>
       
-      <FirstPost gotolink="../index"> Go to message add editor </FirstPost>     
+      <FirstPost gotolink={"../index"}> Go to message add editor </FirstPost>     
       
   </div>
   );
