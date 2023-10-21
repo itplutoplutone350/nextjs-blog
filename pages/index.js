@@ -147,7 +147,7 @@ const gestisciInputChangeAddMessage = (e) => {
 
 };
 
- const linktomsg = "https://messagetotheworld.vercel.app/posts/" + lastmsg-1; 
+ const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
   return (
     
     <div className={styles.container}>
