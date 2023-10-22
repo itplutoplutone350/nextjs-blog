@@ -152,7 +152,7 @@ const gestisciInputChangeAddMessage = (e) => {
 
  const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
  //esempio di unixdata = 1695188948769211503;
- const unixdata = Date.now();
+ const unixdata = Date.now()  / 1000000 ;
  const difftime = unixdata - message.data;
  return (
     
@@ -170,8 +170,7 @@ const gestisciInputChangeAddMessage = (e) => {
 
       <main> 
         <h1 className={styles.title}>Add your new Message To The World</h1>
-   {unixdata} 
-  {message.data}
+   
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
   {
