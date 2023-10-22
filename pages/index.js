@@ -105,7 +105,7 @@ let difftime = unixdata - (message.data /1000000);
        //esempio di unixdata = 1695188948769211503;
        unixdata = Date.now();
        difftime = unixdata - (message.data /1000000);
-    
+       
     };
      
     
@@ -145,7 +145,7 @@ const gestisciBtnClickAddMessage = async () => {
    setMessage(msglist[lastmsg-1]);
    unixdata = Date.now();
    difftime = unixdata - (message.data /1000000);
-    
+   alert({difftime}); 
    }
    else {alert('😔 Sorry message lost, You first need to sign in, You will be redirected to MyNear wallet'); 
 
