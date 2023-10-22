@@ -52,7 +52,7 @@
   margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;
-  text-align: left;
+  text-align: center;
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
@@ -69,14 +69,28 @@
   border-color: #0070f3;
 }
 
-.cardred {
+.cardgreen {
   margin: 1rem;
   flex-basis: 45%;
   padding: 1.5rem;
-  text-align: left;
-  color: inherit;
+  text-align: center;
+  color: darkgreen;
   text-decoration: none;
-  border: 2px solid #eaeaea; /* Rendiamo il bordo più spesso */
+  border: 2px solid lightgreen; /* Cambia il colore del bordo a verde */
+  border-radius: 10px;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.cardred {
+  margin: 1rem;
+  flex-basis: 30%;
+  padding: 1.5rem;
+  text-align: left;
+  color: darkcyan;
+  text-decoration: none;
+  border: 4px solid cyan; /* Rendiamo il bordo più spesso */
   border-radius: 10px;
   transition:
     color 0.15s ease,
@@ -84,7 +98,7 @@
 }
 
 .cardred:hover {
-  border-color: orange; /* Cambia il bordo in rosso quando attivo */
+  border-color: orange; /* Cambia il bordo in arancio quando mouse è sopra */
 }
 .cardred:focus,
 .cardred:active {

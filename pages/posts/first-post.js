@@ -78,7 +78,7 @@ return (
         placeholder={children}
         onChange={handleInputChange}
       />
-      <button class="btn btn-primary mt-2" onClick={handleBtnClick2}>
+      <button  onClick={handleBtnClick2}>
         Save
       </button>
     </div>
