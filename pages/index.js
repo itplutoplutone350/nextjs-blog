@@ -54,7 +54,9 @@ const [message, setMessage] = useState({ text:"vuoto",
  sender: "me", data: "1/2/3", premium: false, likes: 0});
 const [walletConnected, setWalletConnection] = useState(null);
 
-
+//esempio di unixdata = 1695188948769211503;
+let unixdata = Date.now();
+let difftime = unixdata - (message.data /1000000);
 
   // funzione react eseguita lato client quindi dopo pre-rendering lato server 
   useEffect(() => {
@@ -100,7 +102,10 @@ const [walletConnected, setWalletConnection] = useState(null);
        setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
        
        setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
-            
+       //esempio di unixdata = 1695188948769211503;
+       unixdata = Date.now();
+       difftime = unixdata - (message.data /1000000);
+    
     };
      
     
@@ -138,11 +143,14 @@ const gestisciBtnClickAddMessage = async () => {
    const msglist = await contract.get_messages({ from_index: "0",
      limit: lastmsg, }); 
    setMessage(msglist[lastmsg-1]);
+   unixdata = Date.now();
+   difftime = unixdata - (message.data /1000000);
+    
    }
    else {alert('😔 Sorry message lost, You first need to sign in, You will be redirected to MyNear wallet'); 
 
    await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
-     
+  
    }
  
 };
@@ -156,9 +164,6 @@ const gestisciInputChangeAddMessage = (e) => {
 };
 
  const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
- //esempio di unixdata = 1695188948769211503;
- const unixdata = Date.now();
- const difftime = unixdata - (message.data /1000000);
  return (
     
     <div className={styles.container}>
