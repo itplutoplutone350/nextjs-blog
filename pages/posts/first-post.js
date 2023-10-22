@@ -26,11 +26,11 @@ export default function FirstPost({ children, href }) {
   const gotolink = href? href : "../index";
     
   return ( 
-    <div className={styles.container}  >
+    <div>
       
       <p  className={styles.description} >Today date:  {formattedDate}</p> 
 
-      <h5 >
+      <h5 className={styles.container}  >
       <Link className={styles.cardred} href={gotolink}>{children}</Link>
       <Link className={styles.cardred} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link>
       </h5>
@@ -68,7 +68,7 @@ const handleBtnClick2 = () => {
 };
 return (
   <>
-    <div className={styles.card}>
+    <div className={styles.card}  >
       <label>Message handler</label>
       
     <textarea
