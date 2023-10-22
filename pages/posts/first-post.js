@@ -34,8 +34,8 @@ export default function FirstPost({ children, href }) {
       <p>  </p>
       <p>  </p>
       <Link className={styles.cardred} href={gotolink}>{children}</Link>
-     <p> . </p> 
-     <p> . </p>
+     <p> ... </p> 
+     <p> ... </p>
       <Link className={styles.cardred} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link>
       </h5>
     </div>
@@ -74,10 +74,13 @@ return (
   <>
     <div className={styles.card}>
       <label>Message handler</label>
-      <input
-        placeholder={children}
-        onChange={handleInputChange}
-      />
+      
+    <textarea
+    placeholder={children}
+    onChange={handleInputChange}
+    rows={4} // Questo imposta il numero di righe
+    />
+            
       <button  onClick={handleBtnClick2}>
         Save
       </button>
