@@ -153,7 +153,7 @@ const gestisciInputChangeAddMessage = (e) => {
  const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
  //esempio di unixdata = 1695188948769211503;
  const unixdata = Date.now();
- const difftime = unixdata - (message.data /1000000000);
+ const difftime = unixdata - (message.data /1000000);
  return (
     
     <div className={styles.container}>
