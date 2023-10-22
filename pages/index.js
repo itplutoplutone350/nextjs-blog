@@ -151,7 +151,7 @@ let difftime = unixdata - (message.data /1000000);
         difftime = unixdata - (msglist[lastmsg-1].data /1000000);
         //alert('diff ',difftime); 
         }
-        else {alert('😔 Sorry reenter your message, You first need to sign in, You will be redirected to MyNear wallet'); 
+        else {alert('😔 Sorry you need to enter your message again, You first have to sign in, You will be redirected to MyNear wallet'); 
 
         await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
         
@@ -191,7 +191,7 @@ let difftime = unixdata - (message.data /1000000);
               // difftime viene calcolato all'inizio della renderizzazione lato client e poi tutte le volte che si fa save di un messaggio
               // se son passati meno di 3 minuti da ultimo post messaggio allora mostra link perchè potrebbe esser stato salvato da user da poco
               (difftime < 180000) ?
-              <FirstPost href={linktomsg}> 🌎 Go to message link 🌍 </FirstPost>
+              <FirstPost href={linktomsg}> 🌎 Go to Message link 🌍 </FirstPost>
               :
               <p>Waiting for a new message</p>         
             }
