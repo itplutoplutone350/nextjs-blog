@@ -26,7 +26,7 @@ export default function FirstPost({ children, href }) {
   const gotolink = href? href : "../index";
     
   return ( 
-    <div>
+    <div className={styles.container}  >
       <p>  </p>
       <h5>
       <p  className={styles.description} >Today date:  {formattedDate}</p> 
