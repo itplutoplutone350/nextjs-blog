@@ -79,11 +79,12 @@ return (
     placeholder={children}
     onChange={handleInputChange}
     rows={4} // Questo imposta il numero di righe
+    cols={30} // numero colonne
     />
-            
-      <button  onClick={handleBtnClick2}>
-        Save
-      </button>
+    <br></br>      
+    <button  onClick={handleBtnClick2}>
+        Save Message
+    </button>
     </div>
   </>
 );
