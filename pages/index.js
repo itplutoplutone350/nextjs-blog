@@ -174,11 +174,11 @@ const gestisciInputChangeAddMessage = (e) => {
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
   {
-     if (difftime < 180000) { // Verifica se la differenza è inferiore a 180 secondi (3 minuti)
+     (difftime < 180000) ?
     <FirstPost href={linktomsg}> 🌎 Go to message link 🌍 {difftime}</FirstPost>;
-    } else {
+    :
     <p>Waiting for your new message {difftime} milliseconds</p>;
-    };
+    
   }
          <p id="msg"  className={styles.card} >🌍 Last message 🌎 {message.text}</p> 
     
