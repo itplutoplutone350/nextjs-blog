@@ -76,7 +76,7 @@
   text-align: center;
   color: darkgreen;
   text-decoration: none;
-  border: 2px solid lightgreen; /* Cambia il colore del bordo a verde */
+  border: 5px solid lightgreen; /* Cambia il colore del bordo a verde */
   border-radius: 10px;
   transition:
     color 0.15s ease,
@@ -90,7 +90,7 @@
   text-align: left;
   color: darkcyan;
   text-decoration: none;
-  border: 4px solid cyan; /* Rendiamo il bordo più spesso */
+  border: 1px solid cyan; /* Rendiamo il bordo più spesso */
   border-radius: 10px;
   transition:
     color 0.15s ease,
