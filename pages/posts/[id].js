@@ -194,9 +194,9 @@ export default function IlMioPost({ postData }) {
               );
               // se non c è redirezione da wallet aggiorna la lista di messaggi fino al mio messaggio
                 const msglist = await contract.get_messages({ from_index: "0",
-                limit: msgimdex+1, });
+                limit: msgindex+1, });
               // aggiorna quindi lo stato con il messaggio e il numero like incrementato
-                setMessage(msglist[msgimdex]);
+                setMessage(msglist[msgindex]);
               }
               else {alert('Thanks! but You have to signed in first, you will be redirected to MyNear wallet to sign in'); 
               await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
