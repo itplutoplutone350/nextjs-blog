@@ -170,7 +170,8 @@ const gestisciInputChangeAddMessage = (e) => {
 
       <main> 
         <h1 className={styles.title}>Add your new Message To The World</h1>
-        
+   {unixdata} 
+  {message.data}
         <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
 
   {
