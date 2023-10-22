@@ -149,7 +149,7 @@ let difftime = unixdata - (message.data /1000000);
         setMessage(msglist[lastmsg-1]);
         unixdata = Date.now();
         difftime = unixdata - parseInt((msglist[lastmsg-1].data /1000000));
-        alert(unixdata); 
+        //alert(unixdata); 
         }
         else {alert('😔 Sorry you need to enter your message again, You first have to sign in, You will be redirected to MyNear wallet'); 
 
