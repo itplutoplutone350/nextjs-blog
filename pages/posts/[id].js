@@ -206,7 +206,7 @@ export default function IlMioPost({ postData }) {
            }    
       }>Add your LIKE ( {message.likes - 100} )</LikeButton>
       
-      <FirstPost href="../index"> Go to message add editor </FirstPost>     
+      <FirstPost href="../index"> 🌏 Add a new Message To The World 🌏 </FirstPost>     
       
   </div>
   );
