@@ -186,18 +186,19 @@ export default function IlMioPost({ postData }) {
                 viewMethods: ["get_messages","total_messages"],
                 }
               );
+              const msgindex = parseInt(postData.dato, 10);
               await contract.increaselikes(
                 {
-                index: parseInt(postData.dato, 10), // indice del messaggio a cui incrementare i like è postData.dato
+                index: msgindex, // indice del messaggio a cui incrementare i like è postData.dato
                 },
               );
-              // se non c è redirezione da wallet aggiorna la lista di messaggi
+              // se non c è redirezione da wallet aggiorna la lista di messaggi fino al mio messaggio
                 const msglist = await contract.get_messages({ from_index: "0",
-                limit: lastmsg, });
+                limit: msgimdex+1, });
               // aggiorna quindi lo stato con il messaggio e il numero like incrementato
-                setMessage(msglist[postData.dato]);
+                setMessage(msglist[msgimdex]);
               }
-              else {alert('Thanks for your like! but you are not signed in, you will be redirected to MyNear wallet to sign in'); 
+              else {alert('Thanks! but You have to signed in first, you will be redirected to MyNear wallet to sign in'); 
               await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
                   
               }
