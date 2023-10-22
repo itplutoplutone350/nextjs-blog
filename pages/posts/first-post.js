@@ -27,13 +27,11 @@ export default function FirstPost({ children, href }) {
     
   return ( 
     <div className={styles.container}  >
-      <p>  </p>
+      
       <p  className={styles.description} >Today date:  {formattedDate}</p> 
-      <p>  </p>
+
       <h5 className={styles.container} >
       <Link className={styles.cardred} href={gotolink}>{children}</Link>
-     <p> </p> 
-     <p>  </p>
       <Link className={styles.cardred} href="https://test.near.org/embed/plutoplutone347.testnet/widget/MsgManager-1">Go to NEAR BOS Message editor</Link>
       </h5>
     </div>
