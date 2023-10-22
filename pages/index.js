@@ -134,7 +134,10 @@ const gestisciBtnClickAddMessage = async () => {
    );
    // eseguito solo in caso di non redirezione a wallet
    // in realtà text è già quello inserito ma dopo chiamata a contratto ritorna altre proprietà tra cui data
-    setMessage(message);
+   lastmsg++;
+   const msglist = await contract.get_messages({ from_index: "0",
+     limit: lastmsg, }); 
+   setMessage(msglist[lastmsg-1]);
    }
    else {alert('😔 Sorry message lost, You first need to sign in, You will be redirected to MyNear wallet'); 
 
