@@ -132,7 +132,9 @@ const gestisciBtnClickAddMessage = async () => {
          text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
      },
    );
-   
+   // eseguito solo in caso di non redirezione a wallet
+   // in realtà text è già quello inserito ma dopo chiamata a contratto ritorna altre proprietà tra cui data
+    setMessage(message);
    }
    else {alert('😔 Sorry message lost, You first need to sign in, You will be redirected to MyNear wallet'); 
 
