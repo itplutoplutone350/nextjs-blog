@@ -106,7 +106,7 @@
   border-color: red;
 }
 
-.green-button {
+.greenbutton {
   background-color: green; /* Sfondo verde */
   color: white; /* Testo bianco */
   font-weight: bold; /* Testo grassetto */
@@ -117,7 +117,7 @@
   transition: background-color 0.3s, color 0.3s; /* Effetto transizione per hover */
 }
 
-.green-button:hover {
+.greenbutton:hover {
   background-color: darkgreen; /* Cambia il colore di sfondo quando si passa sopra */
 }
 
