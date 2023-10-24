@@ -83,9 +83,9 @@
     border-color 0.15s ease;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
+.cardblue:hover,
+.cardblue:focus,
+.cardblue:active {
   color: #0070f3;
   border-color: darkblue;
 }
