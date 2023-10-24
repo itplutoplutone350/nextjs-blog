@@ -107,10 +107,10 @@
 }
 
 .greenbutton {
-  background-color: lightgreen; /* Sfondo lightgreen */
-  color: white;
+  background-color: green; /* Sfondo lightgreen */
+  color: yellow;
   font-weight: bold;
-  border: 2px solid darkgreen;
+  border: 3px solid darkgreen;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -119,8 +119,25 @@
 
 .greenbutton:hover {
   background-color: darkgreen;
-  border-color: lightgreen; /* Cambia il colore del bordo quando si passa sopra */
+  border-color: green; /* Cambia il colore del bordo quando si passa sopra */
 }
+
+.bluebutton {
+  background-color: lightblue; /* Sfondo lightgreen */
+  color: white;
+  font-weight: bold;
+  border: 3px solid darkblue;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.greenbutton:hover {
+  background-color: blue;
+  border-color: lightblue; /* Cambia il colore del bordo quando si passa sopra */
+}
+
 
 
 .card h3 {
