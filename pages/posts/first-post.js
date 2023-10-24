@@ -70,7 +70,7 @@ return (
   <>
     <div className={styles.card}  >
       <label>Message handler</label>
-      
+    <br></br>
     <textarea
     placeholder={children}
     onChange={handleInputChange}
