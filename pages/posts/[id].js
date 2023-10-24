@@ -11,6 +11,7 @@ import { setupModal } from "@near-wallet-selector/modal-ui";
 import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import * as nearAPI from "near-api-js";
 
+// per ora non chiamata
 async function walletSelect() {
 // esegui wallet selector solo dopo
 // che window esiste in browser
@@ -120,9 +121,8 @@ export default function IlMioPost({ postData }) {
         explorerUrl: "https://explorer.testnet.near.org",
       };
       const nearConnection = await connect(connectionConfig);
-
-      
-      //Load account to use for the contract
+    
+      //Load account to use for thecontract to do first view
       const account = await nearConnection.account("msg2.plutoplutone347.testnet");
 
       const contract = new Contract(
@@ -139,9 +139,9 @@ export default function IlMioPost({ postData }) {
        // create wallet connection
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
        
-       setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
+       setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected per poi usarlo nella finzione di like
        
-       setMessage(msglist[postData.dato]); // Memorizza il messaggio all'indice ricavato da props postData.dato in status message
+       setMessage(msglist[postData.dato]); // Memorizza il messaggio letto all'indice ricavato da props postData.dato in status message per poi usarlo nel rendering
             
     };
      
@@ -152,7 +152,8 @@ export default function IlMioPost({ postData }) {
 
   // esegui funzione di wallet selectior e relativo rendering
   //walletSelect();
-  
+
+  // rendering
   return (
    <div className={styles.container}>
    <Head>
@@ -198,7 +199,9 @@ export default function IlMioPost({ postData }) {
               // aggiorna quindi lo stato con il messaggio e il numero like incrementato
                 setMessage(msglist[msgindex]);
               }
-              else {alert('Thanks! but You have to signed in first, you will be redirected to MyNear wallet to sign in'); 
+              else {
+              // not logged in
+              alert('Thanks! but You have to signed in first, you will be redirected to MyNear wallet to sign in'); 
               await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
                   
               }
