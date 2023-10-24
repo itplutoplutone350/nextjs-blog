@@ -161,7 +161,7 @@ let difftime = unixdata - (message.data /1000000);
       };
 
 
-      const async gestisciInputChangeAddMessage = (e) => {
+      const  gestisciInputChangeAddMessage = async (e) => {
       if (walletConnected.isSignedIn()) {
       setMessage({ text: e.target.value,
       sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});
