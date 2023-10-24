@@ -186,8 +186,10 @@ let difftime = unixdata - (message.data /1000000);
           <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
           <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
           <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
-
-          <link rel="icon" href="/favicon.ico" />
+          
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8956396660152170"
+     crossorigin="anonymous"></script>
+       
         </Head>
 
         <main> 
