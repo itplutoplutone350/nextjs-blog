@@ -151,7 +151,8 @@ let difftime = unixdata - (message.data /1000000);
         difftime = unixdata - parseInt((msglist[lastmsg-1].data /1000000));
         //alert(unixdata); 
         }
-        else {alert('😔 Sorry you need to enter your message again, You first have to sign in, You will be redirected to MyNear wallet'); 
+        else {
+        alert('😔 Sorry you need to enter your message again, You first have to sign in, You will be redirected to MyNear wallet'); 
 
         await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
         
@@ -161,10 +162,17 @@ let difftime = unixdata - (message.data /1000000);
 
 
       const gestisciInputChangeAddMessage = (e) => {
+      if (walletConnected.isSignedIn()) {
       setMessage({ text: e.target.value,
       sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});
       };
+      }
+      else
+     {
+       alert('😔 Sorry You first have to sign in, You will be redirected to MyNear wallet'); 
 
+        await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+      }
   // definisco url del link al messaggio postato
   const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
   return (
