@@ -74,9 +74,9 @@
   flex-basis: 45%;
   padding: 1.5rem;
   text-align: center;
-  color: inherit;
+  color: darkblue;
   text-decoration: none;
-  border: 2px solid #lightblue;
+  border: 2px solid lightblue;
   border-radius: 10px;
   transition:
     color 0.15s ease,
