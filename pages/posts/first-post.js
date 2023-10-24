@@ -78,7 +78,7 @@ return (
     cols={30} // numero colonne
     />
     <br></br>      
-    <button  onClick={handleBtnClick2}>
+    <button   className={styles.greenbutton}  onClick={handleBtnClick2}>
         Save Message
     </button>
     </div>
