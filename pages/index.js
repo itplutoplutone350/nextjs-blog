@@ -81,7 +81,6 @@ let difftime = unixdata - (message.data /1000000);
         explorerUrl: "https://explorer.testnet.near.org",
       };
       const nearConnection = await connect(connectionConfig);
-
       
       //Load account to use for the contract
       const account = await nearConnection.account("msg2.plutoplutone347.testnet");
@@ -171,7 +170,7 @@ let difftime = unixdata - (message.data /1000000);
      {
        alert('😔 Sorry You first have to sign in, You will be redirected to MyNear wallet'); 
 
-        await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+       await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
       }
     };
         
@@ -183,7 +182,7 @@ let difftime = unixdata - (message.data /1000000);
         <Head>
           <title>Message to the world</title>
           
-          <meta property="og:title" content="This is a Message to the World"></meta>
+          <meta property="og:title" content="This Message to the World editor"></meta>
           <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
           <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
           <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
@@ -203,7 +202,7 @@ let difftime = unixdata - (message.data /1000000);
               (difftime < 180000) ?
               <FirstPost href={linktomsg}> 🌎 Go to Message link 🌍 </FirstPost>
               :
-              <p>Waiting for a new message</p>         
+              <p>... Waiting for a new message</p>         
             }
           <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> 
       
