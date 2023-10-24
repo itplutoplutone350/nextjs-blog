@@ -165,7 +165,7 @@ let difftime = unixdata - (message.data /1000000);
       if (walletConnected.isSignedIn()) {
       setMessage({ text: e.target.value,
       sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});
-      };
+      
       }
       else
      {
@@ -173,6 +173,8 @@ let difftime = unixdata - (message.data /1000000);
 
         await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
       }
+    };
+        
   // definisco url del link al messaggio postato
   const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
   return (
