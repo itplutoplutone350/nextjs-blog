@@ -68,7 +68,7 @@ const handleBtnClick2 = () => {
 };
 return (
   <>
-    <div className={styles.card}  >
+    <div className={styles.cardblue}  >
       <label>Message handler</label>
     <br></br>
     <textarea
