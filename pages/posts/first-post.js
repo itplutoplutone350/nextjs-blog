@@ -2,9 +2,11 @@ import styles from '../../styles/Home.module.css';
 import Link from 'next/link';
 
 //esempio di unixdata = 1695188948769211503;
+// attenzione che dipende da orario locale impostato su client
 const unixdata = Date.now();
 console.log (unixdata);
 
+// converte unix time in date
 export function convertUnixToDate(unixTimestamp) {
     const date = new Date(unixTimestamp / 1000000); // Moltiplica per 1000 poiché JavaScript utilizza i millisecondi
   
@@ -16,18 +18,19 @@ export function convertUnixToDate(unixTimestamp) {
   }
   
 // Utilizza la funzione per convertire il timestamp Unix in una stringa data
-const formattedDate = convertUnixToDate(unixdata);
+// funzioma solo con unix time dei contratti
+//const formattedDate = convertUnixToDate(unixdata);
 
-// nota che quì children è obj destructurazione dell'ogeetto passato che è la props
+// nota che quì children è obj destructurazione dell'oggetto passato che è la props
 // ovvero si potrebbe fare  FirstPost(props) e poi dentro usare {props.children}
 export default function FirstPost({ children, href }) {
   // children è una prop speciale ovvero  è il figlio del tag FirstPost
   const formattedDate = new Date().toLocaleDateString();
+  // funzione che definisce il link 
   const gotolink = href? href : "../index";
     
   return ( 
-    <div>
-      
+    <div>      
       <p  className={styles.description} >Today date:  {formattedDate}</p> 
 
       <h5 className={styles.container}  >
@@ -70,17 +73,18 @@ return (
   <>
     <div className={styles.cardblue}  >
       <label>Message handler</label>
-    <br></br>
-    <textarea
-    placeholder={children}
-    onChange={handleInputChange}
-    rows={4} // Questo imposta il numero di righe
-    cols={30} // numero colonne
-    />
-    <br></br>      
-    <button   className={styles.bluebutton}  onClick={handleBtnClick2}>
+      <br></br>
+      <textarea
+      placeholder={children}
+      onChange={handleInputChange}
+      rows={4} // Questo imposta il numero di righe
+      cols={30} // numero colonne
+      />
+      <br></br>      
+      
+      <button   className={styles.bluebutton}  onClick={handleBtnClick2}>
         Save Message
-    </button>
+      </button>
     </div>
   </>
 );
