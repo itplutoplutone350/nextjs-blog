@@ -107,7 +107,7 @@
 }
 
 .greenbutton {
-  background-color: green; /* Sfondo verde */
+  background-color: lightgreen; /* Sfondo verde */
   color: white; /* Testo bianco */
   font-weight: bold; /* Testo grassetto */
   border: none; /* Rimuove il bordo */
