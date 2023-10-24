@@ -207,7 +207,7 @@ let difftime = unixdata - (message.data /1000000);
             }
           <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> 
       
-          <LikeButton onClick={() => alert('Thanks for your like')}>LIKE it</LikeButton>
+          <LikeButton onClick={() => alert('Thanks for your like, please go to message link to add your like')}>LIKE it</LikeButton>
           <br></br>
           <p> --------- </p> 
           <br></br> 
