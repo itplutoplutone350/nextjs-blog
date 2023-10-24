@@ -106,6 +106,22 @@
   border-color: red;
 }
 
+.green-button {
+  background-color: green; /* Sfondo verde */
+  color: white; /* Testo bianco */
+  font-weight: bold; /* Testo grassetto */
+  border: none; /* Rimuove il bordo */
+  padding: 10px 20px; /* Padding per spaziatura */
+  border-radius: 5px; /* Bordi arrotondati */
+  cursor: pointer; /* Cambia il cursore quando si passa sopra */
+  transition: background-color 0.3s, color 0.3s; /* Effetto transizione per hover */
+}
+
+.green-button:hover {
+  background-color: darkgreen; /* Cambia il colore di sfondo quando si passa sopra */
+}
+
+
 
 .card h3 {
   margin: 0 0 1rem 0;
