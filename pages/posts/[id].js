@@ -152,7 +152,9 @@ export default function IlMioPost({ postData }) {
 
   // esegui funzione di wallet selectior e relativo rendering
   //walletSelect();
-
+  const msgindex = parseInt(postData.dato, 10);
+  const ogdescription = "Your message " + postData.dato + " stored forever om NEAR block chain";
+  
   // rendering
   return (
    <div className={styles.container}>
@@ -160,7 +162,7 @@ export default function IlMioPost({ postData }) {
         <title className={styles.title} >Message to the world</title>
         
         <meta property="og:title" content="This is a Message to the World"></meta>
-        <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
+        <meta property="og:description" content={ogdescription}></meta>
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
     </Head> 
@@ -187,7 +189,7 @@ export default function IlMioPost({ postData }) {
                 viewMethods: ["get_messages","total_messages"],
                 }
               );
-              const msgindex = parseInt(postData.dato, 10);
+              
               await contract.increaselikes(
                 {
                 index: msgindex, // indice del messaggio a cui incrementare i like è postData.dato
