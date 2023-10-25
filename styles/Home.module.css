@@ -106,6 +106,29 @@
     border-color 0.15s ease;
 }
 
+.cardgreenlink {
+  margin: 1rem;
+  flex-basis: 45%;
+  padding: 1.5rem;
+  text-align: center;
+  color: darkgreen;
+  text-decoration: none;
+  border: 5px solid lightgreen; /* Cambia il colore del bordo a verde */
+  border-radius: 10px;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.cardgreenlink:hover {
+  border-color: violet; /* Cambia il bordo in arancio quando mouse è sopra */
+}
+.cardgreenlink:focus,
+.cardgreenlink:active {
+  color: red;
+  border-color: red;
+}
+
 .cardred {
   margin: 1rem;
   flex-basis: 30%;
