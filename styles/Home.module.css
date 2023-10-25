@@ -76,7 +76,7 @@
   text-align: center;
   color: darkblue;
   text-decoration: none;
-  border: 2px solid lightblue;
+  border: 5px solid lightblue;
   border-radius: 10px;
   transition:
     color 0.15s ease,
@@ -99,7 +99,7 @@
   text-align: center;
   color: darkgreen;
   text-decoration: none;
-  border: 5px solid lightgreen; /* Cambia il colore del bordo a verde */
+  border: 3px solid lightgreen; /* Cambia il colore del bordo a verde */
   border-radius: 10px;
   transition:
     color 0.15s ease,
