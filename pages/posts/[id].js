@@ -155,7 +155,8 @@ export default function IlMioPost({ postData }) {
   //walletSelect();
   const msgindex = parseInt(postData.dato, 10);
   const ogdescription = "Your message " + postData.dato + " stored forever om NEAR block chain";
-  
+  // definisco url del link al messaggio postato
+  const linktomsg = "https://messagetotheworld.vercel.app/posts/" + postData.dato; 
   // rendering
   return (
    <div className={styles.container}>
@@ -170,7 +171,7 @@ export default function IlMioPost({ postData }) {
       <h1 className={styles.title}>Message To The World</h1>
       <p  className={styles.description} >This your Message number:  <b>{postData.dato}</b></p>
       
-      <Link id="msg"  className={styles.cardgreenlink}> {message.text} </Link> 
+      <Link className={styles.cardgreenlink}  href={linktomsg} > {message.text} </Link> 
       <p> Message was written: {convertUnixToDate(message.data)}</p>
     
        <LikeButton onClick={
