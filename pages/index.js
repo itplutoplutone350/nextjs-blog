@@ -1,5 +1,8 @@
-import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+
+import Head from 'next/head';
+import Script from 'next/script'
+
 import Link from 'next/link';
 import FirstPost from './posts/first-post';
 import {LikeButton} from './posts/first-post';
@@ -187,8 +190,8 @@ let difftime = unixdata - (message.data /1000000);
           <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
           <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
           
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8956396660152170"
-     crossorigin="anonymous"></script>
+    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8956396660152170"
+     crossorigin="anonymous"></Script>
        
         </Head>
 
@@ -210,7 +213,8 @@ let difftime = unixdata - (message.data /1000000);
       
           <LikeButton onClick={() => alert('Thanks for your like, please go to message link to add your like')}>LIKE it</LikeButton>
           <br></br>
-          <p> --------- </p> 
+          <br></br>
+          <p> --- This App has been build with Next.js ---</p> 
           <br></br> 
       
           <h1 className={styles.description}>

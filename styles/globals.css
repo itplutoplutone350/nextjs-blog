@@ -1,5 +1,6 @@
-/*
-body {
+
+
+html, body {
   padding: 0;
   margin: 0;
   font-family:
@@ -15,12 +16,16 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
-    background-color: aquamarine; 
+    background-color: rgb(229, 236, 236); 
 }
 
 a {
-  color: inherit;
+  color: #00baf3;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 * {
@@ -31,4 +36,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-*/
