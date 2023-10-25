@@ -3,6 +3,6 @@ import '../styles/globals.css';
 
 import { AppProps } from 'next/app';
 
-export default function ({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+export default function ({ Component, pageProps }) {
+  return <Component {pageProps} />;
 }
