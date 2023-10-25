@@ -170,7 +170,7 @@ export default function IlMioPost({ postData }) {
       <h1 className={styles.title}>Message To The World</h1>
       <p  className={styles.description} >This your Message number:  <b>{postData.dato}</b></p>
       
-      <p id="msg"  className={styles.cardgreen} >{message.text}</p> 
+      <Link id="msg"  className={styles.cardgreenlink}> {message.text} </Link> 
       <p> Message was written: {convertUnixToDate(message.data)}</p>
     
        <LikeButton onClick={
