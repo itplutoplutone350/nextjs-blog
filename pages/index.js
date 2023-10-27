@@ -7,6 +7,7 @@ import Link from 'next/link';
 import FirstPost from './posts/first-post';
 import {LikeButton} from './posts/first-post';
 import {MessageForm} from './posts/first-post';
+import {DropdownMenu} from './posts/first-post';
 import { useEffect, useState } from 'react';
 
 import { setupWalletSelector } from "@near-wallet-selector/core";
@@ -179,6 +180,8 @@ let difftime = unixdata - (message.data /1000000);
         
   // definisco url del link al messaggio postato
   const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
+  // opziomi di message add
+  const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
   return (
       
       <div className={styles.container}>
@@ -199,7 +202,7 @@ let difftime = unixdata - (message.data /1000000);
           <h1 className={styles.title}>Add your new Message To The World</h1>
     
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
-
+          <DropdownMenu> Message add options </DropdownMenu>
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
               // difftime viene calcolato all'inizio della renderizzazione lato client e poi tutte le volte che si fa save di un messaggio
