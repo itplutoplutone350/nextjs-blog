@@ -196,6 +196,8 @@ let difftime = unixdata - (message.data /1000000);
       }
     };
 
+  // opziomi di message add
+  const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
   const gestisciInputChangeOption = (selectedvalue) => {
     if (selectedvalue === "Premium - 0.5 Near") {
       alert("premium message mode selected")
@@ -215,8 +217,6 @@ let difftime = unixdata - (message.data /1000000);
   
   // definisco url del link al messaggio postato
   const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
-  // opziomi di message add
-  const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
   return (
       
       <div className={styles.container}>
