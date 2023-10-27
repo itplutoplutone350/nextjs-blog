@@ -183,7 +183,7 @@ let difftime = unixdata - (message.data /1000000);
       if (walletConnected.isSignedIn()) {
         let messagebuff = message;
         messagebuff.text = e.target.value;
-        messagebuff.sender =  "changeinputdmessage";
+        //messagebuff.sender =  "changeinputdmessage";
         setMessage(messagebuff);
         //setMessage({ text: e.target.value,
         //sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});     
@@ -239,7 +239,7 @@ let difftime = unixdata - (message.data /1000000);
     
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
          
-          <DropdownMenu  options={msgaddoptions}  /*selectedOption={message.sender}*/ onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
+          <DropdownMenu  options={msgaddoptions}  selectedOption={message.sender} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
   
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
