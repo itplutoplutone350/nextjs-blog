@@ -203,7 +203,7 @@ let difftime = unixdata - (message.data /1000000);
       alert("premium message mode selected")
       let messagebuff = message;
       messagebuff.premium = true;
-      messagebuff.sender =  msgaddoptions[1];
+      messagebuff.sender =  selectedvalue;
       setMessage(messagebuff);
     }
     else
@@ -211,7 +211,7 @@ let difftime = unixdata - (message.data /1000000);
       alert("base");
       let messagebuff = message;
       messagebuff.premium = false;
-      messagebuff.sender =  msgaddoptions[0];
+      messagebuff.sender =  selectedvalue;
       setMessage(messagebuff);
     };    
   };
