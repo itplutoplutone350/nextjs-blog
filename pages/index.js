@@ -58,6 +58,7 @@ const [message, setMessage] = useState({ text:"vuoto",
  sender: "me", data: "1/2/3", premium: false, likes: 0});
 const [walletConnected, setWalletConnection] = useState(null);
 
+  
 // variabili di controllo del tempo intercorso dall inserimento ultimo messaggio
 //esempio di unixdata = 1695188948769211503 ritornata da contratto messaggio;
 let unixdata = Date.now();
@@ -177,7 +178,11 @@ let difftime = unixdata - (message.data /1000000);
        await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
       }
     };
-        
+
+  const gestisciInputChangeOption = (e) => {
+    
+  };
+  
   // definisco url del link al messaggio postato
   const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
   // opziomi di message add
@@ -202,7 +207,8 @@ let difftime = unixdata - (message.data /1000000);
           <h1 className={styles.title}>Add your new Message To The World</h1>
     
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
-          <DropdownMenu  options={msgaddoptions}  /*selectedOption,onOptionChange*/ > Message add options </DropdownMenu>
+          <DropdownMenu  options={msgaddoptions}  /*selectedOption*/ onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
+  
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
               // difftime viene calcolato all'inizio della renderizzazione lato client e poi tutte le volte che si fa save di un messaggio
