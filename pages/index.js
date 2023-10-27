@@ -140,11 +140,26 @@ let difftime = unixdata - (message.data /1000000);
           viewMethods: ["get_messages","total_messages"],
           }
         );
+        if (!message.premium){
         await contract.add_message(
           {
               text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
           },
         );
+        }
+        else
+        {
+         alert ("premium message");@
+         const deposit = 500000000000000;
+         await contract.add_message(
+          {
+              text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
+              "300000000000000",
+              deposit
+          },
+           
+        ); 
+        };
         // eseguito solo in caso non sia necessaria redirezione a wallet
         // text è già quello inserito ma dopo chiamata a contratto ritorna altre proprietà tra cui data
         lastmsg++;
