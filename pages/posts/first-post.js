@@ -90,7 +90,7 @@ return (
 );
 }
 
-export function DropdownMenu({ options, selectedOption, onOptionChange }) {
+export function DropdownMenu({ children, options, selectedOption, onOptionChange }) {
   const handleOptionChange = (e) => {
     const selectedValue = e.target.value;
     if (onOptionChange) {
@@ -100,7 +100,7 @@ export function DropdownMenu({ options, selectedOption, onOptionChange }) {
 
   return (
     <div className={styles.dropdown}>
-      <label>Select an option:</label>
+      <label>{children}</label>
       <select value={selectedOption} onChange={handleOptionChange}>
         {options.map((option, index) => (
           <option key={index} value={option}>
