@@ -174,9 +174,13 @@ export default function IlMioPost({ postData }) {
       
       <p> From: <b>{message.sender}</b></p>
 
-      !message.premium?  <Link className={styles.cardgreenlink}  href={linktomsg} > {message.text} </Link> : 
-      <Link className={styles.cardpremium}  href={linktomsg} > <b> {message.text} </b> </Link> 
-      
+      {
+      !message.premium ?  
+      <Link className={styles.cardgreenlink}  href={linktomsg} > {message.text} </Link> 
+      : 
+      <Link className={styles.cardgreenpremium}  href={linktomsg} > <b> {message.text} </b> </Link> 
+      }
+  
       <p> Message was written: {convertUnixToDate(message.data)}</p>
     
        <LikeButton onClick={
