@@ -172,7 +172,7 @@ export default function IlMioPost({ postData }) {
       <h1 className={styles.title}>Message To The World</h1>
       <p  className={styles.description} >This your Message number:  <b>{postData.dato}</b></p>
       
-      <p> From: {message.sender}</p>
+      <p> From: <b>{message.sender}</b></p>
       <Link className={styles.cardgreenlink}  href={linktomsg} > {message.text} </Link> 
       <p> Message was written: {convertUnixToDate(message.data)}</p>
     
