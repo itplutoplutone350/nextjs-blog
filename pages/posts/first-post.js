@@ -89,3 +89,25 @@ return (
   </>
 );
 }
+
+export function DropdownMenu({ options, selectedOption, onOptionChange }) {
+  const handleOptionChange = (e) => {
+    const selectedValue = e.target.value;
+    if (onOptionChange) {
+      onOptionChange(selectedValue);
+    }
+  };
+
+  return (
+    <div className={styles.dropdown}>
+      <label>Select an option:</label>
+      <select value={selectedOption} onChange={handleOptionChange}>
+        {options.map((option, index) => (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
