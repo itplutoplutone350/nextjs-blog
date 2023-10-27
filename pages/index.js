@@ -204,8 +204,8 @@ let difftime = unixdata - (message.data /1000000);
       message.premium = true;
       message.sender =  msgaddoptions[1];
       setMessage(message);
-    }
-    else
+    };
+    if (selectedvalue === "Base - free") 
     {
       alert("base");
       message.premium = false;
