@@ -198,11 +198,17 @@ let difftime = unixdata - (message.data /1000000);
 
   const gestisciInputChangeOption = (selectedvalue) => {
     if (selectedvalue === "Premium - 0.5 Near") {
-      alert("premium message mode selected")
+      //alert("premium message mode selected")
       message.premium = true;
       message.sender =  "changepremiummessage";
       setMessage(message);
     }
+    else
+    {
+      message.premium = false;
+      message.sender =  "changebasemessage";
+      setMessage(message);
+    };
     
   };
   
