@@ -77,8 +77,8 @@ return (
       <textarea
       placeholder={children}
       onChange={handleInputChange}
-      rows={4} // Questo imposta il numero di righe
-      cols={30} // numero colonne
+      rows={6} // Questo imposta il numero di righe
+      cols={40} // numero colonne
       />
       <br></br>      
       
