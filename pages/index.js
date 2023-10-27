@@ -150,7 +150,7 @@ let difftime = unixdata - (message.data /1000000);
         else
         {
          alert ("premium message");
-         const deposit = 500000000000000;
+         const deposit = "500000000000000000000000';
          await contract.add_message(
           {
               text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
