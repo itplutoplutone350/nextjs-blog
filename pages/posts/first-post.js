@@ -97,7 +97,7 @@ export function DropdownMenu({ children, options, selectedOption, onOptionChange
       onOptionChange(selectedValue);
     }
   };
-
+  console.log(selectedOption);
   return (
     <div className={styles.dropdown}>
       <label>{children}</label>

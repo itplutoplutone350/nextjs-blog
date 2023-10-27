@@ -17,48 +17,16 @@ import * as nearAPI from "near-api-js";
 
 let lastmsg = 0;
 
-
-/*
-//dedicated to message
-// also with deposit and gas fee parameters
-const onBtnClick2 = () => {
-  if (!state.newmessage) {
-    return;
-  }
-  deposit = parseInt(props.Ndeposit) > 10000000 ? props.Ndeposit : "10000001";
-  Near.call(
-    messagelist,
-    "add_message",
-    {
-      text: state.newmessage,
-    },
-    "300000000000000",
-    deposit
-  );
-};
-
-
-const onInputChange = ({ target }) => {
-  // target destrutturazione evento passato da tag input (form) da cui estrapola la proprietà che è un oggetto target, input viene da component greetingForm.
-  // con la string target.value costruisco oggetto {greeting : target.value} che ha la stessa struttura della view del contratto
-  //State.update ({greeting : target.value})
-
-  // a seguire aggiornamento dello stato relativo ai messaggi
-  State.update({
-    newmessage: target.value,
-    index: messageview,
-  });
-};
-*/
-
-
 export default function Home() {
 // definizione degli stati a livello global di questo componente
-const [message, setMessage] = useState({ text:"vuoto",
- sender: "me", data: "1/2/3", premium: false, likes: 0});
+const [message, setMessage] = useState({ text:"vuoto", sender: "sendereiniziale", data: "1/2/3", premium: false, likes: 0});
 const [walletConnected, setWalletConnection] = useState(null);
 
+// opziomi di message add e relativo stato inizializzato con la prima delle opzioni
+const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
+const [addmessagemode, setAddMode] = useState(msgaddoptions[0]);
   
+
 // variabili di controllo del tempo intercorso dall inserimento ultimo messaggio
 //esempio di unixdata = 1695188948769211503 ritornata da contratto messaggio;
 let unixdata = Date.now();
@@ -127,7 +95,7 @@ let difftime = unixdata - (message.data /1000000);
         // walletConnected è status variable 
         if (walletConnected.isSignedIn()) {
         // user is signed in
-        alert('Thanks for your 🌏Message🌏! Eventually You will be redirected to MyNear wallet to approve the transaction')
+        alert('Thanks for your 🌏Message🌏! You could be redirected to MyNear wallet to approve the transaction')
         
         const walletaccount = await   walletConnected.account();
         console.log("walletaccount che incrementa like ",walletaccount);
@@ -140,7 +108,8 @@ let difftime = unixdata - (message.data /1000000);
           viewMethods: ["get_messages","total_messages"],
           }
         );
-        if (!message.premium){
+        // a seconda della modalità scelta da menu tendina faccio messagge add con deposito o senza
+        if (addmessagemode === msgaddoptions[0]){
         await contract.add_message(
           {
               text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
@@ -149,7 +118,7 @@ let difftime = unixdata - (message.data /1000000);
         }
         else
         {
-         alert ("premium message");
+         
          const deposit = "500000000000000000000000";
          await contract.add_message(
           {
@@ -162,8 +131,7 @@ let difftime = unixdata - (message.data /1000000);
         // eseguito solo in caso non sia necessaria redirezione a wallet
         // text è già quello inserito ma dopo chiamata a contratto ritorna altre proprietà tra cui data
         lastmsg++;
-        const msglist = await contract.get_messages({ from_index: "0",
-          limit: lastmsg, }); 
+        const msglist = await contract.get_messages({ from_index: "0", limit: lastmsg, }); 
         setMessage(msglist[lastmsg-1]);
         unixdata = Date.now();
         difftime = unixdata - parseInt((msglist[lastmsg-1].data /1000000));
@@ -178,15 +146,12 @@ let difftime = unixdata - (message.data /1000000);
       
       };
 
-
       const  gestisciInputChangeAddMessage = async (e) => {
       if (walletConnected.isSignedIn()) {
-        let messagebuff = message;
-        messagebuff.text = e.target.value;
-        //messagebuff.sender =  "changeinputdmessage";
-        setMessage(messagebuff);
-        //setMessage({ text: e.target.value,
-        //sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});     
+        
+        //permette aggiornamento del test anche direttamente nel rendering del messaggio
+        setMessage({ text: e.target.value,
+        sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});     
       }
       else
      {
@@ -196,25 +161,14 @@ let difftime = unixdata - (message.data /1000000);
       };
     }
   
-  // opziomi di message add
-  const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
-  const gestisciInputChangeOption = (selectedvalue) => {
-    if (selectedvalue === "Premium - 0.5 Near") {
-      alert("premium message mode selected")
-      let messagebuff = message;
-      messagebuff.premium = true;
-      messagebuff.sender =  selectedvalue;
-      setMessage(messagebuff);
-    }
-    else
-    {
-      alert("base");
-      let messagebuff = message;
-      messagebuff.premium = false;
-      messagebuff.sender =  selectedvalue;
-      setMessage(messagebuff);
-    };    
-  };
+    // <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
+    // costante funzione usata da evento di componente DropdownMenu  menu tendina
+    const gestisciInputChangeOption = (selectedvalue) => {
+    // semplicemente aggiorna lo stato addmessagemode del menu con l opzione scelta e questo stato viene usato come paramentro selectedOption di DropdownMenu
+    console.log(selectedvalue);
+    (selectedvalue === msgaddoptions[1])? alert("You have selected PREMIUM message, your new message will be highlighted!") : alert("You selected the base option");
+    setAddMode(selectedvalue);
+     };
   
   // definisco url del link al messaggio postato
   const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
@@ -238,8 +192,8 @@ let difftime = unixdata - (message.data /1000000);
           <h1 className={styles.title}>Add your new Message To The World</h1>
     
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
-         
-          <DropdownMenu  options={msgaddoptions}  /*selectedOption={msgaddoptions[0]}*/ onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
+          
+          <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
   
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
