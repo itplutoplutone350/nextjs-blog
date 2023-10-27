@@ -242,7 +242,7 @@ let difftime = unixdata - (message.data /1000000);
               <p>... Waiting for a new message</p>         
             }
          
-          !message.premium? <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> : <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
+          !message.premium? <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> : <p id="msg"  className={styles.cardpremiumlink} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
       
           <LikeButton onClick={() => alert('Thanks for your like, please go to message link to add your like')}>LIKE it</LikeButton>
           <br></br>
