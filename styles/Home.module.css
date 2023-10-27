@@ -139,7 +139,7 @@
   text-decoration: none;
   border: 5px solid lightgreen;
   border-radius: 10px;
-  animation: borderChange 5s infinite alternate; /* Applica l'animazione "borderChange" */
+  animation: borderChange 3s infinite alternate; /* Applica l'animazione "borderChange" */
 }
 
 .cardpremiumlink:hover {
