@@ -154,10 +154,9 @@ let difftime = unixdata - (message.data /1000000);
          await contract.add_message(
           {
               text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
-              "300000000000000",
-              deposit
           },
-           
+         "300000000000000",
+              deposit            
         ); 
         };
         // eseguito solo in caso non sia necessaria redirezione a wallet
