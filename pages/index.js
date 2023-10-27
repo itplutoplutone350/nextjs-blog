@@ -149,8 +149,8 @@ let difftime = unixdata - (message.data /1000000);
         }
         else
         {
-         alert ("premium message");
-         const deposit = "500000000000000000000000";
+         //alert ("premium message");
+         const deposit = "50000000000000000000000";
          await contract.add_message(
           {
               text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
@@ -241,7 +241,8 @@ let difftime = unixdata - (message.data /1000000);
               :
               <p>... Waiting for a new message</p>         
             }
-          <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> 
+         
+          !message.premium? <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> : <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
       
           <LikeButton onClick={() => alert('Thanks for your like, please go to message link to add your like')}>LIKE it</LikeButton>
           <br></br>
