@@ -129,6 +129,41 @@
   border-color: red;
 }
 
+
+.cardpremiumlink {
+  margin: 1rem;
+  flex-basis: 45%;
+  padding: 1.5rem;
+  text-align: center;
+  color: darkgreen;
+  text-decoration: none;
+  border: 5px solid lightgreen;
+  border-radius: 10px;
+  animation: borderChange 5s infinite alternate; /* Applica l'animazione "borderChange" */
+}
+
+.cardpremiumlink:hover {
+  border-color: violet; /* Cambia il bordo in arancio quando mouse è sopra */
+}
+.cardpremiumlink:focus,
+.cardpremiumlink:active {
+  color: red;
+  border-color: red;
+}
+
+@keyframes borderChange {
+  0% {
+    border-color: lightgreen; /* Inizia con il colore "lightgreen" */
+  }
+  50% {
+    border-color: violet; /* Cambia a "violet" a metà dell'animazione */
+  }
+  100% {
+    border-color: red; /* Termina con il colore "red" */
+  }
+}
+
+
 .cardred {
   margin: 1rem;
   flex-basis: 30%;
