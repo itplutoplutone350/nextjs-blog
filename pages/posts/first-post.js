@@ -78,7 +78,7 @@ return (
       placeholder={children}
       onChange={handleInputChange}
       rows={6} // Questo imposta il numero di righe
-      cols={40} // numero colonne
+      cols={35} // numero colonne
       />
       <br></br>      
       
