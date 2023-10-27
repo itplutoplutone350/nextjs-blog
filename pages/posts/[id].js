@@ -178,7 +178,7 @@ export default function IlMioPost({ postData }) {
       !message.premium ?  
       <Link className={styles.cardgreenlink}  href={linktomsg} > {message.text} </Link> 
       : 
-      <Link className={styles.cardgreenpremium}  href={linktomsg} > <b> {message.text} </b> </Link> 
+      <Link className={styles.cardpremiumlink}  href={linktomsg} > <b> {message.text} </b> </Link> 
       }
   
       <p> Message was written: {convertUnixToDate(message.data)}</p>
