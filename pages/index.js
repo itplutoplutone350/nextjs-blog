@@ -193,9 +193,9 @@ let difftime = unixdata - (message.data /1000000);
        alert('😔 Sorry You first have to sign in, You will be redirected to MyNear wallet'); 
 
        await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
-      }
-    };
-
+      };
+    }
+  
   // opziomi di message add
   const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
   const gestisciInputChangeOption = (selectedvalue) => {
@@ -213,8 +213,7 @@ let difftime = unixdata - (message.data /1000000);
       messagebuff.premium = false;
       messagebuff.sender =  msgaddoptions[0];
       setMessage(messagebuff);
-    };
-    
+    };    
   };
   
   // definisco url del link al messaggio postato
