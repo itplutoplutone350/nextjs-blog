@@ -149,7 +149,7 @@ let difftime = unixdata - (message.data /1000000);
         }
         else
         {
-         alert ("premium message");@
+         alert ("premium message");
          const deposit = 500000000000000;
          await contract.add_message(
           {
