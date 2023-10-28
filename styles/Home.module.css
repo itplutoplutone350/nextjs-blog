@@ -106,6 +106,7 @@
     border-color 0.15s ease;
 }
 
+/* usato per messaggio base*/
 .cardgreenlink {
   margin: 1rem;
   flex-basis: 45%;
@@ -115,6 +116,7 @@
   text-decoration: none;
   border: 5px solid lightgreen; /* Cambia il colore del bordo a verde */
   border-radius: 10px;
+  backgroud-color: lightyellow;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
