@@ -76,8 +76,9 @@
   text-align: center;
   color: darkblue;
   text-decoration: none;
-  border: 5px solid lightblue;
+  border: 5px solid blue;
   border-radius: 10px;
+  background-color: lightblue;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
@@ -91,7 +92,7 @@
 }
 
 
-
+/* usato per mostrare messaggi no link*/
 .cardgreen {
   margin: 1rem;
   flex-basis: 45%;
@@ -101,6 +102,7 @@
   text-decoration: none;
   border: 3px solid lightgreen; /* Cambia il colore del bordo a verde */
   border-radius: 10px;
+  background-color: lightyellow;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
@@ -141,6 +143,7 @@
   text-decoration: none;
   border: 5px solid lightgreen;
   border-radius: 10px;
+  background-color: lightyellow;
   animation: borderChange 3s infinite alternate; /* Applica l'animazione "borderChange" */
 }
 
@@ -175,6 +178,7 @@
   text-decoration: none;
   border: 1px solid cyan; /* Rendiamo il bordo più spesso */
   border-radius: 10px;
+  background-color: lightcyan;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
