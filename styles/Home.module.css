@@ -78,7 +78,7 @@
   text-decoration: none;
   border: 5px solid blue;
   border-radius: 10px;
-  background-color: darkwhite;
+  background-color: white;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
