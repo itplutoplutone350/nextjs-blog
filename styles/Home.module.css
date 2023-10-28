@@ -78,7 +78,7 @@
   text-decoration: none;
   border: 5px solid blue;
   border-radius: 10px;
-  background-color: lightblue;
+  background-color: lightgrey;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
@@ -194,7 +194,7 @@
 }
 
 .greenbutton {
-  background-color: green; /* Sfondo lightgreen */
+  background-color: lightgreen; /* Sfondo lightgreen */
   color: yellow;
   font-weight: bold;
   border: 3px solid darkgreen;
@@ -211,7 +211,7 @@
 
 .bluebutton {
   background-color: lightblue; /* Sfondo lightgreen */
-  color: darkblue;
+  color: white;
   font-weight: bold;
   border: 3px solid darkblue;
   padding: 10px 20px;
