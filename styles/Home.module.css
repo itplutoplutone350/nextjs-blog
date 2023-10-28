@@ -194,7 +194,7 @@
 }
 
 .greenbutton {
-  background-color: lightgreen; /* Sfondo lightgreen */
+  background-color: green; /* Sfondo lightgreen */
   color: yellow;
   font-weight: bold;
   border: 3px solid darkgreen;
@@ -210,7 +210,7 @@
 }
 
 .bluebutton {
-  background-color: lightblue; /* Sfondo lightgreen */
+  background-color: blue; /* Sfondo lightgreen */
   color: white;
   font-weight: bold;
   border: 3px solid darkblue;
