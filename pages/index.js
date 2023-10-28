@@ -187,8 +187,8 @@ let difftime = unixdata - (message.data /1000000);
      crossorigin="anonymous"></Script>
        
         </Head>
-
-        <main className={GeistSans.className}  > 
+       
+        <main> 
           <h1 className={styles.title}>Add your new Message To The World</h1>
     
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
