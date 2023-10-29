@@ -25,7 +25,9 @@ const [walletConnected, setWalletConnection] = useState(null);
 // opziomi di message add e relativo stato inizializzato con la prima delle opzioni
 const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
 const [addmessagemode, setAddMode] = useState(msgaddoptions[0]);
-  
+
+// stato con iser loggato
+const [userlogged, setUserlogged] = useState("no user signed in");
 
 // variabili di controllo del tempo intercorso dall inserimento ultimo messaggio
 //esempio di unixdata = 1695188948769211503 ritornata da contratto messaggio;
@@ -71,10 +73,18 @@ let difftime = unixdata - (message.data /1000000);
       
        // create wallet connection
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
-       
+
+      (walletConnection.isSignedIn())? 
+         setUserlogged(walletConnection.getAccountId());
+              :
+         setUserlogged(" No User Signed in ");
+     
+      
        setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
        
        setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
+       
+      
        //calcola il tempo passato da inserimento ultimo messaggio a ora che la pagina viene mostrata
        unixdata = Date.now();
        difftime = unixdata - (message.data /1000000);
@@ -199,20 +209,16 @@ let difftime = unixdata - (message.data /1000000);
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
               // difftime viene calcolato all'inizio della renderizzazione lato client e poi tutte le volte che si fa save di un messaggio
               // se son passati meno di 3 minuti da ultimo post messaggio allora mostra link perchè potrebbe esser stato salvato da user da poco
+              <p> user: {userlogged} </p>
               (difftime < 180000) ?
               <FirstPost href={linktomsg}> 🌎 Go to Message link 🌍 </FirstPost>
               :
-              <p>... Waiting for a new message</p>         
+              <p>... Waiting for a new message</p> 
+        
             }
          
-          {
-            (walletConnected.isSignedIn())? 
-                <p> User Signed in {walletConnected.getAccountId()} </p>
-              :
-                <p> No User Signed in </p>
-           }
            
-            {
+          {
             !message.premium ? 
             <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> 
             :
