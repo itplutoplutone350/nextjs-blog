@@ -75,7 +75,7 @@ let difftime = unixdata - (message.data /1000000);
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
 
       (walletConnection.isSignedIn())? 
-         setUserlogged(walletConnection.getAccountId());
+         setUserlogged(walletConnection.getAccountId())
               :
          setUserlogged(" No User Signed in ");
      
