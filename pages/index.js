@@ -149,7 +149,12 @@ let difftime = unixdata - (message.data /1000000);
         alert('😔 Sorry you need to enter your message again, You first have to sign in, You will be redirected to MyNear wallet'); 
 
         await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
-        
+         
+        (walletConnected.isSignedIn())? 
+         setUserlogged(walletConnected.getAccountId())
+              :
+         setUserlogged("No User Signed in");
+          
         }
       
       };
