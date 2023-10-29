@@ -214,14 +214,16 @@ let difftime = unixdata - (message.data /1000000);
           
           <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
            
-          <LikeButton onClick={async () => {
+          <LikeButton onClick= 
+            { async () => 
+             {
               if (!walletConnected.isSignedIn()) 
                {
                  alert(' You will be redirected to MyNear wallet to login'); 
                  await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
                };    
              }
-            };  > User Account: <b>{userlogged}</b>    </LikeButton>
+            }  > User Account: <b>{userlogged}</b>    </LikeButton>
             
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
