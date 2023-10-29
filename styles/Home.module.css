@@ -196,12 +196,12 @@
 .greenbutton {
   background-color: green; /* Sfondo lightgreen */
   color: yellow;
-  font-weight: bold;
+ /* font-weight: bold;*/
   border: 3px solid darkgreen;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition: background-color lightgreen, border-color 0.3s;
 }
 
 .greenbutton:hover {
