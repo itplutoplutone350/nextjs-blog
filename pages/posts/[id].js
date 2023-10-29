@@ -169,7 +169,7 @@ export default function IlMioPost({ postData }) {
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
     </Head> 
-     <main>
+     
       <h1 className={styles.title}>Message To The World</h1>
       <p  className={styles.description} >This your Message number:  <b>{postData.dato}</b></p>
       
@@ -224,7 +224,7 @@ export default function IlMioPost({ postData }) {
       }>Add your LIKE ( {message.likes - 100} )</LikeButton>
       
       <FirstPost href="../index"> 🌏 Add a new Message To The World 🌏 </FirstPost>     
-   </main> 
+   
   </div>
   );
 }
