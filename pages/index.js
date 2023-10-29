@@ -210,7 +210,7 @@ let difftime = unixdata - (message.data /1000000);
         <main> 
           <h1 className={styles.title}>Add your new Message To The World</h1>
     
-          <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}>
+          <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> .. Add new message here </MessageForm>
           <LikeButton onClick= 
             { async () => 
              {
@@ -220,10 +220,7 @@ let difftime = unixdata - (message.data /1000000);
                  await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
                };    
              }
-            }  > User: <b>{userlogged}</b>    </LikeButton>
-          
-           add new message here </MessageForm>
-          
+            }  > User: <b>{userlogged}</b>  </LikeButton>
           <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
