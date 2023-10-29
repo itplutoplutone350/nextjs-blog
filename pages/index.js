@@ -68,12 +68,12 @@ let difftime = unixdata - (message.data /1000000);
         }
       );
       lastmsg = await contract.total_messages({});
+      
       const msglist = await contract.get_messages({ from_index: "0",
       limit: lastmsg, });
       
        // create wallet connection
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
-
        
         setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
        
@@ -83,14 +83,14 @@ let difftime = unixdata - (message.data /1000000);
        unixdata = Date.now();
        difftime = unixdata - (message.data /1000000);
        
-    // Aspetta 2 secondi prima di eseguire questo codice
+    // Aspetta 1 secondi prima di eseguire il check user signedin
     setTimeout(function() {
     // Il codice da eseguire dopo l'attesa di 2 secondi
     (walletConnection.isSignedIn())? 
          setUserlogged(walletConnection.getAccountId())
               :
          setUserlogged("No User Signed in");
-}, 5000); // 2000 millisecondi
+     }, 1000); // 1000 millisecondi
        
         // abilita sotto per fare signout all'inizio del display frontend
        //walletConnection.signOut();
