@@ -74,17 +74,15 @@ let difftime = unixdata - (message.data /1000000);
        // create wallet connection
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
 
-      (walletConnection.isSignedIn())? 
+       (walletConnection.isSignedIn())? 
          setUserlogged(walletConnection.getAccountId())
               :
-         setUserlogged(" No User Signed in ");
-     
+         setUserlogged("No User Signed in");
       
-       setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
+        setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
        
-       setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
-       
-      
+        setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
+         
        //calcola il tempo passato da inserimento ultimo messaggio a ora che la pagina viene mostrata
        unixdata = Date.now();
        difftime = unixdata - (message.data /1000000);
@@ -204,7 +202,7 @@ let difftime = unixdata - (message.data /1000000);
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
           
           <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
-          <p> user: {userlogged} </p> 
+          <p> User Account: <b>{userlogged}</b> </p> 
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
               // difftime viene calcolato all'inizio della renderizzazione lato client e poi tutte le volte che si fa save di un messaggio
