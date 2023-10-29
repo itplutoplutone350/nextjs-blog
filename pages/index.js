@@ -204,12 +204,11 @@ let difftime = unixdata - (message.data /1000000);
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
           
           <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
-  
+          <p> user: {userlogged} </p> 
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
               // difftime viene calcolato all'inizio della renderizzazione lato client e poi tutte le volte che si fa save di un messaggio
               // se son passati meno di 3 minuti da ultimo post messaggio allora mostra link perchè potrebbe esser stato salvato da user da poco
-              <p> user: {userlogged} </p>
               (difftime < 180000) ?
               <FirstPost href={linktomsg}> 🌎 Go to Message link 🌍 </FirstPost>
               :
