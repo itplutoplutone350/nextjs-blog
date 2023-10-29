@@ -78,7 +78,7 @@
   text-decoration: none;
   border: 5px solid blue;
   border-radius: 10px;
-  background-color: white;
+  background-color: lightcyan;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
