@@ -210,10 +210,7 @@ let difftime = unixdata - (message.data /1000000);
         <main> 
           <h1 className={styles.title}>Add your new Message To The World</h1>
     
-          <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
-          
-          <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
-           
+          <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}>
           <LikeButton onClick= 
             { async () => 
              {
@@ -223,8 +220,11 @@ let difftime = unixdata - (message.data /1000000);
                  await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
                };    
              }
-            }  > User Account: <b>{userlogged}</b>    </LikeButton>
-            
+            }  > User: <b>{userlogged}</b>    </LikeButton>
+          
+           add new message here </MessageForm>
+          
+          <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
               // difftime viene calcolato all'inizio della renderizzazione lato client e poi tutte le volte che si fa save di un messaggio
@@ -232,11 +232,9 @@ let difftime = unixdata - (message.data /1000000);
               (difftime < 180000) ?
               <FirstPost href={linktomsg}> 🌎 Go to Message link 🌍 </FirstPost>
               :
-              <p>... Waiting for a new message</p> 
-        
+              <p>... Waiting for a new message</p>
             }
-         
-           
+  
           {
             !message.premium ? 
             <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> 
