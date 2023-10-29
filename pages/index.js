@@ -213,7 +213,17 @@ let difftime = unixdata - (message.data /1000000);
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
           
           <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
-          <p> User Account: <b>{userlogged}</b> </p> 
+           
+          <LikeButton onClick={ () => {
+              if (!walletConnected.isSignedIn()) 
+               {
+                 alert(' You will be redirected to MyNear wallet to login'); 
+
+                 await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+               };
+              
+             }  > User Account: <b>{userlogged}</b>    </LikeButton>
+            
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
               // difftime viene calcolato all'inizio della renderizzazione lato client e poi tutte le volte che si fa save di un messaggio
@@ -233,8 +243,7 @@ let difftime = unixdata - (message.data /1000000);
             <p id="msg"  className={styles.cardpremiumlink} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
           }
               
-          <LikeButton onClick={() => alert('Thanks for your like, please go to message link to add your like')}>LIKE it</LikeButton>
-          <br></br>
+           <br></br>
           <br></br>
           <p> --- This App has been build with Next.js ---</p> 
           <br></br> 
