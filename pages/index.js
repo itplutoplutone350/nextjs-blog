@@ -214,7 +214,7 @@ let difftime = unixdata - (message.data /1000000);
           
           <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
            
-          <LikeButton onClick={ () => {
+          <LikeButton onClick={async () => {
               if (!walletConnected.isSignedIn()) 
                {
                  alert(' You will be redirected to MyNear wallet to login'); 
