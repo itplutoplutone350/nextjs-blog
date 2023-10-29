@@ -207,10 +207,12 @@ let difftime = unixdata - (message.data /1000000);
          
           {
             (walletConnected.isSignedIn())? 
-                <p> User Signed in with: {walletConnected.getAccountId()} </p>
+                <p> User Signed in {walletConnected.getAccountId()} </p>
               :
                 <p> No User Signed in </p>
-            
+           }
+           
+            {
             !message.premium ? 
             <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> 
             :
