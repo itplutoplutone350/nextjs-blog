@@ -82,14 +82,18 @@ let difftime = unixdata - (message.data /1000000);
        //calcola il tempo passato da inserimento ultimo messaggio a ora che la pagina viene mostrata
        unixdata = Date.now();
        difftime = unixdata - (message.data /1000000);
-       // abilita sotto per fare signout all'inizio del display frontend
-       //walletConnection.signOut();
-    
-       (await walletConnection.isSignedIn())? 
-         setUserlogged(await walletConnection.getAccountId())
+       
+    // Aspetta 2 secondi prima di eseguire questo codice
+    setTimeout(function() {
+    // Il codice da eseguire dopo l'attesa di 2 secondi
+    (walletConnection.isSignedIn())? 
+         setUserlogged(walletConnection.getAccountId())
               :
          setUserlogged("No User Signed in");
-      
+}, 5000); // 2000 millisecondi
+       
+        // abilita sotto per fare signout all'inizio del display frontend
+       //walletConnection.signOut();
     };
      
     
