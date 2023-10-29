@@ -27,7 +27,7 @@ const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
 const [addmessagemode, setAddMode] = useState(msgaddoptions[0]);
 
 // stato con iser loggato
-const [userlogged, setUserlogged] = useState("no user signed in");
+const [userlogged, setUserlogged] = useState(null);
 
 // variabili di controllo del tempo intercorso dall inserimento ultimo messaggio
 //esempio di unixdata = 1695188948769211503 ritornata da contratto messaggio;
@@ -74,11 +74,7 @@ let difftime = unixdata - (message.data /1000000);
        // create wallet connection
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
 
-       (walletConnection.isSignedIn())? 
-         setUserlogged(walletConnection.getAccountId())
-              :
-         setUserlogged("No User Signed in");
-      
+       
         setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
        
         setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
@@ -88,6 +84,12 @@ let difftime = unixdata - (message.data /1000000);
        difftime = unixdata - (message.data /1000000);
        // abilita sotto per fare signout all'inizio del display frontend
        //walletConnection.signOut();
+    
+       (await walletConnection.isSignedIn())? 
+         setUserlogged(await walletConnection.getAccountId())
+              :
+         setUserlogged("No User Signed in");
+      
     };
      
     
