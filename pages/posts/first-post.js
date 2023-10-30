@@ -112,7 +112,7 @@ export function DropdownMenu({ children, options, selectedOption, onOptionChange
   );
 }
 
-export function DropdownMenuMsg({ children, options, selectedOption, onOptionChange, userid}) {
+export function DropdownMenuMsg({ children, options = {}, selectedOption, onOptionChange, userid}) {
   const handleOptionChange = (e) => {
     const selectedValue = e.target.value;
     if (onOptionChange) {
