@@ -194,20 +194,24 @@
 }
 
 .greenbutton {
-  background-color: green; /* Sfondo lightgreen */
+  background-color: green;
   color: yellow;
- /* font-weight: bold;*/
   border: 3px solid darkgreen;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s; /* Aggiungi il colore di sfondo alla transizione */
 }
 
 .greenbutton:hover {
   background-color: darkgreen;
-  border-color: green; /* Cambia il colore del bordo quando si passa sopra */
+  border-color: green;
 }
+
+.greenbutton:active {
+  background-color: lightgreen; /* Cambia il colore di sfondo quando il pulsante è schiacciato */
+}
+
 
 .bluebutton {
   background-color: blue; /* Sfondo lightgreen */
@@ -220,10 +224,15 @@
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.greenbutton:hover {
+.bluebutton:hover {
   background-color: blue;
   border-color: lightblue; /* Cambia il colore del bordo quando si passa sopra */
 }
+
+.bluebutton:active {
+  background-color: lightblue; /* Cambia il colore di sfondo quando il pulsante è schiacciato */
+}
+
 
 
 
