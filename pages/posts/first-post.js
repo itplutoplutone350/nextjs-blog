@@ -112,7 +112,7 @@ export function DropdownMenu({ children, options, selectedOption, onOptionChange
   );
 }
 
-export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOptionChange, userid}) {
+export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOptionChange, userid }) {
   const handleOptionChange = (e) => {
     const selectedValue = e.target.value;
     if (onOptionChange) {
@@ -126,7 +126,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       <select value={selectedOption} onChange={handleOptionChange}>
         {options.map((option, index) => (
     {
-         option.sender === userid?
+         (option.sender === userid) ?
          <option key={index} value={option.text}>
             {option.text}
           </option>
