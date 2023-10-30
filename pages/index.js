@@ -8,6 +8,7 @@ import FirstPost from './posts/first-post';
 import {LikeButton} from './posts/first-post';
 import {MessageForm} from './posts/first-post';
 import {DropdownMenu} from './posts/first-post';
+import {DropdownMenuMsg} from './posts/first-post';
 import { useEffect, useState } from 'react';
 
 import { setupWalletSelector } from "@near-wallet-selector/core";
@@ -241,9 +242,11 @@ let difftime = unixdata - (message.data /1000000);
             <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> 
             :
             <p id="msg"  className={styles.cardpremiumlink} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
-          }
-              
-           <br></br>
+          } 
+           
+         <DropdownMenuMsg  options={msgaddoptions}  selectedOption={message} onOptionChange={gestisciInputChangeOption} iserid=userlogged  > Message list </DropdownMenuMsg>
+             
+          <br></br>
           <br></br>
           <p> --- This App has been build with Next.js ---</p> 
           <br></br> 
