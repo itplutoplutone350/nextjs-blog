@@ -247,7 +247,7 @@ let difftime = unixdata - (message.data /1000000);
             <p id="msg"  className={styles.cardpremiumlink} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
           } 
            
-          <DropdownMenuMsg  options={messagelst}  selectedOption={} onOptionChange={} iserid=userlogged  > Message list </DropdownMenuMsg>
+          <DropdownMenuMsg  options={messagelst}  /*selectedOption={} onOptionChange={} iserid=userlogged  */> Message list </DropdownMenuMsg>
              
           <br></br>
           <br></br>
