@@ -124,11 +124,11 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     <div className={styles.dropdown}>
       <label>{children}</label>
       <select value={selectedOption} onChange={handleOptionChange}>
-        {options.map((option, index) => (
+{options.map((option, index) => (
     {
-         (option.sender === userid) ?
+         (option === userid) ?
          <option key={index} value={option.text}>
-            {option.text}
+            {option}
           </option>
           :
          <></>
