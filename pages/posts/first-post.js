@@ -126,8 +126,8 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       <select value={selectedOption} onChange={handleOptionChange}>
         {options.map((option, index) => 
           (option.sender === userid) ? (
-            <option key={index} value={option.text} label={option.text} title={option.text}  >
-              {option.text}
+            <option key={index} value={index} label={option.text} title={option.text}  >
+              {index}
             </option>
           ) : (
             <></>
