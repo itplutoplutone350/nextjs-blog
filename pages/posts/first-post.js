@@ -124,16 +124,15 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     <div className={styles.dropdown}>
       <label>{children}</label>
       <select value={selectedOption} onChange={handleOptionChange}>
-{options.map((option, index) => (
-    {
-         (option === userid) ?
-         <option key={index} value={option.text}>
-            {option}
-          </option>
-          :
-         <></>
-    }
-        ))}
+        {options.map((option, index) => 
+          (option.sender === userid) ? (
+            <option key={index} value={option.text}>
+              {option.text}
+            </option>
+          ) : (
+            <></>
+          )
+        )}
       </select>
     </div>
   );
