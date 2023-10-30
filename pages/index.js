@@ -22,7 +22,8 @@ export default function Home() {
 // definizione degli stati a livello global di questo componente
 const [message, setMessage] = useState({ text:"vuoto", sender: "sendereiniziale", data: "1/2/3", premium: false, likes: 0});
 const [walletConnected, setWalletConnection] = useState(null);
-
+const [messagelst, setMessagelst] = useState([{}]);
+  
 // opziomi di message add e relativo stato inizializzato con la prima delle opzioni
 const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
 const [addmessagemode, setAddMode] = useState(msgaddoptions[0]);
@@ -79,7 +80,9 @@ let difftime = unixdata - (message.data /1000000);
         setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
        
         setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
-         
+
+        setMessagelst(msglist);
+      
        //calcola il tempo passato da inserimento ultimo messaggio a ora che la pagina viene mostrata
        unixdata = Date.now();
        difftime = unixdata - (message.data /1000000);
@@ -244,7 +247,7 @@ let difftime = unixdata - (message.data /1000000);
             <p id="msg"  className={styles.cardpremiumlink} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
           } 
            
-         <DropdownMenuMsg  options={msgaddoptions}  selectedOption={message} onOptionChange={gestisciInputChangeOption} iserid=userlogged  > Message list </DropdownMenuMsg>
+          <DropdownMenuMsg  options={messagelst}  selectedOption={} onOptionChange={} iserid=userlogged  > Message list </DropdownMenuMsg>
              
           <br></br>
           <br></br>
