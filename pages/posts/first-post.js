@@ -111,3 +111,30 @@ export function DropdownMenu({ children, options, selectedOption, onOptionChange
     </div>
   );
 }
+
+export function DropdownMenuMsg({ children, options, selectedOption, onOptionChange, userid}) {
+  const handleOptionChange = (e) => {
+    const selectedValue = e.target.value;
+    if (onOptionChange) {
+      onOptionChange(selectedValue);
+    }
+  };
+  console.log(selectedOption);
+  return (
+    <div className={styles.dropdown}>
+      <label>{children}</label>
+      <select value={selectedOption} onChange={handleOptionChange}>
+        {options.map((option, index) => (
+    {
+         option.sender === userid?
+         <option key={index} value={option.text}>
+            {option.text}
+          </option>
+          :
+         <></>
+    }
+        ))}
+      </select>
+    </div>
+  );
+}
