@@ -78,9 +78,10 @@ let difftime = unixdata - (message.data /1000000);
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
        
         setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
-        lastmsg = 1;
-        setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
         
+        setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
+        lastmsg = 1;
+      
         setMessagelst(msglist);
       
        //calcola il tempo passato da inserimento ultimo messaggio a ora che la pagina viene mostrata
@@ -89,7 +90,7 @@ let difftime = unixdata - (message.data /1000000);
        
     // Aspetta 1 secondi prima di eseguire il check user signedin
     setTimeout(function() {
-    // Il codice da eseguire dopo l'attesa di 2 secondi
+    // Il codice da eseguire dopo l'attesa di 1 secondi
     (walletConnection.isSignedIn())? 
          setUserlogged(walletConnection.getAccountId())
               :
