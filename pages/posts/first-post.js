@@ -120,20 +120,32 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     }
   };
   console.log(selectedOption);
+
+  let lastMatchingIndex = -1; // Inizializza la variabile con un valore predefinito
+
+  const selectelement = options.map((option, index) => {
+    if (option.sender === userid) {
+      lastMatchingIndex = index; // Aggiorna l'indice se la condizione è soddisfatta
+      return (
+        <option key={index} value={index}>
+          {index}
+        </option>
+      );
+    } else {
+      return <></>;
+    }
+  });
+
+  if (selectedOption == 1) { selectedOption =  lastMatchingIndex };
+    
   return (
     <div className={styles.dropdown}>
       <label>{children}</label>
       <select value={selectedOption} onChange={handleOptionChange}>
-        {options.map((option, index) => 
-          (option.sender === userid) ? (
-            <option key={index} value={index}   >
-              {index}
-            </option>
-          ) : (
-            <></>
-          )
-        )}
+        {selectelement}
       </select>
+      <p>Ultimo index corrispondente: {lastMatchingIndex}</p>
     </div>
   );
 }
+
