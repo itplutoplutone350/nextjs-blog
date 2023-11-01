@@ -95,7 +95,9 @@ let difftime = unixdata - (message.data /1000000);
               :
          setUserlogged("No User Signed in");
      }, 1000); // 1000 millisecondi
-       
+
+     lastmsg = 0;
+      
         // abilita sotto per fare signout all'inizio del display frontend
        //walletConnection.signOut();
     };
@@ -251,9 +253,9 @@ let difftime = unixdata - (message.data /1000000);
   
           {
             !message.premium ? 
-            <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> 
+            <p id="msg"  className={styles.cardgreen} >🌍 Selected Message: 🌎 <br></br> {message.text}</p> 
             :
-            <p id="msg"  className={styles.cardpremiumlink} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
+            <p id="msg"  className={styles.cardpremiumlink} >🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b></p>
           } 
            
           <DropdownMenuMsg  options={messagelst}  selectedOption={lastmsg} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Message list </DropdownMenuMsg>
