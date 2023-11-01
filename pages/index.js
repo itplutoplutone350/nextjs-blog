@@ -255,7 +255,23 @@ let difftime = unixdata - (message.data /1000000);
             }  > User: <b>{userlogged}</b>  </LikeButton>
           <br></br>
 
-         {renderMsg}
+         {
+  
+           walletConnected.isSignedIn() ? (
+             !message.premium ? (
+              <p id="msg" className={styles.cardgreen}>
+             🌍 Selected Message: 🌎 <br></br> {message.text}
+             </p>
+            ) : (
+             <p id="msg" className={styles.cardpremiumlink}>
+             🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
+            </p>
+           )
+           ) : (
+           <></>
+           )
+          }
+
          
           <DropdownMenuMsg  options={messagelst}  selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
              
