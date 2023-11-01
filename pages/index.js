@@ -258,7 +258,7 @@ let difftime = unixdata - (message.data /1000000);
             <p id="msg"  className={styles.cardpremiumlink} >🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b></p>
           } 
            
-          <DropdownMenuMsg  options={messagelst}  selectedOption={lastmsg} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Message list </DropdownMenuMsg>
+          <DropdownMenuMsg  options={messagelst}  selectedOption={lastmsg} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
              
           <br></br>
           <br></br>
