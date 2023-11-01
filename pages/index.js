@@ -192,6 +192,11 @@ let difftime = unixdata - (message.data /1000000);
     (selectedvalue === msgaddoptions[1])? alert("You have selected PREMIUM message, your new message will be highlighted!") : alert("You selected the base option");
     setAddMode(selectedvalue);
      };
+
+
+    // opzione di scelta messaggio eventualm da modificarw
+   const onOptionChange = () => {
+   };
   
   // definisco url del link al messaggio postato
   const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
@@ -227,7 +232,7 @@ let difftime = unixdata - (message.data /1000000);
               <p>... Waiting for a new message</p>
             }
                 
-          // button con user loggato o x loggarsi
+          
           <LikeButton onClick= 
             { async () => 
              {
