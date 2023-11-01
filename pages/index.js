@@ -23,6 +23,7 @@ export default function Home() {
 const [message, setMessage] = useState({ text:"vuoto", sender: "sendereiniziale", data: "1/2/3", premium: false, likes: 0});
 const [walletConnected, setWalletConnection] = useState(null);
 const [messagelst, setMessagelst] = useState([{}]);
+const [msgselected, setMessagesel] = useState(1);
   
 // opziomi di message add e relativo stato inizializzato con la prima delle opzioni
 const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
@@ -200,7 +201,7 @@ let difftime = unixdata - (message.data /1000000);
     // opzione di scelta messaggio eventualm da modificarw
    const gestisciMenuonMsgOptionChange = (selectedValue) => {
    const selectedmessage = messagelst[selectedValue];
-   lastmsg = selectedValue+1;
+   setMessagesel(selectedValue);
    setMessage(selectedmessage);
    
    };
@@ -259,7 +260,7 @@ let difftime = unixdata - (message.data /1000000);
             <p id="msg"  className={styles.cardpremiumlink} >🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b></p>
           } 
            
-          <DropdownMenuMsg  options={messagelst}  selectedOption={lastmsg} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
+          <DropdownMenuMsg  options={messagelst}  selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
              
           <br></br>
           <br></br>
