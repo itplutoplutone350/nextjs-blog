@@ -23,7 +23,8 @@ export default function Home() {
 const [message, setMessage] = useState({ text:"vuoto", sender: "sendereiniziale", data: "1/2/3", premium: false, likes: 0});
 const [walletConnected, setWalletConnection] = useState(null);
 const [messagelst, setMessagelst] = useState([{}]);
-const [msgselected, setMessagesel] = useState(1);
+const [msgselected, setMessagesel] = useState(0);
+                                          
   
 // opziomi di message add e relativo stato inizializzato con la prima delle opzioni
 const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
@@ -81,7 +82,7 @@ let difftime = unixdata - (message.data /1000000);
         setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
 
         //lastmsg = 1; 
-        setMessage(msglist[0]); // Memorizza messaggio 0 default choice  inserito in lista contratto
+        setMessage(msglist[ lastmsg-1  ]); // Memorizza messaggio 0 default choice  inserito in lista contratto
         
         // la lista in stato per menù tendina choice message      
         setMessagelst(msglist);
