@@ -144,7 +144,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       <select value={selectedOption} onChange={handleOptionChange}>
         {selectelement}
       </select>
-      <p>Ultimo index corrispondente: {lastMatchingIndex}</p>
+     <p> Last Message index: {lastMatchingIndex}</p>
     </div>
   );
 }
