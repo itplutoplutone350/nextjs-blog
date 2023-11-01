@@ -31,7 +31,7 @@ const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
 const [addmessagemode, setAddMode] = useState(msgaddoptions[0]);
 
 // stato con user loggato
-const [userlogged, setUserlogged] = useState(null);
+const [userlogged, setUserlogged] = useState("No User Signed in");
 
 // variabili di controllo del tempo intercorso dall inserimento ultimo messaggio
 //esempio di unixdata = 1695188948769211503 ritornata da contratto messaggio;
@@ -256,20 +256,20 @@ let difftime = unixdata - (message.data /1000000);
           <br></br>
 
          {
-  walletConnected.isSignedIn() ? (
-    !message.premium ? (
-      <p id="msg" className={styles.cardgreen}>
-        🌍 Selected Message: 🌎 <br></br> {message.text}
-      </p>
-    ) : (
-      <p id="msg" className={styles.cardpremiumlink}>
-        🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
-      </p>
-    )
-  ) : (
-    <></>
-  )
-}
+          userlogged !== "No User Signed in" ? (
+          !message.premium ? (
+           <p id="msg" className={styles.cardgreen}>
+           🌍 Selected Message: 🌎 <br></br> {message.text}
+           </p>
+         ) : (
+           <p id="msg" className={styles.cardpremiumlink}>
+           🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
+           </p>
+          )
+          ) : (
+          <></>
+          )
+        }
  
 
          
