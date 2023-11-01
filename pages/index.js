@@ -28,7 +28,7 @@ const [messagelst, setMessagelst] = useState([{}]);
 const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
 const [addmessagemode, setAddMode] = useState(msgaddoptions[0]);
 
-// stato con iser loggato
+// stato con user loggato
 const [userlogged, setUserlogged] = useState(null);
 
 // variabili di controllo del tempo intercorso dall inserimento ultimo messaggio
@@ -195,7 +195,11 @@ let difftime = unixdata - (message.data /1000000);
 
 
     // opzione di scelta messaggio eventualm da modificarw
-   const onOptionChange = () => {
+   const gestisciMenuonMsgOptionChange = (selectedValue) => {
+   const selectedmessage = messagelst[selectedValue];
+   lastmsg = selectedValue;
+    setMessage(selectedmessage);
+   
    };
   
   // definisco url del link al messaggio postato
@@ -252,7 +256,7 @@ let difftime = unixdata - (message.data /1000000);
             <p id="msg"  className={styles.cardpremiumlink} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
           } 
            
-          <DropdownMenuMsg  options={messagelst}  /*selectedOption={} onOptionChange={} */ userid={userlogged} > Message list </DropdownMenuMsg>
+          <DropdownMenuMsg  options={messagelst}  selectedOption={lastmsg} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Message list </DropdownMenuMsg>
              
           <br></br>
           <br></br>
