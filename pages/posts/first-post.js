@@ -136,7 +136,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     }
   });
 
-  if (selectedOption == 1) { selectedOption =  lastMatchingIndex };
+  if (selectedOption == 0) { selectedOption =  lastMatchingIndex };
     
   return (
     <div className={styles.dropdown}>
