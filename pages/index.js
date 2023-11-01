@@ -16,7 +16,7 @@ import { setupModal } from "@near-wallet-selector/modal-ui";
 import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import * as nearAPI from "near-api-js";
 
-let lastmsg = 0;
+let lastmsg = 1;
 
 export default function Home() {
 // definizione degli stati a livello global di questo componente
@@ -78,9 +78,9 @@ let difftime = unixdata - (message.data /1000000);
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
        
         setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
-       
+        lastmsg = 1;
         setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
-
+        
         setMessagelst(msglist);
       
        //calcola il tempo passato da inserimento ultimo messaggio a ora che la pagina viene mostrata
@@ -96,7 +96,6 @@ let difftime = unixdata - (message.data /1000000);
          setUserlogged("No User Signed in");
      }, 1000); // 1000 millisecondi
 
-     lastmsg = 0;
       
         // abilita sotto per fare signout all'inizio del display frontend
        //walletConnection.signOut();
