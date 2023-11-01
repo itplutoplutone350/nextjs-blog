@@ -200,8 +200,8 @@ let difftime = unixdata - (message.data /1000000);
     // opzione di scelta messaggio eventualm da modificarw
    const gestisciMenuonMsgOptionChange = (selectedValue) => {
    const selectedmessage = messagelst[selectedValue];
-   lastmsg = selectedValue;
-    setMessage(selectedmessage);
+   lastmsg = selectedValue+1;
+   setMessage(selectedmessage);
    
    };
   
