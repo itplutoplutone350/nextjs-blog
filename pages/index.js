@@ -256,7 +256,7 @@ let difftime = unixdata - (message.data /1000000);
           <br></br>
 
          {
-          userlogged !== "No User Signed in" ? (
+           message.sender === userlogged ? (
           !message.premium ? (
            <p id="msg" className={styles.cardgreen}>
            🌍 Selected Message: 🌎 <br></br> {message.text}
