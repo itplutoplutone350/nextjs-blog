@@ -188,7 +188,8 @@ let difftime = unixdata - (message.data /1000000);
        await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
       };
     }
-  
+
+    
     // <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
     // costante funzione usata da evento di componente DropdownMenu  menu tendina
     const gestisciInputChangeOption = (selectedvalue) => {
@@ -253,18 +254,9 @@ let difftime = unixdata - (message.data /1000000);
              }
             }  > User: <b>{userlogged}</b>  </LikeButton>
           <br></br>
-            
-         { (walletConnected.isSignedIn())?
-          {
-            !message.premium ? 
-            <p id="msg"  className={styles.cardgreen} >🌍 Selected Message: 🌎 <br></br> {message.text}</p> 
-            :
-            <p id="msg"  className={styles.cardpremiumlink} >🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b></p>
-          } 
-          :
-          <></>
-         }
-  
+
+         {renderMsg}
+         
           <DropdownMenuMsg  options={messagelst}  selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
              
           <br></br>
