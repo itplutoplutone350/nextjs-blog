@@ -78,10 +78,11 @@ let difftime = unixdata - (message.data /1000000);
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
        
         setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
+
+        //lastmsg = 1; 
+        setMessage(msglist[0]); // Memorizza messaggio 0 default choice  inserito in lista contratto
         
-        setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
-        lastmsg = 1;
-      
+        // la lista in stato per menù tendina choice message      
         setMessagelst(msglist);
       
        //calcola il tempo passato da inserimento ultimo messaggio a ora che la pagina viene mostrata
@@ -217,7 +218,7 @@ let difftime = unixdata - (message.data /1000000);
           <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
           <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
           
-    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8956396660152170"
+     <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8956396660152170"
      crossorigin="anonymous"></Script>
        
         </Head>
