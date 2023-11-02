@@ -266,8 +266,8 @@ let difftime = unixdata - (message.data /1000000);
            🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
            </p>)) 
             : 
-           (  <p id="msg" className={styles.cardpremiumlink}>
-           🌍 Select one of your message below 🌎 <br></br> <b> void </b>
+           (  <p id="msg" className={styles.cardblue}>
+           🌍 Select one of your message 🌎 <br></br> <b> ** VOID ** </b>
            </p> )
         }
  
