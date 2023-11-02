@@ -135,13 +135,11 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       return <></>;
     }
   });
-/*
-  if (selectedOption == 0) { 
-      selectelement[lastMatchingIndex+1] =
-      
+
+  if (selectedOption == 0) {   
       selectedOption =  lastMatchingIndex 
   };
-*/    
+    
   return (
     <div className={styles.dropdown}>
       <label>{children}</label>
