@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Script from 'next/script'
 import Link from 'next/link';
 
-import Link from 'next/link';
+
 import FirstPost from './posts/first-post';
 import {LikeButton} from './posts/first-post';
 import {MessageForm} from './posts/first-post';
