@@ -140,7 +140,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
   if (selectedOption == 0) {   
       selectedOption =  lastMatchingIndex 
       
-     // lastmsg = "Last message: " + options[lastMatchingIndex].text;
+      lastmsg = "Last message: " + options[lastMatchingIndex].text;
       
   };
     
