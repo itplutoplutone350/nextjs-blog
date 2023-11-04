@@ -2,6 +2,7 @@ import styles from '../styles/Home.module.css';
 
 import Head from 'next/head';
 import Script from 'next/script'
+import Link from 'next/link';
 
 import Link from 'next/link';
 import FirstPost from './posts/first-post';
@@ -258,13 +259,13 @@ let difftime = unixdata - (message.data /1000000);
          {
           message.sender === userlogged ? (
           !message.premium ?
-            (  <p id="msg" className={styles.cardgreen}>
+            (  <Link href={linktomsg} className={styles.cardgreen}>
            🌍 Selected Message: 🌎 <br></br> {message.text}
-           </p>) 
+           </Link>) 
             : 
-            (  <p id="msg" className={styles.cardpremiumlink}>
+            (  <Link href={linktomsg} className={styles.cardpremiumlink}>
            🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
-           </p>)) 
+           </Link>)) 
             : 
            (  <p id="msg" className={styles.cardblue}>
            🌍 Select your message 🌎 <br></br> <b> ** Message VOID ** </b>
