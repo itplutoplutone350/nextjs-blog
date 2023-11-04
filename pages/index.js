@@ -261,16 +261,21 @@ let difftime = unixdata - (message.data /1000000);
           message.sender === userlogged ? (
           !message.premium ?
             (  <Link href={linktomsg} className={styles.cardgreen}>
-           🌍 Selected Message: 🌎 <br></br> {message.text}
-           </Link>) 
+             🌍 Selected Message: 🌎 <br></br> {message.text}
+             </Link>
+             <DropdownMenuMsg  options={messagelst}  selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
+              
+            ) 
             : 
             (  <Link href={linktomsg} className={styles.cardpremiumlink}>
-           🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
-           </Link>)) 
+             🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
+             </Link>)
+             <DropdownMenuMsg  options={messagelst}  selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
+            ) 
             : 
-           (  <p id="msg" className={styles.cardblue}>
-           🌍 Select your message 🌎 <br></br> <b> ** Message VOID ** </b>
-           </p> )
+           (  <Link href=" " className={styles.cardblue}> VOID Message <br></br>
+           🌍 <b> Select your message </b>🌎    
+           </Link> )
         }
          
           <DropdownMenuMsg  options={messagelst}  selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
