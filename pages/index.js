@@ -260,23 +260,23 @@ let difftime = unixdata - (message.data /1000000);
          {
   message.sender === userlogged ? (
     !message.premium ? (
-      <div>
+      <>
         <Link href={linktomsg} className={styles.cardgreen}>
           🌍 Selected Message: 🌎 <br></br> {message.text}
         </Link>
         <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
           Select from your Message list
         </DropdownMenuMsg>
-      </div>
+      </>
     ) : (
-      <div>
+      <>
         <Link href={linktomsg} className={styles.cardpremiumlink}>
           🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
         </Link>
         <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
           Select from your Message list
         </DropdownMenuMsg>
-      </div>
+      </>
     )
   ) : (
     <div>
