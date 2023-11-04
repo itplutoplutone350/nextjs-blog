@@ -138,7 +138,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     
   let lastmsgflag = "normal";
   if (selectedOption == 0) {   
-      selectedOption =  lastMatchingIndex 
+      selectedOption =  lastMatchingIndex ;
       
       lastmsgflag = "Lastmessage";
       
