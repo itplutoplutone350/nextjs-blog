@@ -137,14 +137,16 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     }
   });
 
+  let selopt = selectedOption;
   if (selectedOption === 0) {   
     lastMessageText = options[lastMatchingIndex]?.text; // Assegna il testo dell'ultimo messaggio solo se selectedOption è 0 e lastMatchingIndex è definito
+    selopt = lastMatchingIndex;
   }
     
   return (
     <span className={styles.dropdown}>
       <label>{children}</label>
-      <select value={selectedOption} onChange={handleOptionChange}>
+      <select value={selopt} onChange={handleOptionChange}>
         {selectelement}
       </select>
       {selectedOption === 0 && lastMessageText !== null && (
