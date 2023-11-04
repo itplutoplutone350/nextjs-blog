@@ -269,8 +269,9 @@ let difftime = unixdata - (message.data /1000000);
             : 
             (  <Link href={linktomsg} className={styles.cardpremiumlink}>
              🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
-             </Link>)
+             </Link>
              <DropdownMenuMsg  options={messagelst}  selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
+            )
             ) 
             : 
            (  <Link href=" " className={styles.cardblue}> VOID Message <br></br>
