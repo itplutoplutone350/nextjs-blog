@@ -136,11 +136,11 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     }
   });
     
-  let lastmsg = " ";
+  let lastmsgflag = "normal";
   if (selectedOption == 0) {   
       selectedOption =  lastMatchingIndex 
       
-      lastmsg = "Last message: " + options[lastMatchingIndex].text;
+      lastmsgflag = "Lastmessage";
       
   };
     
@@ -148,7 +148,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     <span className={styles.dropdown}>
 
       {
-      (selectedOption == 0)?
+      (lastmsgflag == "Lastmessage")?
       <p> Last message: {options[lastMatchingIndex].text} </p>
       :
       <></>
