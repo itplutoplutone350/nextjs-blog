@@ -289,8 +289,6 @@ let difftime = unixdata - (message.data /1000000);
 }
 
          
-          <DropdownMenuMsg  options={messagelst}  selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange}  userid={userlogged} > Select from your Message list </DropdownMenuMsg>
-             
           <br></br>
           <br></br>
           <p> --- This App has been build with Next.js ---</p>  
