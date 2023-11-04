@@ -282,8 +282,11 @@ let difftime = unixdata - (message.data /1000000);
     <>
       <Link href=" " className={styles.cardblue}>
         VOID Message <br></br>
-        🌍 <b> Select your message </b>🌎
+        🌍 <b>  </b>🌎
       </Link>
+      <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
+          Select from your Message list
+      </DropdownMenuMsg>
     </>
   )
 }
