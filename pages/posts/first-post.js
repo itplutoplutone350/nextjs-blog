@@ -122,6 +122,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
   console.log(selectedOption);
 
   let lastMatchingIndex = -1; // Inizializza la variabile con un valore predefinito
+  let lastMessageText = null; // Inizializza la variabile del testo dell'ultimo messaggio a null
 
   const selectelement = options.map((option, index) => {
     if (option.sender === userid) {
@@ -135,31 +136,22 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       return <></>;
     }
   });
-    
-  let lastmsgflag = "normal";
-  if (selectedOption == 0) {   
-      selectedOption =  lastMatchingIndex ;
-      
-      lastmsgflag = "Lastmessage";
-      
-  };
+
+  if (selectedOption === 0) {   
+    lastMessageText = options[lastMatchingIndex]?.text; // Assegna il testo dell'ultimo messaggio solo se selectedOption è 0 e lastMatchingIndex è definito
+  }
     
   return (
     <span className={styles.dropdown}>
-
-      {
-      (lastmsgflag == "Lastmessage")?
-      <p> Last message: {options[lastMatchingIndex].text} </p>
-      :
-      <></>
-      }
-
       <label>{children}</label>
       <select value={selectedOption} onChange={handleOptionChange}>
         {selectelement}
       </select>
-      
+      {selectedOption === 0 && lastMessageText !== null && (
+        <p>Last message: {lastMessageText}</p>
+      )}
     </span>
   );
 }
+
 
