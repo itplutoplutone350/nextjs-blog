@@ -144,7 +144,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
   }
     
   return (
-    <className={styles.cardgreen}  >
+    <span className={styles.cardgreen}  >
       <label>{children}</label>
       <select className={styles.dropdown} value={selopt} onChange={handleOptionChange}>
         {selectelement}
@@ -152,7 +152,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       {selectedOption === 0 && lastMessageText !== null && (
         <p> Your Last message: <br></br><b>{lastMessageText}</b></p>
       )}
-    </>
+    </span>
   );
 }
 
