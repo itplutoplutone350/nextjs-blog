@@ -151,8 +151,9 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       <select className={styles.dropdown} value={selopt} onChange={handleOptionChange}>
         {selectelement}
       </select>
-     
-    <Link  href={linktomsg}><br></br><b>{options[selopt]?.text}</b></Link>    
+      
+      <br></br>
+      <Link  href={linktomsg}><br></br><b>{options[selopt]?.text}</b></Link>    
     </span>
   );
 }
