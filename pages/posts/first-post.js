@@ -118,7 +118,7 @@ return (
       <br></br>      
       
       <button   className={styles.bluebutton}  onClick={handleBtnClick2}>
-        Save Message
+        Save Modified Message
       </button>
     </div>
   </>
