@@ -278,6 +278,8 @@ let difftime = unixdata - (message.data /1000000);
          ... Watiting for Your next message add <br></br>
          </Link>
         )
+         
+       }
 
         <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
           Select Your Message: 
