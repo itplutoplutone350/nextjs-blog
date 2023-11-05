@@ -143,7 +143,8 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     lastMessageText = options[lastMatchingIndex]?.text; // Assegna il testo dell'ultimo messaggio solo se selectedOption è 0 e lastMatchingIndex è definito
     selopt = lastMatchingIndex;
   }
-    
+
+  let linktomsg  =  "https://messagetotheworld.vercel.app/posts/" + selopt;
   return (
     <span className={styles.cardgreen}  >
       <label>{children}</label>
@@ -153,7 +154,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       {selectedOption === 0 && lastMessageText !== null && (
         <p> Your Last message: <br></br><b>{lastMessageText}</b></p>
       )}
-    {options[selopt]?.text}
+    <p>Your selected message: <br></br><b>{options[selopt]?.text}</b></p>    
     </span>
   );
 }
