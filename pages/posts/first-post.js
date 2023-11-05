@@ -156,7 +156,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
         <p> Your Last message: <br></br><b>{lastMessageText}</b></p>
       )}
       */
-    <p>Your selected message: <br></br><b>{options[selopt]?.text}</b></p>    
+    <Link  href={linktomsg}>Your selected message: <br></br><b>{options[selopt]?.text}</b></Link>    
     </span>
   );
 }
