@@ -262,13 +262,13 @@ let difftime = unixdata - (message.data /1000000);
           !message.premium ? (
       
           <p  className={styles.cardgreen}>
-          🌍 Message: 🌎 <br></br> {message.text}
+          🌍 Message preview: 🌎 <br></br> {message.text}
           </p>
       
           ) : (
       
           <p  className={styles.cardpremiumlink}>
-          🌍 Message: 🌎 <br></br> <b>{message.text}</b>
+          🌍 Message preview: 🌎 <br></br> <b>{message.text}</b>
          </p>        
          )
            
