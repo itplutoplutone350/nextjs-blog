@@ -115,6 +115,7 @@ return (
       rows={7} // Questo imposta il numero di righe
       cols={33} // numero colonne
       />
+      <p> {children} </p>
       <br></br>      
       
       <button   className={styles.bluebutton}  onClick={handleBtnClick2}>
