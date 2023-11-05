@@ -139,7 +139,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
 
   let selopt = selectedOption;
   if (selectedOption === 0) {   
-    lastMessageText = options[lastMatchingIndex]?.text; // Assegna il testo dell'ultimo messaggio solo se selectedOption è 0 e lastMatchingIndex è definito
+    lastMessageText = options[lastMatchingIndex].text; // Assegna il testo dell'ultimo messaggio solo se selectedOption è 0 e lastMatchingIndex è definito
     selopt = lastMatchingIndex;
   }
     
@@ -152,6 +152,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       {selectedOption === 0 && lastMessageText !== null && (
         <p> Your Last message: <br></br><b>{lastMessageText}</b></p>
       )}
+    {options[selopt].text}
     </span>
   );
 }
