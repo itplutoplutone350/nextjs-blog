@@ -267,7 +267,8 @@ let difftime = unixdata - (message.data /1000000);
           </p>
       
           ) : (
-      
+         <MessageFormEdit /* onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage} */> {message.text} </MessageForm>
+           
           <p  className={styles.cardpremiumlink}>
           🌍 Message preview: 🌎 <br></br> <b>{message.text}</b>
          </p>        
