@@ -151,9 +151,11 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       <select className={styles.dropdown} value={selopt} onChange={handleOptionChange}>
         {selectelement}
       </select>
+      /*
       {selectedOption === 0 && lastMessageText !== null && (
         <p> Your Last message: <br></br><b>{lastMessageText}</b></p>
       )}
+      */
     <p>Your selected message: <br></br><b>{options[selopt]?.text}</b></p>    
     </span>
   );
