@@ -180,7 +180,7 @@ let difftime = unixdata - (message.data /1000000);
         
         //permette aggiornamento del test anche direttamente nel rendering del messaggio
         setMessage({ text: e.target.value,
-        sender: userlogged  , data: "4/5/6", premium: false, likes: 1});     
+        sender: userlogged  , data: "4/5/6", premium: addmessagemode  , likes: 1});     
       }
       else
      {
@@ -261,22 +261,22 @@ let difftime = unixdata - (message.data /1000000);
           message.sender === userlogged ? (
           !message.premium ? (
       
-          <Link href={linktomsg} className={styles.cardgreen}>
+          <p  className={styles.cardgreen}>
           🌍 Message: 🌎 <br></br> {message.text}
-          </Link>
+          </p>
       
           ) : (
       
-          <Link href={linktomsg} className={styles.cardpremiumlink}>
+          <p  className={styles.cardpremiumlink}>
           🌍 Message: 🌎 <br></br> <b>{message.text}</b>
-         </Link>        
+         </p>        
          )
            
          ) : (
     
-         <Link href=" " className={styles.cardblue}>
-         ... Watiting for Your next message add <br></br>
-         </Link>
+         <p className={styles.cardblue}>
+         ... Watiting for Your next message <br></br>
+         </p>
         )
          
        }
