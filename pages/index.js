@@ -82,7 +82,6 @@ let difftime = unixdata - (message.data /1000000);
        
         setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
 
-        //lastmsg = 1; 
         setMessage(msglist[ lastmsg-1  ]); // Memorizza messaggio 0 default choice  inserito in lista contratto
         
         // la lista in stato per menù tendina choice message      
