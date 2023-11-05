@@ -90,7 +90,7 @@ return (
 );
 }
 
-export function MessageFormEdit( { children, onInputChange, onBtnClick2 }) {
+export function MessageFormEdit( { children , onInputChange , onBtnClick2 }) {
 // Define form component to add message.. 
 // gestione dell'evento e che contiene la stringa in form input cambiata da utente
 const handleInputChange = (e) => {
