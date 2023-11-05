@@ -180,7 +180,7 @@ let difftime = unixdata - (message.data /1000000);
         
         //permette aggiornamento del test anche direttamente nel rendering del messaggio
         setMessage({ text: e.target.value,
-        sender: userlogged, data: "4/5/6", premium: false, likes: 1});     
+        sender: userlogged  , data: "4/5/6", premium: false, likes: 1});     
       }
       else
      {
@@ -205,7 +205,7 @@ let difftime = unixdata - (message.data /1000000);
    const gestisciMenuonMsgOptionChange = (selectedValue) => {
    const selectedmessage = messagelst[selectedValue];
    setMessagesel(selectedValue);
-   setMessage(selectedmessage);
+   //setMessage(selectedmessage);
    
    };
   
@@ -258,33 +258,30 @@ let difftime = unixdata - (message.data /1000000);
           <br></br>
 
          {
-  message.sender === userlogged ? (
-    !message.premium ? (
+          message.sender === userlogged ? (
+          !message.premium ? (
       
-        <Link href={linktomsg} className={styles.cardgreen}>
-          🌍 Selected Message: 🌎 <br></br> {message.text}
-        </Link>
+          <Link href={linktomsg} className={styles.cardgreen}>
+          🌍 Message: 🌎 <br></br> {message.text}
+          </Link>
       
-    ) : (
+          ) : (
       
-        <Link href={linktomsg} className={styles.cardpremiumlink}>
-          🌍 Selected Message: 🌎 <br></br> <b>{message.text}</b>
-        </Link>        
-      
-    )
-  ) : (
+          <Link href={linktomsg} className={styles.cardpremiumlink}>
+          🌍 Message: 🌎 <br></br> <b>{message.text}</b>
+         </Link>        
+         )
+           
+         ) : (
     
-      <Link href=" " className={styles.cardblue}>
-       ... Watiting for Your next message add <br></br>
-        
-      </Link>
-    
-  )
-}
+         <Link href=" " className={styles.cardblue}>
+         ... Watiting for Your next message add <br></br>
+         </Link>
+        )
 
-      <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
+        <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
           Select Your Message: 
-      </DropdownMenuMsg>
+        </DropdownMenuMsg>
   
          
           <br></br>
