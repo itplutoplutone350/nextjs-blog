@@ -8,7 +8,10 @@ import Link from 'next/link';
 import FirstPost from './posts/first-post';
 import {LikeButton} from './posts/first-post';
 import {MessageForm} from './posts/first-post';
+import {MessageFormEdit} from './posts/first-post';
+
 import {DropdownMenu} from './posts/first-post';
+
 import {DropdownMenuMsg} from './posts/first-post';
 import { useEffect, useState } from 'react';
 
@@ -269,9 +272,7 @@ let difftime = unixdata - (message.data /1000000);
           ) : (
          <MessageFormEdit /* onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage} */> {message.text} </MessageForm>
            
-          <p  className={styles.cardpremiumlink}>
-          🌍 Message preview: 🌎 <br></br> <b>{message.text}</b>
-         </p>        
+           
          )
            
          ) : (
