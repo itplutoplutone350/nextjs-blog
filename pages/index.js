@@ -283,7 +283,7 @@ let difftime = unixdata - (message.data /1000000);
        }
 
         <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
-          Select Your Message: 
+          Select Your Message : . 
         </DropdownMenuMsg>
   
          
