@@ -241,7 +241,7 @@ let difftime = unixdata - (message.data /1000000);
               (difftime < 180000 && message.sender === userlogged) ?
               <FirstPost href={linktomsglast}> 🌎 Go to Message link 🌍 </FirstPost>
               :
-              <p>... Waiting for a new message</p>
+              <p></p>
             }
                 
           
@@ -275,8 +275,8 @@ let difftime = unixdata - (message.data /1000000);
   ) : (
     
       <Link href=" " className={styles.cardblue}>
-        VOID Message <br></br>
-        🌍 <b>  </b>🌎
+       ... Watiting for Your next message add <br></br>
+        
       </Link>
     
   )
