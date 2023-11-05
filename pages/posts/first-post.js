@@ -90,6 +90,41 @@ return (
 );
 }
 
+export function MessageFormEdit( { children, onInputChange, onBtnClick2 }) {
+// Define form component to add message.. 
+// gestione dell'evento e che contiene la stringa in form input cambiata da utente
+const handleInputChange = (e) => {
+  if (onInputChange) {
+    onInputChange(e);
+  }
+};
+
+const handleBtnClick2 = () => {
+  if (onBtnClick2) {
+    onBtnClick2();
+  }
+};
+return (
+  <>
+    <div className={styles.cardblue}  >
+      <label>Message handler</label>
+      <br></br>
+      <textarea
+      value={children}
+      onChange={handleInputChange}
+      rows={7} // Questo imposta il numero di righe
+      cols={33} // numero colonne
+      />
+      <br></br>      
+      
+      <button   className={styles.bluebutton}  onClick={handleBtnClick2}>
+        Save Message
+      </button>
+    </div>
+  </>
+);
+}
+
 export function DropdownMenu({ children, options, selectedOption, onOptionChange }) {
   const handleOptionChange = (e) => {
     const selectedValue = e.target.value;
