@@ -180,7 +180,9 @@ let difftime = unixdata - (message.data /1000000);
         
         //permette aggiornamento del test anche direttamente nel rendering del messaggio
         setMessage({ text: e.target.value,
-        sender: userlogged  , data: "4/5/6", premium: addmessagemode  , likes: 1});     
+        sender: userlogged  , data: "4/5/6", 
+        premium: addmessagemode === msgaddoptions[0] ? false : true  , 
+        likes: 1});     
       }
       else
      {
