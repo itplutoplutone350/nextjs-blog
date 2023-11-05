@@ -152,7 +152,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
         {selectelement}
       </select>
      
-    <Link  href={linktomsg}>Your selected message: <br></br><b>{options[selopt]?.text}</b></Link>    
+    <Link  href={linktomsg}><br></br><b>{options[selopt]?.text}</b></Link>    
     </span>
   );
 }
