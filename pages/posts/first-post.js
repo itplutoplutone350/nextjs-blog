@@ -107,7 +107,7 @@ const handleBtnClick2 = () => {
 return (
   <>
     <div className={styles.cardblue}  >
-      <label>Message handler</label>
+      <label>Message Editor handler</label>
       <br></br>
       <textarea
       placeholder={children}
@@ -116,7 +116,7 @@ return (
       rows={7} // Questo imposta il numero di righe
       cols={33} // numero colonne
       />
-      <p> {children} </p>
+      
       <br></br>      
       
       <button   className={styles.bluebutton}  onClick={handleBtnClick2}>
