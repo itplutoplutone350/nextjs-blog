@@ -148,7 +148,7 @@ let difftime = unixdata - (message.data /1000000);
          const deposit = "500000000000000000000000";
          await contract.add_message(
           {
-              text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
+              text: message.text, // messaggio da aggiungere
           },
          "300000000000000",
               deposit            
@@ -203,7 +203,7 @@ let difftime = unixdata - (message.data /1000000);
           
          await contract.edit_message(
           {
-            index: msgselected,  // imdoce del messaggio da modificare
+            index: parseInt(msgselected),  // indice del messaggio da modificare
             new_text: message.text, // messaggio modificato
           },
           );
