@@ -90,7 +90,7 @@ return (
 );
 }
 
-export function MessageFormEdit( { children , onInputChange , onBtnClick2 }) {
+export function MessageFormEdit( { children , initialtext, onInputChange , onBtnClick2 }) {
 // Define form component to add message.. 
 // gestione dell'evento e che contiene la stringa in form input cambiata da utente
 const handleInputChange = (e) => {
@@ -110,7 +110,8 @@ return (
       <label>Message handler</label>
       <br></br>
       <textarea
-      value={children}
+      placeholder={children}
+      value={initialtext}
       onChange={handleInputChange}
       rows={7} // Questo imposta il numero di righe
       cols={33} // numero colonne
