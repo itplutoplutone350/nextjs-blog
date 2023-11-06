@@ -270,7 +270,7 @@ let difftime = unixdata - (message.data /1000000);
           </p>
       
           ) : (
-         <MessageFormEdit initialtext={message.text} /* onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage} */> Modify your premium message here </MessageFormEdit>
+         <MessageFormEdit initialtext={message.text}  onInputChange={gestisciInputChangeAddMessage} /*onBtnClick2={gestisciBtnClickAddMessage} */> Modify your premium message here </MessageFormEdit>
          )
            
          ) : (
