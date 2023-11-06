@@ -264,7 +264,7 @@ let difftime = unixdata - (message.data /1000000);
     const gestisciInputChangeOption = (selectedvalue) => {
     // semplicemente aggiorna lo stato addmessagemode del menu con l opzione scelta e questo stato viene usato come paramentro selectedOption di DropdownMenu
     console.log(selectedvalue);
-    (selectedvalue === msgaddoptions[1])? alert("You have selected PREMIUM message, your new message will be highlighted!") : alert("You selected the base option");
+    (selectedvalue === msgaddoptions[1])? alert("You selected PREMIUM message: new message will be highlighted! And Edit feature enabled") : alert("You selected the base option");
     setAddMode(selectedvalue);
      };
 
