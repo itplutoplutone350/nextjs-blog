@@ -209,7 +209,7 @@ let difftime = unixdata - (message.data /1000000);
    const gestisciMenuonMsgOptionChange = (selectedValue) => {
    const selectedmessage = messagelst[selectedValue];
    setMessagesel(selectedValue);
-   //setMessage(selectedmessage);
+   setMessage(selectedmessage);
    
    };
   
