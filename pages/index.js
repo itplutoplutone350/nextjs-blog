@@ -177,6 +177,52 @@ let difftime = unixdata - (message.data /1000000);
       
       };
 
+/*
+ edit_message '{"index": 2, "new_text": "modified message1"}' --accountId plutoplutone347.testnet
+*/
+
+  // definisce costante con codice funzione da passare a oggetto MessageFormEdit evento onBtnClick2
+    const gestisciBtnClickEditMessage = async () => {
+        
+        // walletConnected è status variable 
+        if (walletConnected.isSignedIn()) {
+        // user is signed in
+        alert('Thanks for your 🌏Message🌏! You could be redirected to MyNear wallet to approve the transaction')
+        
+        const walletaccount = await   walletConnected.account();
+        console.log("walletaccount che incrementa like ",walletaccount);
+        const { Contract } = nearAPI;
+        const contract = new Contract(
+          walletaccount,
+          "msglst5.plutoplutone347.testnet",
+          {
+          changeMethods: ["edit_message","add_message","increaselikes"],
+          viewMethods: ["get_messages","total_messages"],
+          }
+        );
+          
+         await contract.edit_message(
+          {
+            index: msgselected,  // imdoce del messaggio da modificare
+            new_text: message.text, // messaggio modificato
+          },
+          );
+          
+        }
+        else {
+        alert('😔 Sorry you need to enter your message again, You first have to sign in, You will be redirected to MyNear wallet'); 
+
+        await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+         
+        (walletConnected.isSignedIn())? 
+         setUserlogged(walletConnected.getAccountId())
+              :
+         setUserlogged("No User Signed in");
+          
+        }
+      
+      };
+  
       const  gestisciInputChangeAddMessage = async (e) => {
       if (walletConnected.isSignedIn()) {
         
@@ -194,7 +240,7 @@ let difftime = unixdata - (message.data /1000000);
       };
     }
 
-   const  gestisciInputChangeAddMessageEdit = async (e) => {
+   const  gestisciInputChangeMessageEdit = async (e) => {
       if (walletConnected.isSignedIn()) {
         
         //permette aggiornamento del test anche direttamente nel rendering del messaggio
@@ -288,7 +334,7 @@ let difftime = unixdata - (message.data /1000000);
           </p>
       
           ) : (
-         <MessageFormEdit initialtext={message.text}  onInputChange={gestisciInputChangeAddMessageEdit} /*onBtnClick2={gestisciBtnClickAddMessage} */> Modify your premium message here </MessageFormEdit>
+         <MessageFormEdit initialtext={message.text}  onInputChange={gestisciInputChangeMessageEdit} onBtnClick2={ gestisciBtnClickEditMessage }> Modify your premium message here </MessageFormEdit>
          )
            
          ) : (
