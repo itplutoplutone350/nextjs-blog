@@ -194,7 +194,25 @@ let difftime = unixdata - (message.data /1000000);
       };
     }
 
-    
+   const  gestisciInputChangeAddMessageEdit = async (e) => {
+      if (walletConnected.isSignedIn()) {
+        
+        //permette aggiornamento del test anche direttamente nel rendering del messaggio
+        setMessage({ text: e.target.value,
+        sender: userlogged  , data: "4/5/6", 
+        premium: message.premium , 
+        likes: 1});     
+      }
+      else
+     {
+       alert('😔 Sorry You first have to sign in, You will be redirected to MyNear wallet'); 
+
+       await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+      };
+    }
+
+
+  
     // <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
     // costante funzione usata da evento di componente DropdownMenu  menu tendina
     const gestisciInputChangeOption = (selectedvalue) => {
@@ -270,7 +288,7 @@ let difftime = unixdata - (message.data /1000000);
           </p>
       
           ) : (
-         <MessageFormEdit initialtext={message.text}  onInputChange={gestisciInputChangeAddMessage} /*onBtnClick2={gestisciBtnClickAddMessage} */> Modify your premium message here </MessageFormEdit>
+         <MessageFormEdit initialtext={message.text}  onInputChange={gestisciInputChangeAddMessageEdit} /*onBtnClick2={gestisciBtnClickAddMessage} */> Modify your premium message here </MessageFormEdit>
          )
            
          ) : (
