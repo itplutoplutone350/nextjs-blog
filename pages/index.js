@@ -329,7 +329,7 @@ let difftime = unixdata - (message.data /1000000);
          {
   message.sender === userlogged ? (
     !message.premium ? (
-      selectedvalue === msgaddoptions[1] ? (
+      addmessagemode === msgaddoptions[0] ? (
         <p className={styles.cardgreen}>
           🌍 Message preview: 🌎 <br></br> {message.text}
         </p>
