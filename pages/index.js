@@ -329,10 +329,20 @@ let difftime = unixdata - (message.data /1000000);
          {
           message.sender === userlogged ? (
           !message.premium ? (
-      
+          
+          (selectedvalue === msgaddoptions[1])? 
+          (
+  
           <p  className={styles.cardgreen}>
           🌍 Message preview: 🌎 <br></br> {message.text}
-          </p>
+          </p>)
+          :
+          (
+          <p  className={styles.cardgreenlink}>
+          🌍 Message preview: 🌎 <br></br> {message.text}
+          </p>)
+            
+          )
       
           ) : (
          <MessageFormEdit initialtext={message.text}  onInputChange={gestisciInputChangeMessageEdit} onBtnClick2={ gestisciBtnClickEditMessage }> Modify your premium message here </MessageFormEdit>
