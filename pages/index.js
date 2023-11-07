@@ -331,11 +331,11 @@ let difftime = unixdata - (message.data /1000000);
     !message.premium ? (
       addmessagemode === msgaddoptions[0] ? (
         <p className={styles.cardgreen}>
-          🌍 Message preview: 🌎 <br></br> {message.text}
+          🌍 Message Base preview: 🌎 <br></br> {message.text}
         </p>
       ) : (
         <p className={styles.cardpremiumlink}>
-          🌍 Message preview: 🌎 <br></br> {message.text}
+          🌍 Message Premium preview: 🌎 <br></br> {message.text}
         </p>
       )
     ) : (
