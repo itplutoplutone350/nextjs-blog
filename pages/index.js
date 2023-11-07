@@ -327,35 +327,33 @@ let difftime = unixdata - (message.data /1000000);
           <br></br>
 
          {
-          message.sender === userlogged ? (
-          !message.premium ? (
-          
-          (selectedvalue === msgaddoptions[1])? 
-          (
-  
-          <p  className={styles.cardgreen}>
+  message.sender === userlogged ? (
+    !message.premium ? (
+      selectedvalue === msgaddoptions[1] ? (
+        <p className={styles.cardgreen}>
           🌍 Message preview: 🌎 <br></br> {message.text}
-          </p>)
-          :
-          (
-          <p  className={styles.cardgreenlink}>
+        </p>
+      ) : (
+        <p className={styles.cardgreenlink}>
           🌍 Message preview: 🌎 <br></br> {message.text}
-          </p>)
-            
-          )
-      
-          ) : (
-         <MessageFormEdit initialtext={message.text}  onInputChange={gestisciInputChangeMessageEdit} onBtnClick2={ gestisciBtnClickEditMessage }> Modify your premium message here </MessageFormEdit>
-         )
-           
-         ) : (
-    
-         <p className={styles.cardblue}>
-         ... Watiting for Your next message <br></br>
-         </p>
-        )
-         
-       }
+        </p>
+      )
+    ) : (
+      <MessageFormEdit
+        initialtext={message.text}
+        onInputChange={gestisciInputChangeMessageEdit}
+        onBtnClick2={gestisciBtnClickEditMessage}
+      >
+        Modify your premium message here
+      </MessageFormEdit>
+    )
+  ) : (
+    <p className={styles.cardblue}>
+      ... Waiting for Your next message <br></br>
+    </p>
+  )
+}
+
 
         <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
           Link to Your Message : 
