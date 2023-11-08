@@ -102,10 +102,9 @@ let difftime = unixdata - (message.data /1000000);
               :
          setUserlogged("No User Signed in");
      }, 1000); // 1000 millisecondi
-
       
-        // abilita sotto per fare signout all'inizio del display frontend
-       //walletConnection.signOut();
+      // abilita sotto per fare signout all'inizio del display frontend
+      //walletConnection.signOut();
     };
      
     
@@ -116,8 +115,7 @@ let difftime = unixdata - (message.data /1000000);
 
   
       // definisce costante con codice funzione da passare a oggetto MessageForm evento onBtnClick2
-      const gestisciBtnClickAddMessage = async () => {
-        
+      const gestisciBtnClickAddMessage = async () => {   
         // walletConnected è status variable 
         if (walletConnected.isSignedIn()) {
         // user is signed in
@@ -144,7 +142,6 @@ let difftime = unixdata - (message.data /1000000);
         }
         else
         {
-         
          const deposit = "500000000000000000000000";
          await contract.add_message(
           {
@@ -161,7 +158,6 @@ let difftime = unixdata - (message.data /1000000);
         setMessage(msglist[lastmsg-1]);
         unixdata = Date.now();
         difftime = unixdata - parseInt((msglist[lastmsg-1].data /1000000));
-        //alert(unixdata); 
         }
         else {
         alert('😔 Sorry you need to enter your message again, You first have to sign in, You will be redirected to MyNear wallet'); 
@@ -174,16 +170,10 @@ let difftime = unixdata - (message.data /1000000);
          setUserlogged("No User Signed in");
           
         }
-      
       };
 
-/*
- edit_message '{"index": 2, "new_text": "modified message1"}' --accountId plutoplutone347.testnet
-*/
-
-  // definisce costante con codice funzione da passare a oggetto MessageFormEdit evento onBtnClick2
-    const gestisciBtnClickEditMessage = async () => {
-        
+    // definisce costante con codice funzione da passare a oggetto MessageFormEdit evento onBtnClick2
+    const gestisciBtnClickEditMessage = async () => {        
         // walletConnected è status variable 
         if (walletConnected.isSignedIn()) {
         // user is signed in
@@ -218,20 +208,29 @@ let difftime = unixdata - (message.data /1000000);
          setUserlogged(walletConnected.getAccountId())
               :
          setUserlogged("No User Signed in");
-          
         }
       
       };
   
-      const  gestisciInputChangeAddMessage = async (e) => {
+  const  gestisciInputChangeAddMessage = async (e) => {
       if (walletConnected.isSignedIn()) {
+        // a seconda della modalità scelta da menu tendina faccio messagge add con deposito o senza
+        if (addmessagemode === msgaddoptions[0]){
         
-        //permette aggiornamento del test anche direttamente nel rendering del messaggio
+        //BASE, permette aggiornamento del test anche direttamente nel rendering del messaggio
         setMessage({ text: e.target.value,
-        sender: userlogged  , data: "4/5/6", 
-      //  premium: addmessagemode === msgaddoptions[0] ? false : true  , 
+        sender: userlogged  , data: "insertmode", 
         premium: false,
          likes: 1});     
+        }
+        else
+        {
+          //PREMIUM, permette aggiornamento del test anche direttamente nel rendering del messaggio
+          setMessage({ text: e.target.value,
+          sender: userlogged  , data: "insertmode", 
+          premium: true,
+           likes: 1});   
+        };
       }
       else
      {
@@ -241,6 +240,7 @@ let difftime = unixdata - (message.data /1000000);
       };
     }
 
+   // gestione evento di modifica form text di edit messaggio , modifica del messaggio
    const  gestisciInputChangeMessageEdit = async (e) => {
       if (walletConnected.isSignedIn()) {
         
@@ -258,25 +258,20 @@ let difftime = unixdata - (message.data /1000000);
       };
     }
 
-
-  
-    // <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
-    // costante funzione usata da evento di componente DropdownMenu  menu tendina
+    // costante funzione usata da evento di componente DropdownMenu  menu tendina per scegliere se messaggio da inserire è premium o base
     const gestisciInputChangeOption = (selectedvalue) => {
-    // semplicemente aggiorna lo stato addmessagemode del menu con l opzione scelta e questo stato viene usato come paramentro selectedOption di DropdownMenu
-    console.log(selectedvalue);
-    (selectedvalue === msgaddoptions[1])? alert("You selected PREMIUM message: new message will be highlighted! And Edit feature enabled") : alert("You selected the base option");
-    setAddMode(selectedvalue);
-     };
+      // semplicemente aggiorna lo stato addmessagemode del menu con l opzione scelta e questo stato viene usato come paramentro selectedOption di DropdownMenu
+      console.log(selectedvalue);
+      (selectedvalue === msgaddoptions[1])? alert("You selected PREMIUM message: new message will be highlighted! And the Edit feature will be enabled") : alert("You selected the base option");
+      setAddMode(selectedvalue);
+      };
 
-
-    // opzione di scelta messaggio eventualm da modificarw
-   const gestisciMenuonMsgOptionChange = (selectedValue) => {
-   const selectedmessage = messagelst[selectedValue];
-   setMessagesel(selectedValue);
-   setMessage(selectedmessage);
-   
-   };
+      // opzione di scelta messaggio eventualm da modificarw
+      const gestisciMenuonMsgOptionChange = (selectedValue) => {
+      const selectedmessage = messagelst[selectedValue];
+      setMessagesel(selectedValue);
+      setMessage(selectedmessage);
+    };
   
   // definisco url del link al messaggio postato
   const linktomsglast = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
@@ -287,7 +282,7 @@ let difftime = unixdata - (message.data /1000000);
         <Head>
           <title>Message to the world</title>
           
-          <meta property="og:title" content="This Message to the World editor"></meta>
+          <meta property="og:title" content="This Message to the World Editor"></meta>
           <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
           <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
           <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
@@ -313,10 +308,11 @@ let difftime = unixdata - (message.data /1000000);
               <p></p>
             }
                 
-          
+      
           <LikeButton onClick= 
             { async () => 
              {
+              // bottone che renderizza lo user loggato oppure niente e permette di loggarsi su near
               if (!walletConnected.isSignedIn()) 
                {
                  alert(' You will be redirected to MyNear wallet to login'); 
@@ -324,42 +320,46 @@ let difftime = unixdata - (message.data /1000000);
                };    
              }
             }  > User: <b>{userlogged}</b>  </LikeButton>
+          
           <br></br>
 
          {
-  message.sender === userlogged ? (
-    !message.premium ? (
-      addmessagemode === msgaddoptions[0] ? (
-        <p className={styles.cardgreen}>
-          🌍 Message Base preview: 🌎 <br></br> {message.text}
-        </p>
-      ) : (
-        <p className={styles.cardpremiumlink}>
-          🌍 Message Premium preview: 🌎 <br></br> {message.text}
-        </p>
-      )
-    ) : (
-      <MessageFormEdit
-        initialtext={message.text}
-        onInputChange={gestisciInputChangeMessageEdit}
-        onBtnClick2={gestisciBtnClickEditMessage}
-      >
-        Modify your premium message here
-      </MessageFormEdit>
-    )
-  ) : (
-    <p className={styles.cardblue}>
-      ... Waiting for Your next message <br></br>
-    </p>
-  )
-}
-
+          // segmento per rendrerizzare l'anteprima dei messaggi
+          message.sender === userlogged ? (
+              message.data === "insertmode" ? (
+                addmessagemode === msgaddoptions[0] ? (
+                  <p className={styles.cardgreen}>
+                    🌍 Message Base preview: 🌎 <br></br> {message.text}
+                  </p>
+                ) : (
+                  <p className={styles.cardpremiumlink}>
+                    🌍 Message Premium preview: 🌎 <br></br> {message.text}
+                  </p>
+                )
+               ) : (
+                message.premium == true ?( 
+                <MessageFormEdit
+                  initialtext={message.text}
+                  onInputChange={gestisciInputChangeMessageEdit}
+                  onBtnClick2={gestisciBtnClickEditMessage}
+                >
+                  Modify your premium message here
+                </MessageFormEdit>
+                ):(<Link href={linktomsg} className={styles.cardgreen}>
+                    🌍 Message Base: 🌎 <br></br> {message.text}
+                  </Link>
+                ) 
+              )
+            ) : (
+              <p className={styles.cardblue}>
+                ... Waiting for Your new messages <br></br>
+              </p>
+            )
+          }
 
         <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
-          Link to Your Message : 
-        </DropdownMenuMsg>
-  
-         
+          Link to Your Selected Message:{" "} 
+        </DropdownMenuMsg>         
           <br></br>
           <br></br>
           <p> --- This App has been build with Next.js ---</p>  

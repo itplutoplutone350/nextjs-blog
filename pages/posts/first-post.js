@@ -106,7 +106,7 @@ const handleBtnClick2 = () => {
 };
 return (
   <>
-    <div className={styles.cardblue}  >
+    <div className={styles.cardpremiumlink}  >
       <label>Message Editor handler</label>
       <br></br>
       <textarea
