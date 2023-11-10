@@ -1,4 +1,4 @@
-7import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 
 import Head from 'next/head';
 import Script from 'next/script'
