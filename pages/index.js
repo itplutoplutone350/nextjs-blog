@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css';
+7import styles from '../styles/Home.module.css';
 
 import Head from 'next/head';
 import Script from 'next/script'
@@ -85,8 +85,7 @@ let difftime = unixdata - (message.data /1000000);
        
         setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
 
-        setMessage(msglist[ lastmsg-1  ]); // Memorizza messaggio 0 default choice  inserito in lista contratto
-        setMessagesel(lastmsg-1);
+        setMessage(msglist[ lastmsg-1  ]); // Memorizza messaggio default choice  inserito in lista contratto
       
         // la lista in stato per menù tendina choice message      
         setMessagelst(msglist);
@@ -99,7 +98,9 @@ let difftime = unixdata - (message.data /1000000);
     setTimeout(function() {
     // Il codice da eseguire dopo l'attesa di 1 secondi
     (walletConnection.isSignedIn())? 
-         setUserlogged(walletConnection.getAccountId())
+         (setUserlogged(walletConnection.getAccountId());
+          setMessagesel(lastmsg-1);
+         )
               :
          setUserlogged("No User Signed in");
      }, 1000); // 1000 millisecondi
