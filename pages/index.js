@@ -99,7 +99,7 @@ setTimeout(function() {
     // Il codice da eseguire dopo l'attesa di 1 secondo
     if (walletConnection.isSignedIn()) {
         setUserlogged(walletConnection.getAccountId());
-        //setMessagesel(lastmsg - 1);
+        message.sender === userlogged ?setMessagesel(lastmsg - 1) :setMessagesel(0)  ;
     } else {
         setUserlogged("No User Signed in");
     }
