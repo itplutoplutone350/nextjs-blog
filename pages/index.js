@@ -98,10 +98,11 @@ let difftime = unixdata - (message.data /1000000);
 setTimeout(function() {
     // Il codice da eseguire dopo l'attesa di 1 secondo
     if (walletConnection.isSignedIn()) {
-        alert ("flag");
+        
         const userid = walletConnection.getAccountId();
         setUserlogged(userid);
-        message.sender === userid ?setMessagesel(lastmsg - 1) :setMessagesel(0)  ;
+        alert ("flag", userid, message.sender  );
+        message.sender === userid ? setMessagesel(lastmsg - 1) : setMessagesel(2);
     } else {
         setUserlogged("No User Signed in");
     }
