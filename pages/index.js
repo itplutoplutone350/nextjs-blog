@@ -107,7 +107,7 @@ setTimeout(function() {
 
 // abilita sotto per fare signout all'inizio del display frontend
 // walletConnection.signOut();
-
+};
      
     
     // richiama la funzione fetchdata e quindi esegue connessioni a near
