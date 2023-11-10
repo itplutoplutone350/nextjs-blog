@@ -35,7 +35,7 @@ const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
 const [addmessagemode, setAddMode] = useState(msgaddoptions[0]);
 
 // stato con user loggato
-const [userlogged, setUserlogged] = useState("No User Signed in");
+const [userlogged, setUserlogged] = useState("Wait, No User Signed in");
 
 // variabili di controllo del tempo intercorso dall inserimento ultimo messaggio
 //esempio di unixdata = 1695188948769211503 ritornata da contratto messaggio;
@@ -98,12 +98,14 @@ let difftime = unixdata - (message.data /1000000);
 setTimeout(function() {
     // Il codice da eseguire dopo l'attesa di 1 secondo
     if (walletConnection.isSignedIn()) {
-        setUserlogged(walletConnection.getAccountId());
-        message.sender === userlogged ?setMessagesel(lastmsg - 1) :setMessagesel(0)  ;
+        alert ("flag");
+        const userid = walletConnection.getAccountId();
+        setUserlogged(userid);
+        message.sender === userid ?setMessagesel(lastmsg - 1) :setMessagesel(0)  ;
     } else {
         setUserlogged("No User Signed in");
     }
-}, 3000); // 1000 millisecondi
+}, 1000); // 1000 millisecondi
 
 // abilita sotto per fare signout all'inizio del display frontend
 // walletConnection.signOut();
