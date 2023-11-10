@@ -101,9 +101,7 @@ setTimeout(function() {
         
         const userid = walletConnection.getAccountId();
         setUserlogged(userid);
-        alert (userid );
-        alert (message.sender);
-        message.sender === userid ? setMessagesel(lastmsg - 1) : setMessagesel(0);
+        msglist[lastmsg-1].sender === userid ? setMessagesel(lastmsg - 1) : setMessagesel(0);
     } else {
         setUserlogged("No User Signed in");
     }
