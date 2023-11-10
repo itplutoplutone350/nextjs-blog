@@ -94,20 +94,20 @@ let difftime = unixdata - (message.data /1000000);
        unixdata = Date.now();
        difftime = unixdata - (message.data /1000000);
        
-    // Aspetta 1 secondi prima di eseguire il check user signedin
-    setTimeout(function() {
-    // Il codice da eseguire dopo l'attesa di 1 secondi
-    (walletConnection.isSignedIn())? 
-      {setUserlogged(walletConnection.getAccountId());
-          setMessagesel(lastmsg-1);
+// Aspetta 1 secondo prima di eseguire il check user signedin
+setTimeout(function() {
+    // Il codice da eseguire dopo l'attesa di 1 secondo
+    if (walletConnection.isSignedIn()) {
+        setUserlogged(walletConnection.getAccountId());
+        setMessagesel(lastmsg - 1);
+    } else {
+        setUserlogged("No User Signed in");
     }
-              :
-         setUserlogged("No User Signed in");
-     }, 1000); // 1000 millisecondi
-      
-      // abilita sotto per fare signout all'inizio del display frontend
-      //walletConnection.signOut();
-    };
+}, 1000); // 1000 millisecondi
+
+// abilita sotto per fare signout all'inizio del display frontend
+// walletConnection.signOut();
+
      
     
     // richiama la funzione fetchdata e quindi esegue connessioni a near
