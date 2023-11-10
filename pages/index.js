@@ -103,7 +103,7 @@ setTimeout(function() {
     } else {
         setUserlogged("No User Signed in");
     }
-}, 1000); // 1000 millisecondi
+}, 3000); // 1000 millisecondi
 
 // abilita sotto per fare signout all'inizio del display frontend
 // walletConnection.signOut();
