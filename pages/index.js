@@ -297,7 +297,7 @@ setTimeout(function() {
         </Head>
        
         <main> 
-          <h1 className={styles.title}>Add your new Message To The World</h1>
+          <h1 className={styles.title}>Add your new Message</h1>
     
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> .. Add new message here </MessageForm>
           
@@ -362,7 +362,7 @@ setTimeout(function() {
           }
 
         <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
-          Link to Your Selected Message:{" "} 
+          Selected Message Link:{" "} 
         </DropdownMenuMsg>         
           <br></br>
           <br></br>
