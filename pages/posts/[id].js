@@ -57,7 +57,7 @@ modal.show();
   // ]
 function generatePathsArray() {
   const paths = [];
-  for (let i = 1; i <= 1000; i++) {
+  for (let i = 1; i <= 5000; i++) {
     const obj = {
       params: {
         id: i.toString(),
@@ -182,7 +182,7 @@ export default function IlMioPost({ postData }) {
       <Link className={styles.cardpremiumlink}  href={linktomsg} > <b> {message.text} </b> </Link> 
       }
   
-      <p> Message was written: {convertUnixToDate(message.data)}</p>
+      <p> Message date: {convertUnixToDate(message.data)}</p>
     
        <LikeButton onClick={
        async () => { 
@@ -223,7 +223,7 @@ export default function IlMioPost({ postData }) {
            }    
       }>Add your LIKE ( {message.likes - 100} )</LikeButton>
       
-      <FirstPost href="../index"> 🌏 Add a new Message To The World 🌏 </FirstPost>     
+      <FirstPost href="../index"> 🌏 Add new Message 🌏 </FirstPost>     
    
   </div>
   );
