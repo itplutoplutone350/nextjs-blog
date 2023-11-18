@@ -276,6 +276,13 @@ setTimeout(function() {
       setMessagesel(selectedValue);
       setMessage(selectedmessage);
     };
+
+  const handleClickinfo =  () => {        
+      // walletConnected è status variable 
+      // if (walletConnected.isSignedIn()) {
+        
+        alert ('instructions this dApp is based on NEAR blockchain. Your messages will be stored inside the NEAR smart contract. Here you can add new messagge using your mynearwallet user. If you pay for premium then also modify message will be enabled. ');
+        }
   
   // definisco url del link al messaggio postato
   const linktomsglast = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
