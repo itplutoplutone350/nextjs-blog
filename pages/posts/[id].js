@@ -169,7 +169,9 @@ export default function IlMioPost({ postData }) {
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
     </Head> 
-     
+      <button  className={styles.circularbutton}    onClick={handleClickinfo}>
+           ?
+      </button>
       <h1 className={styles.title}>Message To The World</h1>
       <p  className={styles.description} >This your Message number:  <b>{postData.dato}</b></p>
       
