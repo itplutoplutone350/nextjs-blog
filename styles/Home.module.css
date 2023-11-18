@@ -233,7 +233,20 @@
   background-color: lightblue; /* Cambia il colore di sfondo quando il pulsante è schiacciato */
 }
 
-
+.circular-button {
+          background-color: #0198e1;
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          font-size: 2rem;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          outline: none; /* Rimuove la bordatura del pulsante quando selezionato */
+        }
 
 
 .card h3 {
