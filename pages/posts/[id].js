@@ -155,7 +155,7 @@ export default function IlMioPost({ postData }) {
   const handleClickinfo2 =  () => {        
       // walletConnected è status variable 
       // if (walletConnected.isSignedIn())         
-      alert ('This dApp is based on NEAR blockchain. Your messages is stored inside the NEAR smart contract. This is dedicated web page for this message id, you can share the link via socials or embed in your pages as iframe. Click Add message link to access the editor dApp');
+      alert ('⚠️ This dApp is based on NEAR blockchain. Your messages is stored inside the NEAR smart contract. This is a dedicated web page for message id, you can share the link via socials or embed in your pages as iframe. Click the Add message link to access editor dApp. 🌍 Developer Contact https://t.me/+U4DmDZ6sWrAzYjRk 🌏 ');
     }
   
   // esegui funzione di wallet selectior e relativo rendering
