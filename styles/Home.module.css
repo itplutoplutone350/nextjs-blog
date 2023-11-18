@@ -247,7 +247,7 @@
           cursor: pointer;
           outline: none; /* Rimuove la bordatura del pulsante quando selezionato */
           position: fixed;
-          top: 20px; /* Distanza dal top della pagina */
+          bottom: 20px; /* Distanza dal top della pagina */
           right: 20px; /* Distanza dalla destra della pagina */
 }
 
