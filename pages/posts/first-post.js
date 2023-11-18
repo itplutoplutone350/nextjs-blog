@@ -166,7 +166,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
       lastMatchingIndex = index; // Aggiorna l'indice se la condizione è soddisfatta
       return (
         <option key={index} value={index}>
-          {index} - {convertUnixToDate(option.data)} - {option.premium ? "PREMIUM": "base"}
+          <b>{index}</b> - {convertUnixToDate(option.data)} - {option.premium ? "PREMIUM": "base"}
         </option>
       );
     } else {
