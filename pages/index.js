@@ -297,6 +297,9 @@ setTimeout(function() {
         </Head>
        
         <main> 
+          <button  className={styles.greenbutton}    onClick={handleClickinfo}>
+           ?
+          </button>
           <h1 className={styles.title}>Add your new Message</h1>
     
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> .. Add new message here </MessageForm>
