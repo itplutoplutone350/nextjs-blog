@@ -280,7 +280,7 @@ setTimeout(function() {
   const handleClickinfo =  () => {        
       // walletConnected è status variable 
       // if (walletConnected.isSignedIn())         
-      alert ('This dApp is based on NEAR blockchain. Your messages will be stored inside the NEAR smart contract. Here you can add new messagges using your MyNearwallet user. If you use the premium option then modify message feature will be enabled! For each message a dedicated web page is created for you .. you can share the link via socials or embed in your pages as iframe');
+      alert ('⚠️ This dApp is based on NEAR blockchain. Your messages will be stored inside the NEAR smart contract. Here you can add new messagges using your MyNearwallet user. If you use the premium option then modify message feature will be enabled! For each message a dedicated web page is created for you .. you can share the link via socials or embed in your pages as iframe. 🌍 Developer Contact https://t.me/+U4DmDZ6sWrAzYjRk 🌏  ');
         }
   
   // definisco url del link al messaggio postato
