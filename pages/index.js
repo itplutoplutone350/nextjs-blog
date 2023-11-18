@@ -297,7 +297,7 @@ setTimeout(function() {
         </Head>
        
         <main> 
-          <button  className={styles.greenbutton}    onClick={handleClickinfo}>
+          <button  className={styles.circularbutton}    onClick={handleClickinfo}>
            ?
           </button>
           <h1 className={styles.title}>Add your new Message</h1>
