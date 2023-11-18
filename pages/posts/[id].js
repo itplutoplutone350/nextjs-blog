@@ -151,12 +151,18 @@ export default function IlMioPost({ postData }) {
     // richiama la funzione fetchdata e quindi esegue connessioni a near
     fetchData();
   }, []);
-
+  
+  const handleClickinfo2 =  () => {        
+      // walletConnected è status variable 
+      // if (walletConnected.isSignedIn())         
+      alert ('This dApp is based on NEAR blockchain. Your messages is stored inside the NEAR smart contract. This is dedicated web page for this message id, you can share the link via socials or embed in your pages as iframe. Click Add message link to access the editor dApp');
+    }
+  
   // esegui funzione di wallet selectior e relativo rendering
   //walletSelect();
   const msgindex = parseInt(postData.dato, 10);
   const ogdescription = "Your message " + postData.dato + " stored forever om NEAR block chain";
-  // definisco url del link al messaggio postato
+  // definisco url del link al messaggio postat
   const linktomsg = "https://messagetotheworld.vercel.app/posts/" + postData.dato; 
   // rendering
   return (
@@ -169,7 +175,7 @@ export default function IlMioPost({ postData }) {
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
     </Head> 
-      <button  className={styles.circularbutton}    onClick={handleClickinfo}>
+      <button  className={styles.circularbutton}    onClick={handleClickinfo2}>
            ?
       </button>
       <h1 className={styles.title}>Message To The World</h1>
