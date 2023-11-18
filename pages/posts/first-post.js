@@ -48,7 +48,7 @@ export function LikeButton({ children, onClick }) {
     }
   };
   return (
-    <button  className={styles.greenbutton}    onClick={handleClick}>
+    <button  className={styles.circularbutton}    onClick={handleClick}>
       {children}
     </button>
   );
