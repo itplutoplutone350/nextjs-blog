@@ -155,7 +155,7 @@ export default function IlMioPost({ postData }) {
   const handleClickinfo2 =  () => {        
       // walletConnected è status variable 
       // if (walletConnected.isSignedIn())         
-      alert ('⚠️ This dApp is based on NEAR blockchain. Your messages is stored inside the NEAR smart contract. This is a dedicated web page for message id, you can share the link via socials or embed in your pages as iframe. Click the Add message link to access editor dApp. 🌍 Developer Contact https://t.me/+U4DmDZ6sWrAzYjRk 🌏 ');
+      alert ('⚠️ This dApp is based on NEAR blockchain. Your messages is stored inside the NEAR smart contract. This is a dedicated web page for message id, you can share the link via socials or embed in your pages as iframe. Click the Add message link to access editor dApp. Click 📧 for Developer Contact');
     }
   
   // esegui funzione di wallet selectior e relativo rendering
@@ -178,6 +178,8 @@ export default function IlMioPost({ postData }) {
       <button  className={styles.circularbutton}    onClick={handleClickinfo2}>
            ?
       </button>
+      <Link className={styles.circularlink} href="https://t.me/+U4DmDZ6sWrAzYjRk">📧</Link>
+    
       <h1 className={styles.title}>Message To The World</h1>
       <p  className={styles.description} >This your Message number:  <b>{postData.dato}</b></p>
       
