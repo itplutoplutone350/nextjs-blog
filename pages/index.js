@@ -280,7 +280,7 @@ setTimeout(function() {
   const handleClickinfo =  () => {        
       // walletConnected è status variable 
       // if (walletConnected.isSignedIn())         
-      alert ('⚠️ This dApp is based on NEAR blockchain. Your messages will be stored inside the NEAR smart contract. Here you can add new messagges using your MyNearwallet user. If you use the premium option then modify message feature will be enabled! For each message a dedicated web page is created for you .. you can share the link via socials or embed in your pages as iframe. 🌍 Developer Contact https://t.me/+U4DmDZ6sWrAzYjRk 🌏  ');
+      alert ('⚠️ This dApp is based on NEAR blockchain. Your messages will be stored inside the NEAR smart contract. Here you can add new messagges using your MyNearwallet user. If you use the premium option then modify message feature will be enabled! For each message a dedicated web page is created for you .. you can share the link via socials or embed in your pages as iframe. Click 📧 for Developer Contact');
         }
   
   // definisco url del link al messaggio postato
@@ -306,6 +306,7 @@ setTimeout(function() {
           <button  className={styles.circularbutton}    onClick={handleClickinfo}>
            ?
           </button>
+          <Link className={styles.circularbuttons} href="https://t.me/+U4DmDZ6sWrAzYjRk">📧</Link>
           <h1 className={styles.title}>Add your new Message</h1>
     
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> .. Add new message here </MessageForm>
