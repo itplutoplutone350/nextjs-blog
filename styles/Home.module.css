@@ -247,10 +247,27 @@
           cursor: pointer;
           outline: none; /* Rimuove la bordatura del pulsante quando selezionato */
           position: fixed;
-          bottom: 20px; /* Distanza dal top della pagina */
+          bottom: 20px; /* Distanza dal bottom della pagina */
           right: 20px; /* Distanza dalla destra della pagina */
 }
 
+.circularlink {
+          background-color: #0198e1;
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          font-size: 2rem;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          outline: none; /* Rimuove la bordatura del pulsante quando selezionato */
+          position: fixed;
+          bottom: 20px; /* Distanza dal bottom della pagina */
+          left: 20px; /* Distanza dalla sinistra della pagina */
+}
 
 .card h3 {
   margin: 0 0 1rem 0;
