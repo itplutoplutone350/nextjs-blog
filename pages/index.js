@@ -306,7 +306,7 @@ setTimeout(function() {
           <button  className={styles.circularbutton}    onClick={handleClickinfo}>
            ?
           </button>
-          <button className={styles.circularbuttons} href="https://t.me/+U4DmDZ6sWrAzYjRk">📧</button>
+          <Link className={styles.circularbutton} href="https://t.me/+U4DmDZ6sWrAzYjRk">📧</Link>
           <h1 className={styles.title}>Add your new Message</h1>
     
           <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> .. Add new message here </MessageForm>
