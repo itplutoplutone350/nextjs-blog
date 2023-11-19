@@ -1,4 +1,4 @@
-import Head from 'next/head';
+jimport Head from 'next/head';
 import Link from 'next/link';
 import styles from '../../styles/Home.module.css';
 
@@ -231,7 +231,7 @@ export default function IlMioPost({ postData }) {
            }    
       }>Add your LIKE ( {message.likes - 100} )</LikeButton>
       
-      <FirstPost href="../index"> 🌏 Add new Message 🌏 </FirstPost>     
+      <FirstPost href="../index"> 🌏 Go to message Add editor 🌏 </FirstPost>     
    
   </div>
   );
