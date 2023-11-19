@@ -235,7 +235,7 @@
 
 .circularbutton {
           /*background-color: #0198e1;*/
-          background-color: rgba(1, 150, 225, 0.5);
+          background-color: rgba(1, 150, 225, 0.6);
           color: #fff;
           border: none;
           border-radius: 50%;
@@ -254,7 +254,7 @@
 
 .circularlink {
           /*background-color: #0198e1;*/
-          background-color: rgba(1, 152, 225, 0.5);
+          background-color: rgba(1, 152, 225, 0.6);
           color: #fff;
           border: none;
           border-radius: 50%;
