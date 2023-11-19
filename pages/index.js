@@ -2,12 +2,17 @@ import styles from '../styles/Home.module.css';
 
 import Head from 'next/head';
 import Script from 'next/script'
-
 import Link from 'next/link';
+
+
 import FirstPost from './posts/first-post';
 import {LikeButton} from './posts/first-post';
 import {MessageForm} from './posts/first-post';
+import {MessageFormEdit} from './posts/first-post';
+
 import {DropdownMenu} from './posts/first-post';
+
+import {DropdownMenuMsg} from './posts/first-post';
 import { useEffect, useState } from 'react';
 
 import { setupWalletSelector } from "@near-wallet-selector/core";
@@ -15,17 +20,22 @@ import { setupModal } from "@near-wallet-selector/modal-ui";
 import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
 import * as nearAPI from "near-api-js";
 
-let lastmsg = 0;
+let lastmsg = 1;
 
 export default function Home() {
 // definizione degli stati a livello global di questo componente
 const [message, setMessage] = useState({ text:"vuoto", sender: "sendereiniziale", data: "1/2/3", premium: false, likes: 0});
 const [walletConnected, setWalletConnection] = useState(null);
-
+const [messagelst, setMessagelst] = useState([{}]);
+const [msgselected, setMessagesel] = useState(0);
+                                          
+  
 // opziomi di message add e relativo stato inizializzato con la prima delle opzioni
 const msgaddoptions = ["Base - free", "Premium - 0.5 Near"];
 const [addmessagemode, setAddMode] = useState(msgaddoptions[0]);
-  
+
+// stato con user loggato
+const [userlogged, setUserlogged] = useState("Wait, No User Signed in");
 
 // variabili di controllo del tempo intercorso dall inserimento ultimo messaggio
 //esempio di unixdata = 1695188948769211503 ritornata da contratto messaggio;
@@ -66,21 +76,40 @@ let difftime = unixdata - (message.data /1000000);
         }
       );
       lastmsg = await contract.total_messages({});
+      
       const msglist = await contract.get_messages({ from_index: "0",
       limit: lastmsg, });
       
        // create wallet connection
        const walletConnection = new WalletConnection(nearConnection, 'Message-To-The-World' );
        
-       setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
-       
-       setMessage(msglist[lastmsg-1]); // Memorizza ultimo messaggio inserito in lista contratto
+        setWalletConnection(walletConnection); // memorizza walletconnection in status  walletConnected
+
+        setMessage(msglist[ lastmsg-1  ]); // Memorizza messaggio default choice  inserito in lista contratto
+      
+        // la lista in stato per menù tendina choice message      
+        setMessagelst(msglist);
+      
        //calcola il tempo passato da inserimento ultimo messaggio a ora che la pagina viene mostrata
        unixdata = Date.now();
        difftime = unixdata - (message.data /1000000);
-       // abilita sotto per fare signout all'inizio del display frontend
-       //walletConnection.signOut();
-    };
+       
+// Aspetta 1 secondo prima di eseguire il check user signedin
+setTimeout(function() {
+    // Il codice da eseguire dopo l'attesa di 1 secondo
+    if (walletConnection.isSignedIn()) {
+        
+        const userid = walletConnection.getAccountId();
+        setUserlogged(userid);
+        msglist[lastmsg-1].sender === userid ? setMessagesel(lastmsg - 1) : setMessagesel(0);
+    } else {
+        setUserlogged("No User Signed in");
+    }
+}, 1000); // 1000 millisecondi
+
+// abilita sotto per fare signout all'inizio del display frontend
+// walletConnection.signOut();
+};
      
     
     // richiama la funzione fetchdata e quindi esegue connessioni a near
@@ -90,8 +119,7 @@ let difftime = unixdata - (message.data /1000000);
 
   
       // definisce costante con codice funzione da passare a oggetto MessageForm evento onBtnClick2
-      const gestisciBtnClickAddMessage = async () => {
-        
+      const gestisciBtnClickAddMessage = async () => {   
         // walletConnected è status variable 
         if (walletConnected.isSignedIn()) {
         // user is signed in
@@ -118,11 +146,10 @@ let difftime = unixdata - (message.data /1000000);
         }
         else
         {
-         
          const deposit = "500000000000000000000000";
          await contract.add_message(
           {
-              text: message.text, // indice del messaggio a cui incrementare i like è postData.dato
+              text: message.text, // messaggio da aggiungere
           },
          "300000000000000",
               deposit            
@@ -135,23 +162,79 @@ let difftime = unixdata - (message.data /1000000);
         setMessage(msglist[lastmsg-1]);
         unixdata = Date.now();
         difftime = unixdata - parseInt((msglist[lastmsg-1].data /1000000));
-        //alert(unixdata); 
         }
         else {
         alert('😔 Sorry you need to enter your message again, You first have to sign in, You will be redirected to MyNear wallet'); 
 
         await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+         
+        (walletConnected.isSignedIn())? 
+         setUserlogged(walletConnected.getAccountId())
+              :
+         setUserlogged("No User Signed in");
+          
+        }
+      };
+
+    // definisce costante con codice funzione da passare a oggetto MessageFormEdit evento onBtnClick2
+    const gestisciBtnClickEditMessage = async () => {        
+        // walletConnected è status variable 
+        if (walletConnected.isSignedIn()) {
+        // user is signed in
+        alert('Thanks for your 🌏Message🌏! You could be redirected to MyNear wallet to approve the transaction')
         
+        const walletaccount = await   walletConnected.account();
+        console.log("walletaccount che incrementa like ",walletaccount);
+        const { Contract } = nearAPI;
+        const contract = new Contract(
+          walletaccount,
+          "msglst5.plutoplutone347.testnet",
+          {
+          changeMethods: ["edit_message","add_message","increaselikes"],
+          viewMethods: ["get_messages","total_messages"],
+          }
+        );
+          
+         await contract.edit_message(
+          {
+            index: parseInt(msgselected),  // indice del messaggio da modificare
+            new_text: message.text, // messaggio modificato
+          },
+          );
+          
+        }
+        else {
+        alert('😔 Sorry you need to enter your message again, You first have to sign in, You will be redirected to MyNear wallet'); 
+
+        await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+         
+        (walletConnected.isSignedIn())? 
+         setUserlogged(walletConnected.getAccountId())
+              :
+         setUserlogged("No User Signed in");
         }
       
       };
-
-      const  gestisciInputChangeAddMessage = async (e) => {
+  
+  const  gestisciInputChangeAddMessage = async (e) => {
       if (walletConnected.isSignedIn()) {
+        // a seconda della modalità scelta da menu tendina faccio messagge add con deposito o senza
+        if (addmessagemode === msgaddoptions[0]){
         
-        //permette aggiornamento del test anche direttamente nel rendering del messaggio
+        //BASE, permette aggiornamento del test anche direttamente nel rendering del messaggio
         setMessage({ text: e.target.value,
-        sender: "changedmessage", data: "4/5/6", premium: false, likes: 1});     
+        sender: userlogged  , data: "insertmode", 
+        premium: false,
+         likes: 1});     
+        }
+        else
+        {
+          //PREMIUM, permette aggiornamento del test anche direttamente nel rendering del messaggio
+          setMessage({ text: e.target.value,
+          sender: userlogged  , data: "insertmode", 
+          premium: true,
+           likes: 1});   
+        };
       }
       else
      {
@@ -160,62 +243,140 @@ let difftime = unixdata - (message.data /1000000);
        await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
       };
     }
-  
-    // <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
-    // costante funzione usata da evento di componente DropdownMenu  menu tendina
+
+   // gestione evento di modifica form text di edit messaggio , modifica del messaggio
+   const  gestisciInputChangeMessageEdit = async (e) => {
+      if (walletConnected.isSignedIn()) {
+        
+        //permette aggiornamento del test anche direttamente nel rendering del messaggio
+        setMessage({ text: e.target.value,
+        sender: userlogged  , data: "4/5/6", 
+        premium: message.premium , 
+        likes: 1});     
+      }
+      else
+     {
+       alert('😔 Sorry You first have to sign in, You will be redirected to MyNear wallet'); 
+
+       await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+      };
+    }
+
+    // costante funzione usata da evento di componente DropdownMenu  menu tendina per scegliere se messaggio da inserire è premium o base
     const gestisciInputChangeOption = (selectedvalue) => {
-    // semplicemente aggiorna lo stato addmessagemode del menu con l opzione scelta e questo stato viene usato come paramentro selectedOption di DropdownMenu
-    console.log(selectedvalue);
-    (selectedvalue === msgaddoptions[1])? alert("You have selected PREMIUM message, your new message will be highlighted!") : alert("You selected the base option");
-    setAddMode(selectedvalue);
-     };
+      // semplicemente aggiorna lo stato addmessagemode del menu con l opzione scelta e questo stato viene usato come paramentro selectedOption di DropdownMenu
+      console.log(selectedvalue);
+      (selectedvalue === msgaddoptions[1])? alert("You selected PREMIUM message: new message will be highlighted! And the Edit feature will be enabled") : alert("You selected the base option");
+      setAddMode(selectedvalue);
+      };
+
+      // opzione di scelta messaggio eventualm da modificarw
+      const gestisciMenuonMsgOptionChange = (selectedValue) => {
+      const selectedmessage = messagelst[selectedValue];
+      setMessagesel(selectedValue);
+      setMessage(selectedmessage);
+    };
+
+  const handleClickinfo =  () => {        
+      // walletConnected è status variable 
+      // if (walletConnected.isSignedIn())         
+      alert ('⚠️ This dApp is based on NEAR blockchain. Your messages will be stored inside the NEAR smart contract. Here you can add new messagges using your MyNearwallet user. If you use the premium option then modify message feature will be enabled! For each message a dedicated web page is created for you .. you can share the link via socials or embed in your pages as iframe. Click 📧 for Developer Contact');
+        }
   
   // definisco url del link al messaggio postato
-  const linktomsg = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
+  const linktomsglast = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
+  let linktomsg  =  "https://messagetotheworld.vercel.app/posts/" + msgselected;
   return (
       
       <div className={styles.container}>
         <Head>
           <title>Message to the world</title>
           
-          <meta property="og:title" content="This Message to the World editor"></meta>
+          <meta property="og:title" content="This Message to the World Editor"></meta>
           <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
           <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
           <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
           
-    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8956396660152170"
+     <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8956396660152170"
      crossorigin="anonymous"></Script>
        
         </Head>
        
         <main> 
-          <h1 className={styles.title}>Add your new Message To The World</h1>
+          <button  className={styles.circularbutton}    onClick={handleClickinfo}>
+           ?
+          </button>
+          <Link className={styles.circularlink} href="https://t.me/+U4DmDZ6sWrAzYjRk">📧</Link>
+          <h1 className={styles.title}>Add your new Message</h1>
     
-          <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> add new message here </MessageForm>
+          <MessageForm onInputChange={gestisciInputChangeAddMessage} onBtnClick2={gestisciBtnClickAddMessage}> .. Add new message here </MessageForm>
           
           <DropdownMenu  options={msgaddoptions}  selectedOption={addmessagemode} onOptionChange={gestisciInputChangeOption}> Message add options </DropdownMenu>
-  
             {
               // in base al diff time da ultimo agg messaggio decidi se mostrare il link al messaggio
               // difftime viene calcolato all'inizio della renderizzazione lato client e poi tutte le volte che si fa save di un messaggio
               // se son passati meno di 3 minuti da ultimo post messaggio allora mostra link perchè potrebbe esser stato salvato da user da poco
-              (difftime < 180000) ?
-              <FirstPost href={linktomsg}> 🌎 Go to Message link 🌍 </FirstPost>
+              (difftime < 180000 && message.sender === userlogged) ?
+              <FirstPost href={linktomsglast}> 🌎 Go to Message link 🌍 </FirstPost>
               :
-              <p>... Waiting for a new message</p>         
+              <p></p>
             }
-         
-          {
-            !message.premium ? 
-            <p id="msg"  className={styles.cardgreen} >🌍 Last message: 🌎 <br></br> {message.text}</p> 
-            :
-            <p id="msg"  className={styles.cardpremiumlink} >🌍 Last message: 🌎 <br></br> <b>{message.text}</b></p>
+                
+      
+          <LikeButton onClick= 
+            { async () => 
+             {
+              // bottone che renderizza lo user loggato oppure niente e permette di loggarsi su near
+              if (!walletConnected.isSignedIn()) 
+               {
+                 alert(' You will be redirected to MyNear wallet to login'); 
+                 await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+               };    
+             }
+            }  > User: <b>{userlogged}</b>  </LikeButton>
+          
+          <br></br>
+
+         {
+          // segmento per rendrerizzare l'anteprima dei messaggi
+          message.sender === userlogged ? (
+              message.data === "insertmode" ? (
+                addmessagemode === msgaddoptions[0] ? (
+                  <p className={styles.cardgreen}>
+                    🌍 Message Base preview: 🌎 <br></br> {message.text}
+                  </p>
+                ) : (
+                  <p className={styles.cardpremiumlink}>
+                    🌍 Message Premium preview: 🌎 <br></br> {message.text}
+                  </p>
+                )
+               ) : (
+                message.premium == true ?( 
+                <MessageFormEdit
+                  initialtext={message.text}
+                  onInputChange={gestisciInputChangeMessageEdit}
+                  onBtnClick2={gestisciBtnClickEditMessage}
+                >
+                  Modify your premium message here
+                </MessageFormEdit>
+                ):(<Link href={linktomsg} className={styles.cardgreen}>
+                    🌍 Message Base: 🌎 <br></br> {message.text}
+                  </Link>
+                ) 
+              )
+            ) : (
+              <p className={styles.cardblue}>
+                ... Waiting for Your new messages <br></br>
+              </p>
+            )
           }
-              
-          <LikeButton onClick={() => alert('Thanks for your like, please go to message link to add your like')}>LIKE it</LikeButton>
+
+        <DropdownMenuMsg options={messagelst} selectedOption={msgselected} onOptionChange={gestisciMenuonMsgOptionChange} userid={userlogged}>
+          Selected Message Link:{" "} 
+        </DropdownMenuMsg>         
           <br></br>
           <br></br>
-          <p> --- This App has been build with Next.js ---</p> 
+          <p> --- This App has been build with Next.js ---</p>  
           <br></br> 
       
           <h1 className={styles.description}>

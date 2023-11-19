@@ -4,6 +4,8 @@ html, body {
   padding: 0;
   margin: 0;
   font-family:
+    Droid Sans,
+    Helvetica Neue,
     Inter,
     -apple-system,
     BlinkMacSystemFont,
@@ -13,8 +15,6 @@ html, body {
     Ubuntu,
     Cantarell,
     Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
     sans-serif;
     background-color: rgb(229, 236, 236); 
 }

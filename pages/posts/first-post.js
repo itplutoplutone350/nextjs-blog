@@ -90,6 +90,43 @@ return (
 );
 }
 
+export function MessageFormEdit( { children , initialtext, onInputChange , onBtnClick2 }) {
+// Define form component to add message.. 
+// gestione dell'evento e che contiene la stringa in form input cambiata da utente
+const handleInputChange = (e) => {
+  if (onInputChange) {
+    onInputChange(e);
+  }
+};
+
+const handleBtnClick2 = () => {
+  if (onBtnClick2) {
+    onBtnClick2();
+  }
+};
+return (
+  <>
+    <div className={styles.cardpremiumlink}  >
+      <label>Message Editor handler</label>
+      <br></br>
+      <textarea
+      placeholder={children}
+      value={initialtext}
+      onChange={handleInputChange}
+      rows={7} // Questo imposta il numero di righe
+      cols={33} // numero colonne
+      />
+      
+      <br></br>      
+      
+      <button   className={styles.bluebutton}  onClick={handleBtnClick2}>
+        Save Modified Message
+      </button>
+    </div>
+  </>
+);
+}
+
 export function DropdownMenu({ children, options, selectedOption, onOptionChange }) {
   const handleOptionChange = (e) => {
     const selectedValue = e.target.value;
@@ -111,3 +148,51 @@ export function DropdownMenu({ children, options, selectedOption, onOptionChange
     </div>
   );
 }
+
+export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOptionChange, userid }) {
+  const handleOptionChange = (e) => {
+    const selectedValue = e.target.value;
+    if (onOptionChange) {
+      onOptionChange(selectedValue);
+    }
+  };
+  console.log(selectedOption);
+
+  let lastMatchingIndex = -1; // Inizializza la variabile con un valore predefinito
+  let lastMessageText = null; // Inizializza la variabile del testo dell'ultimo messaggio a null
+
+  const selectelement = options.map((option, index) => {
+    if (option.sender === userid) {
+      lastMatchingIndex = index; // Aggiorna l'indice se la condizione è soddisfatta
+      return (
+        <option key={index} value={index}>
+         index: {index} - {convertUnixToDate(option.data)} - {option.premium ? "PREMIUM": "base"}
+        </option>
+      );
+    } else {
+      return <></>;
+    }
+  });
+
+  let selopt = selectedOption;
+  if (selectedOption === 0) {   
+   // nota il ? sotto quello è un test importante
+    lastMessageText = options[lastMatchingIndex]?.text; // Assegna il testo dell'ultimo messaggio solo se selectedOption è 0 e lastMatchingIndex è definito
+    selopt = lastMatchingIndex;
+  }
+
+  let linktomsg  =  "https://messagetotheworld.vercel.app/posts/" + selopt;
+  return (
+    <span className={styles.cardgreen}  >
+      <label>{children}</label>
+      <select className={styles.dropdown} value={selopt} onChange={handleOptionChange}>
+        {selectelement}
+      </select>
+      
+      <br></br>
+      <Link  href={linktomsg}><br></br><b>{options[selopt]?.text}</b></Link>    
+    </span>
+  );
+}
+
+

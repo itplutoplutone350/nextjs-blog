@@ -57,7 +57,7 @@ modal.show();
   // ]
 function generatePathsArray() {
   const paths = [];
-  for (let i = 1; i <= 1000; i++) {
+  for (let i = 1; i <= 5000; i++) {
     const obj = {
       params: {
         id: i.toString(),
@@ -151,12 +151,18 @@ export default function IlMioPost({ postData }) {
     // richiama la funzione fetchdata e quindi esegue connessioni a near
     fetchData();
   }, []);
-
+  
+  const handleClickinfo2 =  () => {        
+      // walletConnected è status variable 
+      // if (walletConnected.isSignedIn())         
+      alert ('⚠️ This dApp is based on NEAR blockchain. Your messages is stored inside the NEAR smart contract. This is a dedicated web page for message id, you can share the link via socials or embed in your pages as iframe. Click the Add message link to access editor dApp. Click 📧 for Developer Contact');
+    }
+  
   // esegui funzione di wallet selectior e relativo rendering
   //walletSelect();
   const msgindex = parseInt(postData.dato, 10);
   const ogdescription = "Your message " + postData.dato + " stored forever om NEAR block chain";
-  // definisco url del link al messaggio postato
+  // definisco url del link al messaggio postat
   const linktomsg = "https://messagetotheworld.vercel.app/posts/" + postData.dato; 
   // rendering
   return (
@@ -169,6 +175,11 @@ export default function IlMioPost({ postData }) {
         <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
     </Head> 
+      <button  className={styles.circularbutton}    onClick={handleClickinfo2}>
+           ?
+      </button>
+      <Link className={styles.circularlink} href="https://t.me/+U4DmDZ6sWrAzYjRk">📧</Link>
+    
       <h1 className={styles.title}>Message To The World</h1>
       <p  className={styles.description} >This your Message number:  <b>{postData.dato}</b></p>
       
@@ -181,7 +192,7 @@ export default function IlMioPost({ postData }) {
       <Link className={styles.cardpremiumlink}  href={linktomsg} > <b> {message.text} </b> </Link> 
       }
   
-      <p> Message was written: {convertUnixToDate(message.data)}</p>
+      <p> Message date: {convertUnixToDate(message.data)}</p>
     
        <LikeButton onClick={
        async () => { 
@@ -222,8 +233,8 @@ export default function IlMioPost({ postData }) {
            }    
       }>Add your LIKE ( {message.likes - 100} )</LikeButton>
       
-      <FirstPost href="../index"> 🌏 Add a new Message To The World 🌏 </FirstPost>     
-      
+      <FirstPost href="../index"> 🌏 Go to message Add editor 🌏 </FirstPost>     
+   
   </div>
   );
 }

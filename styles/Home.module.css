@@ -76,8 +76,9 @@
   text-align: center;
   color: darkblue;
   text-decoration: none;
-  border: 5px solid lightblue;
+  border: 5px solid blue;
   border-radius: 10px;
+  background-color: lightcyan;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
@@ -91,7 +92,7 @@
 }
 
 
-
+/* usato per mostrare messaggi no link*/
 .cardgreen {
   margin: 1rem;
   flex-basis: 45%;
@@ -101,11 +102,13 @@
   text-decoration: none;
   border: 3px solid lightgreen; /* Cambia il colore del bordo a verde */
   border-radius: 10px;
+  background-color: lightyellow;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
 }
 
+/* usato per messaggio base*/
 .cardgreenlink {
   margin: 1rem;
   flex-basis: 45%;
@@ -115,6 +118,7 @@
   text-decoration: none;
   border: 5px solid lightgreen; /* Cambia il colore del bordo a verde */
   border-radius: 10px;
+  background-color: lightyellow;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
@@ -139,6 +143,7 @@
   text-decoration: none;
   border: 5px solid lightgreen;
   border-radius: 10px;
+  background-color: lightyellow;
   animation: borderChange 3s infinite alternate; /* Applica l'animazione "borderChange" */
 }
 
@@ -173,6 +178,7 @@
   text-decoration: none;
   border: 1px solid cyan; /* Rendiamo il bordo più spesso */
   border-radius: 10px;
+  background-color: lightcyan;
   transition:
     color 0.15s ease,
     border-color 0.15s ease;
@@ -188,24 +194,28 @@
 }
 
 .greenbutton {
-  background-color: green; /* Sfondo lightgreen */
+  background-color: green;
   color: yellow;
-  font-weight: bold;
   border: 3px solid darkgreen;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s; /* Aggiungi il colore di sfondo alla transizione */
 }
 
 .greenbutton:hover {
   background-color: darkgreen;
-  border-color: green; /* Cambia il colore del bordo quando si passa sopra */
+  border-color: green;
 }
 
+.greenbutton:active {
+  background-color: lightgreen; /* Cambia il colore di sfondo quando il pulsante è schiacciato */
+}
+
+
 .bluebutton {
-  background-color: lightblue; /* Sfondo lightgreen */
-  color: darkblue;
+  background-color: blue; /* Sfondo lightgreen */
+  color: white;
   font-weight: bold;
   border: 3px solid darkblue;
   padding: 10px 20px;
@@ -214,12 +224,52 @@
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.greenbutton:hover {
+.bluebutton:hover {
   background-color: blue;
   border-color: lightblue; /* Cambia il colore del bordo quando si passa sopra */
 }
 
+.bluebutton:active {
+  background-color: lightblue; /* Cambia il colore di sfondo quando il pulsante è schiacciato */
+}
 
+.circularbutton {
+          /*background-color: #0198e1;*/
+          background-color: rgba(1, 150, 225, 0.6);
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          font-size: 2rem;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          outline: none; /* Rimuove la bordatura del pulsante quando selezionato */
+          position: fixed;
+          bottom: 20px; /* Distanza dal bottom della pagina */
+          right: 20px; /* Distanza dalla destra della pagina */
+}
+
+.circularlink {
+          /*background-color: #0198e1;*/
+          background-color: rgba(1, 152, 225, 0.6);
+          color: #fff;
+          border: none;
+          border-radius: 50%;
+          font-size: 2rem;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          outline: none; /* Rimuove la bordatura del pulsante quando selezionato */
+          position: fixed;
+          bottom: 20px; /* Distanza dal bottom della pagina */
+          left: 20px; /* Distanza dalla sinistra della pagina */
+}
 
 .card h3 {
   margin: 0 0 1rem 0;
