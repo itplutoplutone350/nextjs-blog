@@ -234,6 +234,7 @@ export default function IlMioPost({ postData }) {
       }>👍 Add your LIKE ( {message.likes - 100} )</LikeButton>
 
 
+   <LikeButton onClick={
     async () => { 
               // walletConnected è status variable 
               if (walletConnected.isSignedIn()) {
