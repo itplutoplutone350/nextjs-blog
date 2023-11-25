@@ -231,8 +231,49 @@ export default function IlMioPost({ postData }) {
               }
               
            }    
-      }>Add your LIKE ( {message.likes - 100} )</LikeButton>
-      
+      }>👍 Add your LIKE ( {message.likes - 100} )</LikeButton>
+
+
+    async () => { 
+              // walletConnected è status variable 
+              if (walletConnected.isSignedIn()) {
+              // user is signed in
+              alert('Thanks for your like! You will be redirected to MyNear wallet to approve like transaction')
+              const walletaccount = await   walletConnected.account();
+              console.log("walletaccount che incrementa like ",walletaccount);
+              const { Contract } = nearAPI;
+              const contract = new Contract(
+                walletaccount,
+                "msglst5.plutoplutone347.testnet",
+                {
+                changeMethods: ["add_message","decreaselikes"],
+                viewMethods: ["get_messages","total_messages"],
+                }
+              );
+              
+              await contract.decreaselikes(
+                {
+                index: msgindex, // indice del messaggio a cui incrementare i like è postData.dato
+                },
+              );
+              // se non c è redirezione da wallet aggiorna la lista di messaggi fino al mio messaggio
+                const msglist = await contract.get_messages({ from_index: "0",
+                limit: msgindex+1, });
+              // aggiorna quindi lo stato con il messaggio e il numero like incrementato
+                setMessage(msglist[msgindex]);
+              }
+              else {
+              // not logged in
+              alert('Thanks! but You have to signed in first, you will be redirected to MyNear wallet to sign in'); 
+              await walletConnected.requestSignIn(  { contractId: 'msglst5.plutoplutone347.testnet' } );
+                  
+              }
+              
+           }    
+      }>👎 decrease LIKE ( {message.likes - 100} )</LikeButton>
+       
+
+     
       <FirstPost href="../index"> 🌏 Go to message Add editor 🌏 </FirstPost>     
    
   </div>
