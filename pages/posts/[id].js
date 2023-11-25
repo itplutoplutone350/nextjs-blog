@@ -271,7 +271,7 @@ export default function IlMioPost({ postData }) {
               }
               
            }    
-      }>👎 decrease LIKE ( {message.likes - 100} )</LikeButton>
+      }>👎 UNLIKE</LikeButton>
        
 
      
