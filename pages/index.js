@@ -284,8 +284,8 @@ setTimeout(function() {
         }
   
   // definisco url del link al messaggio postato
-  const linktomsglast = "https://messagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
-  let linktomsg  =  "https://messagetotheworld.vercel.app/posts/" + msgselected;
+  const linktomsglast = "https://testmessagetotheworld.vercel.app/posts/" + (lastmsg-1).toString(); 
+  let linktomsg  =  "https://testmessagetotheworld.vercel.app/posts/" + msgselected;
   return (
       
       <div className={styles.container}>
@@ -294,7 +294,7 @@ setTimeout(function() {
           
           <meta property="og:title" content="This Message to the World Editor"></meta>
           <meta property="og:description" content="Your message stored forever on NEAR blockchain"></meta>
-          <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
+          <meta property="og:url" content="https://testmessagetotheworld.vercel.app"></meta>
           <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
           
      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8956396660152170"

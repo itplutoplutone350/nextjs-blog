@@ -163,7 +163,7 @@ export default function IlMioPost({ postData }) {
   const msgindex = parseInt(postData.dato, 10);
   const ogdescription = "Your message " + postData.dato + " stored forever om NEAR block chain";
   // definisco url del link al messaggio postat
-  const linktomsg = "https://messagetotheworld.vercel.app/posts/" + postData.dato; 
+  const linktomsg = "https://testmessagetotheworld.vercel.app/posts/" + postData.dato; 
   // rendering
   return (
    <div className={styles.container}>
@@ -172,7 +172,7 @@ export default function IlMioPost({ postData }) {
         
         <meta property="og:title" content="This is a Message to the World"></meta>
         <meta property="og:description" content={ogdescription}></meta>
-        <meta property="og:url" content="https://messagetotheworld.vercel.app"></meta>
+        <meta property="og:url" content="https://testmessagetotheworld.vercel.app"></meta>
         <meta property="og:image" content="https://robertop2.altervista.org/cryptoworldimage.jpg"></meta>
     </Head> 
       <button  className={styles.circularbutton}    onClick={handleClickinfo2}>

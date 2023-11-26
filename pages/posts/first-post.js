@@ -181,7 +181,7 @@ export function DropdownMenuMsg({ children, options = [{}], selectedOption, onOp
     selopt = lastMatchingIndex;
   }
 
-  let linktomsg  =  "https://messagetotheworld.vercel.app/posts/" + selopt;
+  let linktomsg  =  "https://testmessagetotheworld.vercel.app/posts/" + selopt;
   return (
     <span className={styles.cardgreen}  >
       <label>{children}</label>
